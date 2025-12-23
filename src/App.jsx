@@ -1,15 +1,30 @@
-import { useState } from 'react'
-import './App.css'
-import Navbar from './pages/Navbar'
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./pages/Navbar";
+
+// import Home from "./pages/Home";
+// import About from "./pages/About";
+// import Products from "./pages/Products";
+// import Projects from "./pages/Projects";
+// import Blog from "./pages/Blog";
+// import Professionals from "./pages/Professionals";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <Navbar/>
+      <Navbar />
+
+      <main className="pt-20">
+        <Routes>
+          {/* <Route path="/" element={<Home />} />
+          <Route path="/about-us" element={<About />} />
+          <Route path="/products/*" element={<Products />} />
+          <Route path="/projects/*" element={<Projects />} />
+          <Route path="/blog/*" element={<Blog />} />
+          <Route path="/professionals/*" element={<Professionals />} /> */}
+        </Routes>
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
