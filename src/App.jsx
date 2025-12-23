@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./pages/Navbar";
+import Home from "./pages/Home";
 
 // import Home from "./pages/Home";
 // import About from "./pages/About";
@@ -15,13 +16,8 @@ function App() {
 
       <main className="pt-20">
         <Routes>
-          {/* <Route path="/" element={<Home />} />
-          <Route path="/about-us" element={<About />} />
-          <Route path="/products/*" element={<Products />} />
-          <Route path="/projects/*" element={<Projects />} />
-          <Route path="/blog/*" element={<Blog />} />
-          <Route path="/professionals/*" element={<Professionals />} /> */}
-        </Routes>
+       <Route path="/" element={<Home/>} />
+        </Routes> 
       </main>
     </>
   );
