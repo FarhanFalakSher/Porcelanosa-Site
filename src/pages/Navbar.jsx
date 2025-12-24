@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-200">
-      <div className="max-w-[1600px] mx-auto px-6 lg:px-14 h-20 flex items-center justify-between">
+      <div className="max-w-400 mx-auto px-6 lg:px-14 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link
           to="/"
@@ -39,7 +39,7 @@ const Navbar = () => {
 
             {productsOpen && (
               <div className="fixed left-0 right-0 top-20 pt-3">
-                <div className="mx-auto max-w-[1200px]">
+                <div className="mx-auto max-w-300">
                   <div className="bg-white border border-gray-100 shadow-2xl rounded-b-lg">
                     <div className="grid grid-cols-3 gap-16 px-20 py-12">
                       {/* Tiles & Flooring Column */}
@@ -143,7 +143,7 @@ const Navbar = () => {
 
             {projectsOpen && (
               <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3">
-                <div className="bg-white border border-gray-100 shadow-2xl rounded-b-lg w-[480px] overflow-hidden">
+                <div className="bg-white border border-gray-100 shadow-2xl rounded-b-lg w-120 overflow-hidden">
                   <div className="p-6">
                     <h4 className="font-bold text-gray-900 mb-6 text-base">
                       Our Project Categories

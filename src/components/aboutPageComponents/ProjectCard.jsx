@@ -73,7 +73,7 @@ const Card = ({ item }) => (
       <img src={item.bgImgURL} alt="" className="w-full h-full object-cover group-hover:scale-115 transition duration-500" />
     </div>
     <div className="mt-5">
-      <p className="text-bold text-xl leading-relaxed group-hover:text-gray-500 transition duration-500">
+      <p className="text-bold text-xl leading-relaxed text-justify group-hover:text-gray-500 transition duration-500">
         {item.discription}
       </p>
     </div>

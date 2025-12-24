@@ -65,7 +65,7 @@ const ProductCategories = () => {
             key={index}
             data-aos="fade-up"
             data-aos-delay={index * 100}
-            className="group relative h-[420px] overflow-hidden rounded-2xl"
+            className="group relative h-105 overflow-hidden rounded-2xl"
           >
             {/* Image */}
             <img

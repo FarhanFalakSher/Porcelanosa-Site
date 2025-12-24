@@ -16,7 +16,7 @@ function App() {
       <Navbar />
 
       {/* Padding Top (pt-20) zaroori hai agar Navbar fixed hai taake content niche na dabe */}
-      <main className="pt-20">
+      {/* <main className="pt-20"> */}
         <Routes>
           {/* Home Route */}
           <Route path="/" element={<Home />} />
@@ -30,7 +30,7 @@ function App() {
           {/* <Route path="/blog/*" element={<Blog />} /> */}
           {/* <Route path="/professionals/*" element={<Professionals />} /> */}
         </Routes>
-      </main>
+      {/* </main> */}
     </>
   );
 }
