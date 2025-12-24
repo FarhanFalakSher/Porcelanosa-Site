@@ -1,0 +1,98 @@
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+const categories = [
+  {
+    title: "Tiles",
+    description:
+      "Innovative ceramic and porcelain tiles crafted for timeless architecture.",
+    image: "/assets/category-tiles.jpg",
+  },
+  {
+    title: "Bathroom",
+    description:
+      "Sophisticated bathroom solutions blending design, comfort, and technology.",
+    image: "/assets/category-bathroom.jpg",
+  },
+  {
+    title: "Kitchen",
+    description:
+      "Contemporary kitchens designed with precision, elegance, and functionality.",
+    image: "/assets/category-kitchen.jpg",
+  },
+  {
+    title: "Living Spaces",
+    description:
+      "Refined surfaces and textures that elevate modern living environments.",
+    image: "/assets/category-living.jpg",
+  },
+];
+
+const ProductCategories = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 900,
+      easing: "ease-out-cubic",
+      once: true,
+    });
+  }, []);
+
+  return (
+    <section className="bg-white px-6 py-20 lg:px-16">
+      {/* Section Heading */}
+      <div className="mb-16 max-w-3xl">
+        <h2
+          data-aos="fade-up"
+          className="mb-4 text-3xl font-light tracking-wide text-gray-900 md:text-4xl"
+        >
+          Product Categories
+        </h2>
+        <p
+          data-aos="fade-up"
+          data-aos-delay="150"
+          className="text-gray-600"
+        >
+          Discover a curated selection of surfaces and spaces designed for
+          architectural excellence and modern interiors.
+        </p>
+      </div>
+
+      {/* Grid */}
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+        {categories.map((item, index) => (
+          <div
+            key={index}
+            data-aos="fade-up"
+            data-aos-delay={index * 100}
+            className="group relative h-[420px] overflow-hidden rounded-2xl"
+          >
+            {/* Image */}
+            <img
+              src={item.image}
+              alt={item.title}
+              className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+            />
+
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+
+            {/* Content */}
+            <div className="absolute inset-0 flex flex-col justify-end p-8">
+              <div className="translate-y-8 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                <h3 className="mb-2 text-xl font-light tracking-wide text-white">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-gray-200">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default ProductCategories;
