@@ -150,22 +150,55 @@ const Navbar = () => {
                     </h4>
                     <div className="grid grid-cols-2 gap-x-8 gap-y-3">
                       {[
-                        { name: "Home Projects", icon: "🏠" },
-                        { name: "Hotels", icon: "🏨" },
-                        { name: "Restaurants", icon: "🍽️" },
-                        { name: "Stores", icon: "🛍️" },
-                        { name: "Offices / Companies", icon: "🏢" },
-                        { name: "Public Spaces", icon: "🌳" },
-                        { name: "Sports Facilities", icon: "⚽" },
-                        { name: "Health Projects", icon: "🏥" },
-                        { name: "Laboratories", icon: "🔬" },
+                        {
+                          name: "Home Projects",
+                          icon: "🏠",
+                          href: "/projects/home-projects",
+                        },
+                        {
+                          name: "Hotels",
+                          icon: "🏨",
+                          href: "/projects/hotel-projects",
+                        },
+                        {
+                          name: "Restaurants",
+                          icon: "🍽️",
+                          href: "/projects/resturant-projects",
+                        },
+                        {
+                          name: "Stores",
+                          icon: "🛍️",
+                          href: "/projects/store-projects",
+                        },
+                        {
+                          name: "Offices / Companies",
+                          icon: "🏢",
+                          href: "/projects/company-projects",
+                        },
+                        {
+                          name: "Public Spaces",
+                          icon: "🌳",
+                          href: "/projects/public-place-projects",
+                        },
+                        {
+                          name: "Sports Facilities",
+                          icon: "⚽",
+                          href: "/projects/sport-projects",
+                        },
+                        {
+                          name: "Health Projects",
+                          icon: "🏥",
+                          href: "/projects/health-projects",
+                        },
+                        {
+                          name: "Laboratories",
+                          icon: "🔬",
+                          href: "/projects/labortry-projects",
+                        },
                       ].map((item) => (
                         <Link
                           key={item.name}
-                          to={`/projects/${item.name
-                            .toLowerCase()
-                            .replace(/\s+\/\s+/g, "-")
-                            .replace(/\s+/g, "-")}`}
+                          to={`${item.href}`}
                           className="flex items-center space-x-3 p-2.5 hover:bg-gray-50 rounded transition-colors"
                         >
                           <span className="text-lg">{item.icon}</span>
