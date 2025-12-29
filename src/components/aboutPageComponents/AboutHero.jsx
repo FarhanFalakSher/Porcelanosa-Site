@@ -6,7 +6,7 @@ function AboutHero() {
         className="min-h-screen flex items-center justify-center w-full bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/world.jpg')" }}
       >
-        <div className="w-[55%] mx-auto text-center pt-9">
+        <div className="lg:w-[55%] mx-auto text-center pt-9">
           <h1 className="text-white text-5xl font-bold">
             The power of a Trademark
           </h1>
