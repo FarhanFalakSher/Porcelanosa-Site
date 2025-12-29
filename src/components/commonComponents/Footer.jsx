@@ -1,111 +1,104 @@
 import { Link } from "react-router-dom";
 import {
-  FaInstagram,
   FaFacebookF,
-  FaTwitter,
-  FaYoutube,
+  FaInstagram,
   FaPinterestP,
+  FaVimeoV,
+  FaLinkedinIn,
+  FaRss,
 } from "react-icons/fa";
-import { FiArrowRight, FiGlobe } from "react-icons/fi";
+import { FiChevronRight, FiGlobe } from "react-icons/fi";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#111111] text-white pt-16 lg:pt-24 pb-10 font-sans">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-14">
-        {/* Top Section: Brand & Newsletter */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 pb-16 border-b border-white/10">
-          <div className="text-center lg:text-left">
-            <h2 className="text-3xl md:text-4xl tracking-[0.3em] font-light mb-6">
-              PORCELANOSA
-            </h2>
-            <p className="text-gray-400 max-w-sm mx-auto lg:mx-0 leading-relaxed text-sm">
-              Global leaders in luxury surfaces and architectural solutions.
-              Innovation and quality in every detail.
-            </p>
-          </div>
-
-          <div className="flex flex-col justify-center lg:justify-end">
-            <h4 className="text-[10px] md:text-xs uppercase tracking-[0.2em] mb-4 text-gray-500 font-semibold text-center lg:text-left">
-              Join the Newsletter
-            </h4>
-            <div className="relative group w-full max-w-md mx-auto lg:mx-0">
+    <footer className="bg-white border-t border-gray-200 pt-12 pb-6 font-sans text-gray-800">
+      <div className="max-w-400 mx-auto px-6 lg:px-14">
+        {/* Compact Newsletter Row */}
+        <div className="flex flex-col md:flex-row items-center justify-between border-b border-gray-100 pb-8 mb-10 gap-6">
+          <div className="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
+            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 whitespace-nowrap">
+              Newsletter
+            </span>
+            <div className="flex w-full sm:w-80 border border-gray-200 rounded-sm focus-within:border-gray-900 transition-colors">
               <input
                 type="email"
-                placeholder="Your email address"
-                className="w-full bg-transparent border-b border-white/20 py-3 pr-10 outline-none focus:border-white transition-colors duration-500 text-sm"
+                placeholder="Enter your email to join us..."
+                className="w-full px-3 py-2 text-xs outline-none"
               />
-              <button className="absolute right-0 top-1/2 -translate-y-1/2 group-hover:translate-x-2 transition-transform duration-300">
-                <FiArrowRight size={20} />
+              <button className="bg-gray-900 text-white px-4 py-2 text-[10px] font-bold tracking-tighter hover:bg-black transition-colors">
+                JOIN
               </button>
             </div>
           </div>
-        </div>
-
-        {/* Middle Section: Links Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 py-16">
-          <FooterGroup
-            title="Collections"
-            links={[
-              { name: "Kitchen Systems", path: "/kitchen" },
-              { name: "Natural Stone", path: "/stone" },
-              { name: "Bathroom Furniture", path: "/bathroom" },
-              { name: "Large Format", path: "/large-format" },
-            ]}
-          />
-
-          <FooterGroup
-            title="Professionals"
-            links={[
-              { name: "Architects Area", path: "/architects" },
-              { name: "BIM Library", path: "/bim" },
-              { name: "Technical Guides", path: "/guides" },
-            ]}
-          />
-
-          <FooterGroup
-            title="Company"
-            links={[
-              { name: "Our History", path: "/about" },
-              { name: "Sustainability", path: "/eco" },
-              { name: "Press Room", path: "/press" },
-            ]}
-          />
-
-          {/* Social and Language Section */}
-          <div className="flex flex-col items-center lg:items-start gap-6">
-            <h4 className="text-xs uppercase tracking-[0.2em] text-gray-500 font-semibold">
-              Follow Us
-            </h4>
-            <div className="flex flex-wrap justify-center lg:justify-start gap-4">
-              <SocialIcon icon={<FaInstagram />} />
-              <SocialIcon icon={<FaFacebookF />} />
-              <SocialIcon icon={<FaTwitter />} />
-              <SocialIcon icon={<FaPinterestP />} />
-              <SocialIcon icon={<FaYoutube />} />
-            </div>
-            <div className="mt-4 flex items-center gap-2 text-xs text-gray-400 hover:text-white cursor-pointer transition-colors group">
-              <FiGlobe className="group-hover:rotate-12 transition-transform" />
-              <span className="tracking-widest">INTERNATIONAL | ENGLISH</span>
+          <div className="flex items-center gap-6">
+            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400">
+              Follow
+            </span>
+            <div className="flex gap-4 text-gray-400">
+              <SocialLink icon={<FaFacebookF />} />
+              <SocialLink icon={<FaInstagram />} />
+              <SocialLink icon={<FaPinterestP />} />
+              <SocialLink icon={<FaVimeoV />} />
+              <SocialLink icon={<FaLinkedinIn />} />
             </div>
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-white/5 gap-8 text-center md:text-left">
-          <p className="text-[10px] tracking-widest text-gray-600 uppercase">
-            © {new Date().getFullYear()} PORCELANOSA Group. Lifestyle and
-            Design.
-          </p>
-          <div className="flex flex-wrap justify-center gap-6 md:gap-10 text-[10px] tracking-widest text-gray-600 uppercase">
-            <Link to="/legal" className="hover:text-white transition-colors">
-              Legal
+        {/* High-Density Grid (Like a Content Filter) */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 pb-12">
+          <FilterGroup title="Services">
+            <FilterLink>Showroom Finder</FilterLink>
+            <FilterLink>Virtual Tours</FilterLink>
+            <FilterLink>Appointment Booking</FilterLink>
+            <FilterLink>Project Consulting</FilterLink>
+          </FilterGroup>
+
+          <FilterGroup title="Professional">
+            <FilterLink>Architect Portal</FilterLink>
+            <FilterLink>Technical BIM Files</FilterLink>
+            <FilterLink>Contract Division</FilterLink>
+            <FilterLink>Global Associates</FilterLink>
+          </FilterGroup>
+
+          <FilterGroup title="Knowledge">
+            <FilterLink>Design Trends</FilterLink>
+            <FilterLink>Sustainability Report</FilterLink>
+            <FilterLink>Technical Guides</FilterLink>
+            <FilterLink>Media & Press</FilterLink>
+          </FilterGroup>
+
+          {/* Grouping the brands closer together to fill space */}
+          <div className="col-span-2">
+            <h4 className="text-[10px] uppercase tracking-widest font-bold mb-5 text-gray-900 opacity-50">
+              Porcelanosa Portfolio
+            </h4>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+              <FilterLink>Gamadecor</FilterLink>
+              <FilterLink>Butech</FilterLink>
+              <FilterLink>Noken</FilterLink>
+              <FilterLink>Krion</FilterLink>
+              <FilterLink>L'Antic Colonial</FilterLink>
+              <FilterLink>Xtone</FilterLink>
+            </div>
+          </div>
+        </div>
+
+        {/* Minimalist Bottom Bar */}
+        <div className="pt-6 border-t border-gray-50 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div className="flex items-center gap-6 text-[9px] font-bold tracking-widest text-gray-400 uppercase">
+            <p>© 2025 PORCELANOSA</p>
+            <Link to="/legal" className="hover:text-gray-900 transition-colors">
+              Legal notice
             </Link>
-            <Link to="/privacy" className="hover:text-white transition-colors">
-              Privacy
+            <Link
+              to="/privacy"
+              className="hover:text-gray-900 transition-colors"
+            >
+              Privacy Policy
             </Link>
-            <Link to="/cookies" className="hover:text-white transition-colors">
-              Cookies
-            </Link>
+          </div>
+          <div className="flex items-center gap-2 text-[9px] font-bold text-gray-400 hover:text-gray-900 cursor-pointer transition-colors tracking-widest uppercase">
+            <FiGlobe /> International | English
           </div>
         </div>
       </div>
@@ -113,32 +106,30 @@ const Footer = () => {
   );
 };
 
-// Sub-component for Link Groups
-const FooterGroup = ({ title, links }) => (
-  <div className="flex flex-col items-center lg:items-start gap-5">
-    <h4 className="text-xs uppercase tracking-[0.2em] text-gray-500 font-semibold">
+// Sub-components for density
+const FilterGroup = ({ title, children }) => (
+  <div className="flex flex-col gap-4">
+    <h4 className="text-[10px] uppercase tracking-widest font-bold text-gray-900 opacity-50 underline decoration-gray-100 underline-offset-8">
       {title}
     </h4>
-    <ul className="flex flex-col items-center lg:items-start gap-3">
-      {links.map((link) => (
-        <li key={link.name}>
-          <Link
-            to={link.path}
-            className="text-sm text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-300"
-          >
-            {link.name}
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <div className="flex flex-col gap-2">{children}</div>
   </div>
 );
 
-// Sub-component for Social Icons
-const SocialIcon = ({ icon }) => (
-  <div className="w-10 h-10 border border-white/10 flex items-center justify-center rounded-full text-gray-400 hover:text-white hover:border-white hover:bg-white/5 cursor-pointer transition-all duration-300">
+const FilterLink = ({ children }) => (
+  <Link
+    to="#"
+    className="text-[11px] text-gray-600 hover:text-gray-900 flex items-center gap-1 group transition-all"
+  >
+    <FiChevronRight className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-gray-400" />
+    {children}
+  </Link>
+);
+
+const SocialLink = ({ icon }) => (
+  <Link to="#" className="hover:text-gray-900 transition-colors text-xs">
     {icon}
-  </div>
+  </Link>
 );
 
 export default Footer;
