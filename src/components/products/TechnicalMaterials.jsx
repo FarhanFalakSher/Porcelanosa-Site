@@ -35,7 +35,6 @@ const TechnicalMaterials = () => {
     
     console.log('Technical: Adding to cart:', product);
     
-    // Prepare product data for cart
     const cartProduct = {
       id: product.id,
       title: product.title,
