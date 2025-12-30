@@ -3,8 +3,8 @@ import AboutGroupPage from "./pages/AboutGroupPage";
 import Navbar from "./pages/Navbar";
 import Blog from "./pages/Blog";
 import Home from "./pages/Home";
-import Navbar from "./components/commonComponents/Navbar";
-import Footer from "./components/commonComponents/Footer";
+// import Navbar from "./components/commonComponents/Navbar";
+// import Footer from "./components/commonComponents/Footer";
 import HomeProjects from "./pages/HomeProjects";
 import StoreProjects from "./pages/StoresProjects";
 import Labortries from "./pages/Labortries";
@@ -54,11 +54,11 @@ function App() {
         {/* <Route path="/professionals/*" element={<Professionals />} /> */}
       </Routes>
       {/* </main> */}
-      <Footer />
+      {/* <Footer /> */}
       <main className="pt-20">
         <Routes>
           {/* Contact Page */}
-          <Route path="/" element={< Home/>} />
+          {/* <Route path="/" element={< Home/>} /> */}
 
           {/* Professionals Page */}
           <Route path="/blog" element={<Blog />} />
