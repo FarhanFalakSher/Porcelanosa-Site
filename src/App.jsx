@@ -1,13 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./pages/Navbar";
+import Blog from "./pages/Blog";
 import Home from "./pages/Home";
-
-// import Home from "./pages/Home";
-// import About from "./pages/About";
-// import Products from "./pages/Products";
-// import Projects from "./pages/Projects";
-// import Blog from "./pages/Blog";
-// import Professionals from "./pages/Professionals";
 
 function App() {
   return (
@@ -16,9 +10,62 @@ function App() {
 
       <main className="pt-20">
         <Routes>
-       <Route path="/" element={<Home/>} />
-        </Routes> 
+          {/* Contact Page */}
+          <Route path="/" element={< Home/>} />
+
+          {/* Professionals Page */}
+          <Route path="/blog" element={<Blog />} />
+
+          {/* Architects main page */}
+          <Route
+            path="/blog/inspiration"
+            element={<Blog />}
+          />
+ <Route
+            path="/blog/news"
+            element={<Blog />}
+          />
+           <Route
+            path="/blog/product-updates"
+            element={<Blog />}
+          />
+          <Route
+            path="/blog/case-studies"
+            element={<Blog />}
+          />
+ <Route
+            path="/blog/sustainability"
+            element={<Blog />}
+          />
+
+
+          {/* Dynamic route for individual architect items */}
+          <Route
+            path="/blog/inspiration/:itemId"
+            element={<Blog />}
+          />
+           <Route
+            path="/blog/news/:itemId"
+            element={<Blog />}
+          />
+          <Route
+            path="/blog/product-updates/:itemId"
+            element={<Blog />}
+          />
+            <Route
+            path="/blog/case-studies/:itemId"
+            element={<Blog />}
+          />
+          <Route
+            path="/blog/sustainability/:itemId"
+            element={<Blog />}
+          />
+
+      
+
+        </Routes>
       </main>
+
     </>
   );
 }

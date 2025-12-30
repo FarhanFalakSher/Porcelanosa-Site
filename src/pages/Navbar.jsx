@@ -226,8 +226,8 @@ const Navbar = () => {
                     </h4>
                     <ul className="space-y-2">
                       {[
-                        "Design Trends",
-                        "Architecture",
+                        "Inspiration",
+                        "News",
                         "Product Updates",
                         "Case Studies",
                         "Sustainability",
@@ -276,7 +276,7 @@ const Navbar = () => {
                 <Link
                   key={item}
                   to={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="block py-3.5 px-4 text-gray-700 hover:bg-gray-50 rounded transition-colors font-medium"
+                  className="block py-2 px-5 text-gray-700 hover:bg-gray-50 rounded-xl transition-colors font-medium"
                   onClick={() => setMobileOpen(false)}
                 >
                   {item}
@@ -285,7 +285,7 @@ const Navbar = () => {
             )}
           </div>
           <div className="mt-8 pt-6 border-t border-gray-100">
-            <button className="w-full bg-gray-900 text-white py-3 rounded text-sm font-medium hover:bg-gray-800 transition-colors">
+            <button className="w-full bg-gray-900 text-white px-5 py-2 rounded-xl text-sm font-medium hover:bg-gray-800 transition-colors">
               Contact Sales
             </button>
           </div>

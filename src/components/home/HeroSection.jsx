@@ -2,6 +2,9 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+// Import local video
+import heroVideo from "../../assets/herovideo.mp4";
+
 const HeroSection = () => {
   useEffect(() => {
     AOS.init({
@@ -16,16 +19,15 @@ const HeroSection = () => {
       {/* Background Video */}
       <div className="absolute inset-0">
         <video
-          className="h-full w-full object-cover scale-110 animate-heroZoom"
-          src="/assets/hero-video.mp4"
+          className="h-full w-full object-cover opacity-60 transform scale-105 animate-heroFadeZoom"
+          src={heroVideo}
           autoPlay
           loop
           muted
           playsInline
         />
-
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/45"></div>
+        {/* Overlay for premium dark effect */}
+        <div className="absolute inset-0 bg-black/50"></div>
       </div>
 
       {/* Content */}
@@ -33,7 +35,7 @@ const HeroSection = () => {
         <div className="max-w-4xl text-center text-white">
           <h1
             data-aos="fade-up"
-            className="mb-6 text-3xl font-light tracking-wide md:text-5xl lg:text-6xl"
+            className="mb-6 text-3xl font-2xl tracking-wide md:text-5xl lg:text-6xl"
           >
             Luxury Interior Surfaces
           </h1>
@@ -48,13 +50,35 @@ const HeroSection = () => {
           </p>
 
           <div data-aos="fade-up" data-aos-delay="300">
-            <button className="group inline-flex items-center justify-center rounded-xl border border-white px-6 py-3 text-sm uppercase tracking-widest transition-all duration-300 hover:scale-105 hover:bg-white hover:text-black hover:shadow-xl">
+            <button className="group inline-flex items-center justify-center rounded-xl border border-white px-5 py-2 text-sm uppercase tracking-widest transition-all duration-300 hover:scale-105 hover:bg-white hover:text-black hover:shadow-xl">
               Explore Collection
-              <span className="ml-3 inline-block h-px w-8 bg-white transition-all duration-300 group-hover:bg-black group-hover:w-12"></span>
+              
             </button>
           </div>
         </div>
       </div>
+
+      {/* Tailwind custom animation */}
+      <style jsx>{`
+        @keyframes heroFadeZoom {
+          0% {
+            transform: scale(1.05);
+            opacity: 0.6;
+          }
+          50% {
+            transform: scale(1.08);
+            opacity: 0.65;
+          }
+          100% {
+            transform: scale(1.05);
+            opacity: 0.6;
+          }
+        }
+
+        .animate-heroFadeZoom {
+          animation: heroFadeZoom 20s ease-in-out infinite;
+        }
+      `}</style>
     </section>
   );
 };
