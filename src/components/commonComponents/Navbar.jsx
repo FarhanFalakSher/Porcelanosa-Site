@@ -11,8 +11,7 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-200">
-      <div className="max-w-[1600px] mx-auto px-6 lg:px-14 h-20 flex items-center justify-between">
-
+      <div className="max-w-400 mx-auto px-6 lg:px-14 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link
           to="/"
@@ -23,7 +22,6 @@ const Navbar = () => {
 
         {/* Desktop Navigation - Perfect Alignment */}
         <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-700">
-
           {/* PRODUCTS - Centered Mega Menu */}
           <div
             className="relative"
@@ -31,26 +29,36 @@ const Navbar = () => {
             onMouseLeave={() => setProductsOpen(false)}
           >
             <button className="flex items-center gap-2 py-8 hover:text-gray-900 transition-colors">
-              PRODUCTS 
-              <FiChevronDown className={`text-sm transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`} />
+              PRODUCTS
+              <FiChevronDown
+                className={`text-sm transition-transform duration-200 ${
+                  productsOpen ? "rotate-180" : ""
+                }`}
+              />
             </button>
 
             {productsOpen && (
               <div className="fixed left-0 right-0 top-20 pt-3">
-                <div className="mx-auto max-w-[1200px]">
+                <div className="mx-auto max-w-300">
                   <div className="bg-white border border-gray-100 shadow-2xl rounded-b-lg">
                     <div className="grid grid-cols-3 gap-16 px-20 py-12">
-                      
                       {/* Tiles & Flooring Column */}
                       <div>
                         <h4 className="font-bold text-gray-900 mb-6 pb-3 border-b border-gray-100 text-base">
                           Tiles & Flooring
                         </h4>
                         <ul className="space-y-4">
-                          {["Porcelain Tiles", "Ceramic Tiles", "Wall Tiles", "Large Format"].map((item) => (
+                          {[
+                            "Porcelain Tiles",
+                            "Ceramic Tiles",
+                            "Wall Tiles",
+                            "Large Format",
+                          ].map((item) => (
                             <li key={item}>
-                              <Link 
-                                to={`/products/${item.toLowerCase().replace(/ /g, '-')}`}
+                              <Link
+                                to={`/products/${item
+                                  .toLowerCase()
+                                  .replace(/ /g, "-")}`}
                                 className="text-gray-600 hover:text-gray-900 hover:translate-x-2 transition-all duration-200 block"
                               >
                                 {item}
@@ -66,9 +74,14 @@ const Navbar = () => {
                           Bathroom Solutions
                         </h4>
                         <ul className="space-y-4">
-                          {["Sanitaryware", "Showers", "Washbasins", "Furniture"].map((item) => (
+                          {[
+                            "Sanitaryware",
+                            "Showers",
+                            "Washbasins",
+                            "Furniture",
+                          ].map((item) => (
                             <li key={item}>
-                              <Link 
+                              <Link
                                 to={`/bathroom/${item.toLowerCase()}`}
                                 className="text-gray-600 hover:text-gray-900 hover:translate-x-2 transition-all duration-200 block"
                               >
@@ -85,10 +98,19 @@ const Navbar = () => {
                           Building & Outdoor
                         </h4>
                         <ul className="space-y-4">
-                          {["Kitchen Systems", "Facades", "Outdoor Solutions", "Technical Materials"].map((item) => (
+                          {[
+                            "Kitchen Systems",
+                            "Facades",
+                            "Outdoor Solutions",
+                            "Technical Materials",
+                          ].map((item) => (
                             <li key={item}>
-                              <Link 
-                                to={`/${item.includes("Kitchen") ? "kitchen" : item.toLowerCase().replace(/ /g, '-')}`}
+                              <Link
+                                to={`/${
+                                  item.includes("Kitchen")
+                                    ? "kitchen"
+                                    : item.toLowerCase().replace(/ /g, "-")
+                                }`}
                                 className="text-gray-600 hover:text-gray-900 hover:translate-x-2 transition-all duration-200 block"
                               >
                                 {item}
@@ -97,7 +119,6 @@ const Navbar = () => {
                           ))}
                         </ul>
                       </div>
-
                     </div>
                   </div>
                 </div>
@@ -113,31 +134,71 @@ const Navbar = () => {
           >
             <button className="flex items-center gap-2 py-8 hover:text-gray-900 transition-colors">
               PROJECTS
-              <FiChevronDown className={`text-sm transition-transform duration-200 ${projectsOpen ? 'rotate-180' : ''}`} />
+              <FiChevronDown
+                className={`text-sm transition-transform duration-200 ${
+                  projectsOpen ? "rotate-180" : ""
+                }`}
+              />
             </button>
 
             {projectsOpen && (
               <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3">
-                <div className="bg-white border border-gray-100 shadow-2xl rounded-b-lg w-[480px] overflow-hidden">
+                <div className="bg-white border border-gray-100 shadow-2xl rounded-b-lg w-120 overflow-hidden">
                   <div className="p-6">
                     <h4 className="font-bold text-gray-900 mb-6 text-base">
                       Our Project Categories
                     </h4>
                     <div className="grid grid-cols-2 gap-x-8 gap-y-3">
                       {[
-                        { name: "Home Projects", icon: "🏠" },
-                        { name: "Hotels", icon: "🏨" },
-                        { name: "Restaurants", icon: "🍽️" },
-                        { name: "Stores", icon: "🛍️" },
-                        { name: "Offices / Companies", icon: "🏢" },
-                        { name: "Public Spaces", icon: "🌳" },
-                        { name: "Sports Facilities", icon: "⚽" },
-                        { name: "Health Projects", icon: "🏥" },
-                        { name: "Laboratories", icon: "🔬" },
+                        {
+                          name: "Home Projects",
+                          icon: "🏠",
+                          href: "/projects/home-projects",
+                        },
+                        {
+                          name: "Hotels",
+                          icon: "🏨",
+                          href: "/projects/hotel-projects",
+                        },
+                        {
+                          name: "Restaurants",
+                          icon: "🍽️",
+                          href: "/projects/resturant-projects",
+                        },
+                        {
+                          name: "Stores",
+                          icon: "🛍️",
+                          href: "/projects/store-projects",
+                        },
+                        {
+                          name: "Offices / Companies",
+                          icon: "🏢",
+                          href: "/projects/company-projects",
+                        },
+                        {
+                          name: "Public Spaces",
+                          icon: "🌳",
+                          href: "/projects/public-place-projects",
+                        },
+                        {
+                          name: "Sports Facilities",
+                          icon: "⚽",
+                          href: "/projects/sport-projects",
+                        },
+                        {
+                          name: "Health Projects",
+                          icon: "🏥",
+                          href: "/projects/health-projects",
+                        },
+                        {
+                          name: "Laboratories",
+                          icon: "🔬",
+                          href: "/projects/labortry-projects",
+                        },
                       ].map((item) => (
                         <Link
                           key={item.name}
-                          to={`/projects/${item.name.toLowerCase().replace(/\s+\/\s+/g, '-').replace(/\s+/g, '-')}`}
+                          to={`${item.href}`}
                           className="flex items-center space-x-3 p-2.5 hover:bg-gray-50 rounded transition-colors"
                         >
                           <span className="text-lg">{item.icon}</span>
@@ -161,7 +222,11 @@ const Navbar = () => {
           >
             <button className="flex items-center gap-2 py-8 hover:text-gray-900 transition-colors">
               PROFESSIONALS
-              <FiChevronDown className={`text-sm transition-transform duration-200 ${proOpen ? 'rotate-180' : ''}`} />
+              <FiChevronDown
+                className={`text-sm transition-transform duration-200 ${
+                  proOpen ? "rotate-180" : ""
+                }`}
+              />
             </button>
 
             {proOpen && (
@@ -181,7 +246,9 @@ const Navbar = () => {
                       ].map((item) => (
                         <li key={item.name}>
                           <Link
-                            to={`/professionals/${item.name.toLowerCase().replace(/\s+/g, '-')}`}
+                            to={`/professionals/${item.name
+                              .toLowerCase()
+                              .replace(/\s+/g, "-")}`}
                             className="flex items-center space-x-3 p-2.5 hover:bg-gray-50 rounded transition-colors"
                           >
                             <span className="text-lg">{item.icon}</span>
@@ -199,8 +266,8 @@ const Navbar = () => {
           </div>
 
           {/* ABOUT GROUP - Simple Link (No Dropdown) */}
-          <Link 
-            to="/about-group" 
+          <Link
+            to="/about"
             className="py-8 hover:text-gray-900 transition-colors"
           >
             ABOUT GROUP
@@ -214,7 +281,11 @@ const Navbar = () => {
           >
             <button className="flex items-center gap-2 py-8 hover:text-gray-900 transition-colors">
               BLOG
-              <FiChevronDown className={`text-sm transition-transform duration-200 ${blogOpen ? 'rotate-180' : ''}`} />
+              <FiChevronDown
+                className={`text-sm transition-transform duration-200 ${
+                  blogOpen ? "rotate-180" : ""
+                }`}
+              />
             </button>
 
             {blogOpen && (
@@ -234,7 +305,9 @@ const Navbar = () => {
                       ].map((item) => (
                         <li key={item}>
                           <Link
-                            to={`/blog/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                            to={`/blog/${item
+                              .toLowerCase()
+                              .replace(/\s+/g, "-")}`}
                             className="block p-2.5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded text-sm transition-colors"
                           >
                             {item}
@@ -247,7 +320,6 @@ const Navbar = () => {
               </div>
             )}
           </div>
-
         </nav>
 
         {/* Right Icons */}
@@ -271,6 +343,22 @@ const Navbar = () => {
       {mobileOpen && (
         <div className="lg:hidden bg-white border-t shadow-lg px-6 py-8">
           <div className="space-y-1">
+            {[
+              "Products",
+              "Projects",
+              "Professionals",
+              "About Group",
+              "Blog",
+            ].map((item) => (
+              <Link
+                key={item}
+                to={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                className="block py-3.5 px-4 text-gray-700 hover:bg-gray-50 rounded transition-colors font-medium"
+                onClick={() => setMobileOpen(false)}
+              >
+                {item}
+              </Link>
+            ))}
             {["Products", "Projects", "Professionals", "About Group", "Blog"].map(
               (item) => (
                 <Link
