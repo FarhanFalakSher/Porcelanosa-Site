@@ -1,38 +1,30 @@
-import { Routes, Route } from "react-router-dom";
-import AboutGroupPage from "./pages/AboutGroupPage";
-// App.js
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import AOS from "aos";
 
-import Navbar from "./pages/Navbar";
-import Blog from "./pages/Blog";
-import Home from "./pages/Home";
-// import Navbar from "./components/commonComponents/Navbar";
-// import Footer from "./components/commonComponents/Footer";
-import HomeProjects from "./pages/HomeProjects";
-import StoreProjects from "./pages/StoresProjects";
-import Labortries from "./pages/Labortries";
-import PublicPlaces from "./pages/PublicPlacesProjects";
-import Resturants from "./pages/Resturants";
-import SportFacilities from "./pages/SportFacilitiesProj";
-import Companies from "./pages/CompaniesProjects";
-import Hotels from "./pages/HotelsProjects";
-import Health from "./pages/Health";
+// Context & Layout
+import { CartProvider } from "./components/cart/CartContext";
+import MainLayout from "./MainLayout";
 
-// Baki imports ko tabhi kholna jab files ready hon
-// import About from "./pages/About";
-// import Products from "./pages/Products";
-// import Projects from "./pages/Projects";
-// import Blog from "./pages/Blog";
-// import Professionals from "./pages/Professionals";
-import Footer from "./pages/Footer";
+// Pages
+import Home from "./pages/Home";
+import AboutGroupPage from "./pages/AboutGroupPage";
+import Blog from "./pages/Blog";
 import Contact from "./pages/Contact ";
 import Professionals from "./pages/Professionals";
 import Products from "./pages/Products";
 import ShoppingCart from "./components/cart/ShoppingCart";
-import { CartProvider } from "./components/cart/CartContext"; // NEW: Import CartProvider
-// import DebugCart from "./components/cart/DebugCart";
+
+// Project Pages
+import HomeProjects from "./pages/HomeProjects";
+import Hotels from "./pages/HotelsProjects";
+import Resturants from "./pages/Resturants";
+import SportFacilities from "./pages/SportFacilitiesProj";
+import Labortries from "./pages/Labortries";
+import Health from "./pages/Health";
+import StoreProjects from "./pages/StoresProjects";
+import PublicPlaces from "./pages/PublicPlacesProjects";
+import Companies from "./pages/CompaniesProjects";
 
 function App() {
   const location = useLocation();
@@ -43,133 +35,84 @@ function App() {
       once: true,
       offset: 50,
     });
-
     AOS.refreshHard();
   }, [location.pathname]);
 
   return (
-    // Wrap entire app with CartProvider
     <CartProvider>
-      <Navbar />
-
-      {/* Padding Top (pt-20) zaroori hai agar Navbar fixed hai taake content niche na dabe */}
-      {/* <main className="pt-20"> */}
       <Routes>
-        {/* Home Route */}
-        <Route path="/" element={<Home />} />
-
-        {/* About Route */}
-        <Route path="/about" element={<AboutGroupPage />} />
-
-        {/* Commented Routes (Future Use) */}
-        {/* <Route path="/products/*" element={<Products />} /> */}
-        <Route path="/projects/home-projects" element={<HomeProjects />} />
-        <Route path="/projects/hotel-projects" element={<Hotels />} />
-        <Route path="/projects/resturant-projects" element={<Resturants />} />
-        <Route path="/projects/sport-projects" element={<SportFacilities />} />
-        <Route path="/projects/labortry-projects" element={<Labortries />} />
-        <Route path="/projects/health-projects" element={<Health />} />
-        <Route path="/projects/store-projects" element={<StoreProjects />} />
-        <Route
-          path="/projects/public-place-projects"
-          element={<PublicPlaces />}
-        />
-        <Route path="/projects/company-projects" element={<Companies />} />
-        {/* <Route path="/blog/*" element={<Blog />} /> */}
-        {/* <Route path="/professionals/*" element={<Professionals />} /> */}
-      </Routes>
-      {/* </main> */}
-      {/* <Footer /> */}
-      <main className="pt-20">
-        <Routes>
-          {/* Contact Page */}
-          {/* <Route path="/" element={< Home/>} /> */}
-
-          {/* Professionals Page */}
-          <Route path="/blog" element={<Blog />} />
-
-          {/* Architects main page */}
-          <Route
-            path="/blog/inspiration"
-            element={<Blog />}
-          />
- <Route
-            path="/blog/news"
-            element={<Blog />}
-          />
-           <Route
-            path="/blog/product-updates"
-            element={<Blog />}
-          />
-          <Route
-            path="/blog/case-studies"
-            element={<Blog />}
-          />
- <Route
-            path="/blog/sustainability"
-            element={<Blog />}
-          />
-
-
-          {/* Dynamic route for individual architect items */}
-          <Route
-            path="/blog/inspiration/:itemId"
-            element={<Blog />}
-          />
-           <Route
-            path="/blog/news/:itemId"
-            element={<Blog />}
-          />
-          <Route
-            path="/blog/product-updates/:itemId"
-            element={<Blog />}
-          />
-            <Route
-            path="/blog/case-studies/:itemId"
-            element={<Blog />}
-          />
-          <Route
-            path="/blog/sustainability/:itemId"
-            element={<Blog />}
-          />
-
-      
-
+        {/* Sab se main route Layout hai */}
+        <Route element={<MainLayout />}>
+          {/* Main Pages */}
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutGroupPage />} />
           <Route path="/contact" element={<Contact />} />
-
-          <Route path="/professionals" element={<Professionals />} />
-          <Route path="/professionals/architects" element={<Professionals />} />
-          <Route path="/professionals/interior-designers" element={<Professionals />} />
-          <Route path="/professionals/developers" element={<Professionals />} />
-          <Route path="/professionals/distributors" element={<Professionals />} />
-          <Route path="/professionals/contractors" element={<Professionals />} />
-
-          <Route path="/professionals/architects/:itemId" element={<Professionals />} />
-          <Route path="/professionals/interior-designers/:itemId" element={<Professionals />} />
-          <Route path="/professionals/developers/:itemId" element={<Professionals />} />
-
-          <Route path="/products" element={<Products />} />
-          <Route path="/products/porcelain-tiles" element={<Products />} />
-          <Route path="/products/ceramic-tiles" element={<Products />} />
-          <Route path="/products/wall-tiles" element={<Products />} />
-          <Route path="/products/large-format" element={<Products />} />
-          <Route path="/products/sanitaryware" element={<Products />} />
-          <Route path="/products/showers" element={<Products />} />
-          <Route path="/products/washbasins" element={<Products />} />
-          <Route path="/products/furniture" element={<Products />} />
-          <Route path="/products/kitchen-systems" element={<Products />} />
-          <Route path="/products/facades" element={<Products />} />
-          <Route path="/products/outdoor-solutions" element={<Products />} />
-          <Route path="/products/technical-materials" element={<Products />} />
           <Route path="/cart" element={<ShoppingCart />} />
-          {/* <Route path="/debug" element={<DebugCart />} /> */}
 
-        </Routes>
-      </main>
+          {/* Projects Group */}
+          <Route path="/projects">
+            <Route path="home-projects" element={<HomeProjects />} />
+            <Route path="hotel-projects" element={<Hotels />} />
+            <Route path="resturant-projects" element={<Resturants />} />
+            <Route path="sport-projects" element={<SportFacilities />} />
+            <Route path="labortry-projects" element={<Labortries />} />
+            <Route path="health-projects" element={<Health />} />
+            <Route path="store-projects" element={<StoreProjects />} />
+            <Route path="public-place-projects" element={<PublicPlaces />} />
+            <Route path="company-projects" element={<Companies />} />
+          </Route>
 
-    </>
+          {/* Blog Group */}
+          <Route path="/blog">
+            <Route index element={<Blog />} />
+            <Route path="inspiration" element={<Blog />} />
+            <Route path="news" element={<Blog />} />
+            <Route path="product-updates" element={<Blog />} />
+            <Route path="case-studies" element={<Blog />} />
+            <Route path="sustainability" element={<Blog />} />
+            {/* Dynamic Blog Routes */}
+            <Route path="inspiration/:itemId" element={<Blog />} />
+            <Route path="news/:itemId" element={<Blog />} />
+            <Route path="product-updates/:itemId" element={<Blog />} />
+            <Route path="case-studies/:itemId" element={<Blog />} />
+            <Route path="sustainability/:itemId" element={<Blog />} />
+          </Route>
 
-      <Footer />
+          {/* Professionals Group */}
+          <Route path="/professionals">
+            <Route index element={<Professionals />} />
+            <Route path="architects" element={<Professionals />} />
+            <Route path="interior-designers" element={<Professionals />} />
+            <Route path="developers" element={<Professionals />} />
+            <Route path="distributors" element={<Professionals />} />
+            <Route path="contractors" element={<Professionals />} />
+            {/* Dynamic Professional Routes */}
+            <Route path="architects/:itemId" element={<Professionals />} />
+            <Route
+              path="interior-designers/:itemId"
+              element={<Professionals />}
+            />
+            <Route path="developers/:itemId" element={<Professionals />} />
+          </Route>
+
+          {/* Products Group */}
+          <Route path="/products">
+            <Route index element={<Products />} />
+            <Route path="porcelain-tiles" element={<Products />} />
+            <Route path="ceramic-tiles" element={<Products />} />
+            <Route path="wall-tiles" element={<Products />} />
+            <Route path="large-format" element={<Products />} />
+            <Route path="sanitaryware" element={<Products />} />
+            <Route path="showers" element={<Products />} />
+            <Route path="washbasins" element={<Products />} />
+            <Route path="furniture" element={<Products />} />
+            <Route path="kitchen-systems" element={<Products />} />
+            <Route path="facades" element={<Products />} />
+            <Route path="outdoor-solutions" element={<Products />} />
+            <Route path="technical-materials" element={<Products />} />
+          </Route>
+        </Route>
+      </Routes>
     </CartProvider>
   );
 }
