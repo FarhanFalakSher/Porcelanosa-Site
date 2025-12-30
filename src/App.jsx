@@ -1,8 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import AboutGroupPage from "./pages/AboutGroupPage";
+import Navbar from "./pages/Navbar";
+import Blog from "./pages/Blog";
 import Home from "./pages/Home";
-import Navbar from "./components/commonComponents/Navbar";
-import Footer from "./components/commonComponents/Footer";
+// import Navbar from "./components/commonComponents/Navbar";
+// import Footer from "./components/commonComponents/Footer";
 import HomeProjects from "./pages/HomeProjects";
 import StoreProjects from "./pages/StoresProjects";
 import Labortries from "./pages/Labortries";
@@ -52,7 +54,65 @@ function App() {
         {/* <Route path="/professionals/*" element={<Professionals />} /> */}
       </Routes>
       {/* </main> */}
-      <Footer />
+      {/* <Footer /> */}
+      <main className="pt-20">
+        <Routes>
+          {/* Contact Page */}
+          {/* <Route path="/" element={< Home/>} /> */}
+
+          {/* Professionals Page */}
+          <Route path="/blog" element={<Blog />} />
+
+          {/* Architects main page */}
+          <Route
+            path="/blog/inspiration"
+            element={<Blog />}
+          />
+ <Route
+            path="/blog/news"
+            element={<Blog />}
+          />
+           <Route
+            path="/blog/product-updates"
+            element={<Blog />}
+          />
+          <Route
+            path="/blog/case-studies"
+            element={<Blog />}
+          />
+ <Route
+            path="/blog/sustainability"
+            element={<Blog />}
+          />
+
+
+          {/* Dynamic route for individual architect items */}
+          <Route
+            path="/blog/inspiration/:itemId"
+            element={<Blog />}
+          />
+           <Route
+            path="/blog/news/:itemId"
+            element={<Blog />}
+          />
+          <Route
+            path="/blog/product-updates/:itemId"
+            element={<Blog />}
+          />
+            <Route
+            path="/blog/case-studies/:itemId"
+            element={<Blog />}
+          />
+          <Route
+            path="/blog/sustainability/:itemId"
+            element={<Blog />}
+          />
+
+      
+
+        </Routes>
+      </main>
+
     </>
   );
 }
