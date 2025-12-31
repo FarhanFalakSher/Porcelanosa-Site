@@ -3,7 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 // Import local video
-import heroVideo from "../../assets/herovideo.mp4";
+import heroVideo from "../../assets/hero.mp4";
 
 const HeroSection = () => {
   useEffect(() => {
