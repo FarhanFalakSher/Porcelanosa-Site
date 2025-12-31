@@ -32,7 +32,7 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 flex h-full items-center justify-center px-6 lg:px-16">
-        <div className="max-w-4xl text-center text-white">
+        <div className="max-w-4xl translate-y-20 text-center text-white">
           <h1
             data-aos="fade-up"
             className="mb-6 text-3xl font-2xl tracking-wide md:text-5xl lg:text-6xl"
@@ -52,7 +52,6 @@ const HeroSection = () => {
           <div data-aos="fade-up" data-aos-delay="300">
             <button className="group inline-flex items-center justify-center rounded-xl border border-white px-5 py-2 text-sm uppercase tracking-widest transition-all duration-300 hover:scale-105 hover:bg-white hover:text-black hover:shadow-xl">
               Explore Collection
-              
             </button>
           </div>
         </div>
