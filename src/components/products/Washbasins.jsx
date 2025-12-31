@@ -2,25 +2,35 @@ import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { FiChevronRight, FiFilter, FiCheck, FiShoppingCart, FiEye, FiDroplet, FiX } from "react-icons/fi";
-import { useCart } from "../cart/CartContext"; // ADD THIS IMPORT
-import { Link } from "react-router-dom"; // ADD THIS IMPORT
+import { useCart } from "../cart/CartContext";
+import { Link } from "react-router-dom";
+
+// Import local images
+import wash1 from "../../assets/wash (1).jpg";
+import wash2 from "../../assets/wash (2).jpg";
+import wash3 from "../../assets/wash (3).jpg";
+import wash4 from "../../assets/wash (4).jpg";
+import wash5 from "../../assets/wash (5).jpg";
+import wash6 from "../../assets/wash (6).jpg";
+import wash7 from "../../assets/wash (8).jpg";
+import wash8 from "../../assets/wash (7).jpg";
+import heroImage from "../../assets/wash (1).jpg";
 
 const washbasinProducts = [
-  { id: 1, title: "Countertop Basin", type: "Countertop Basins", mounting: "Countertop", material: "Ceramic", dimensions: "60 x 40 x 15 cm", tapHoles: 1, overflow: "Yes", color: "White Gloss", price: "$250", sku: "CB-1001", features: ["Easy cleaning", "Standard tap", "Overflow protection"], images: ["https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&fit=crop"] },
-  { id: 2, title: "Wall-Mounted Basin", type: "Wall-Mounted Basins", mounting: "Wall-Mounted", material: "KRION®", dimensions: "55 x 35 x 18 cm", tapHoles: 1, overflow: "Yes", color: "Matte White", price: "$320", sku: "WB-2001", features: ["Space saving", "Modern design", "Easy access"], images: ["https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&fit=crop"] },
-  { id: 3, title: "Under-Counter Basin", type: "Under-Counter Basins", mounting: "Under-Counter", material: "Stone", dimensions: "50 x 35 x 15 cm", tapHoles: 2, overflow: "No", color: "Beige", price: "$400", sku: "UC-3001", features: ["Seamless look", "Durable", "Easy install"], images: ["https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&fit=crop"] },
-  { id: 4, title: "Double Basin Integrated Sink", type: "Double Basins", mounting: "Integrated", material: "Ceramic", dimensions: "120 x 45 x 15 cm", tapHoles: 2, overflow: "Yes", color: "White", price: "$650", sku: "DB-4001", features: ["Double bowl", "Integrated", "Large capacity"], images: ["https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&fit=crop"] },
-  { id: 5, title: "Pedestal Basin", type: "Pedestal Basins", mounting: "Pedestal", material: "Ceramic", dimensions: "50 x 40 x 85 cm", tapHoles: 1, overflow: "Yes", color: "White", price: "$280", sku: "PB-5001", features: ["Classic design", "Stable", "Easy clean"], images: ["https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&fit=crop"] },
-  { id: 6, title: "Glass Basin", type: "Wall-Mounted Basins", mounting: "Wall-Mounted", material: "Tempered Glass", dimensions: "45 x 35 x 12 cm", tapHoles: 1, overflow: "Yes", color: "Transparent", price: "$380", sku: "GB-6001", features: ["Modern look", "Easy clean", "Durable"], images: ["https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&fit=crop"] },
-  { id: 7, title: "Corner Basin", type: "Countertop Basins", mounting: "Countertop", material: "Ceramic", dimensions: "45 x 45 x 15 cm", tapHoles: 1, overflow: "Yes", color: "Black", price: "$310", sku: "CO-7001", features: ["Space saving", "Corner fit", "Modern"], images: ["https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&fit=crop"] },
-  { id: 8, title: "Vessel Basin", type: "Countertop Basins", mounting: "Countertop", material: "Stone", dimensions: "40 x 40 x 20 cm", tapHoles: 1, overflow: "No", color: "Gray", price: "$360", sku: "VB-8001", features: ["Vessel style", "Modern", "Unique"], images: ["https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&fit=crop"] },
+  { id: 1, title: "Countertop Basin", type: "Countertop Basins", mounting: "Countertop", material: "Ceramic", dimensions: "60 x 40 x 15 cm", tapHoles: 1, overflow: "Yes", color: "White Gloss", price: "$250", sku: "CB-1001", features: ["Easy cleaning", "Standard tap", "Overflow protection"], images: [wash1] },
+  { id: 2, title: "Wall-Mounted Basin", type: "Wall-Mounted Basins", mounting: "Wall-Mounted", material: "KRION®", dimensions: "55 x 35 x 18 cm", tapHoles: 1, overflow: "Yes", color: "Matte White", price: "$320", sku: "WB-2001", features: ["Space saving", "Modern design", "Easy access"], images: [wash2] },
+  { id: 3, title: "Under-Counter Basin", type: "Under-Counter Basins", mounting: "Under-Counter", material: "Stone", dimensions: "50 x 35 x 15 cm", tapHoles: 2, overflow: "No", color: "Beige", price: "$400", sku: "UC-3001", features: ["Seamless look", "Durable", "Easy install"], images: [wash3] },
+  { id: 4, title: "Double Basin Integrated Sink", type: "Double Basins", mounting: "Integrated", material: "Ceramic", dimensions: "120 x 45 x 15 cm", tapHoles: 2, overflow: "Yes", color: "White", price: "$650", sku: "DB-4001", features: ["Double bowl", "Integrated", "Large capacity"], images: [wash4] },
+  { id: 5, title: "Pedestal Basin", type: "Pedestal Basins", mounting: "Pedestal", material: "Ceramic", dimensions: "50 x 40 x 85 cm", tapHoles: 1, overflow: "Yes", color: "White", price: "$280", sku: "PB-5001", features: ["Classic design", "Stable", "Easy clean"], images: [wash5] },
+  { id: 6, title: "Glass Basin", type: "Wall-Mounted Basins", mounting: "Wall-Mounted", material: "Tempered Glass", dimensions: "45 x 35 x 12 cm", tapHoles: 1, overflow: "Yes", color: "Transparent", price: "$380", sku: "GB-6001", features: ["Modern look", "Easy clean", "Durable"], images: [wash6] },
+  { id: 7, title: "Corner Basin", type: "Countertop Basins", mounting: "Countertop", material: "Ceramic", dimensions: "45 x 45 x 15 cm", tapHoles: 1, overflow: "Yes", color: "Black", price: "$310", sku: "CO-7001", features: ["Space saving", "Corner fit", "Modern"], images: [wash7] },
+  { id: 8, title: "Vessel Basin", type: "Countertop Basins", mounting: "Countertop", material: "Stone", dimensions: "40 x 40 x 20 cm", tapHoles: 1, overflow: "No", color: "Gray", price: "$360", sku: "VB-8001", features: ["Vessel style", "Modern", "Unique"], images: [wash8] },
 ];
 
 const Washbasins = () => {
   const [modalProduct, setModalProduct] = useState(null);
   const [filters, setFilters] = useState({ mounting: "all", material: "all", tapHoles: "all", color: "all", price: "all" });
   
-  // ADD CARTCONTEXT
   const { addToCart, cartCount } = useCart();
 
   useEffect(() => { AOS.init({ duration: 800, once: true }); }, []);
@@ -37,19 +47,17 @@ const Washbasins = () => {
     return mountingMatch && materialMatch && tapHolesMatch && colorMatch && priceMatch;
   });
 
-  // UPDATE ADD TO CART FUNCTION
   const handleAddToCart = (product, e) => {
     e?.stopPropagation();
-    // Extract numeric price from string (remove "$")
     const price = parseFloat(product.price.replace('$', ''));
     
     addToCart({
       id: product.id,
-      name: product.title, // Use "title" as name for CartContext
+      name: product.title,
       price: price,
       image: product.images[0],
-      series: product.type, // Map "type" to "series" for CartContext
-      finish: product.material // Map "material" to "finish" for CartContext
+      series: product.type,
+      finish: product.material
     });
     alert(`${product.title} added to cart!`);
   };
@@ -71,9 +79,11 @@ const Washbasins = () => {
       </div>
 
       {/* Hero Banner */}
-      <div className="relative w-full h-[50vh] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1920&fit=crop" alt="Washbasins" className="w-full h-full object-cover" />
+      <div className="relative w-full h-[80vh] overflow-hidden">
+        <img src={heroImage} alt="Washbasins" className="w-full h-full object-cover" />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4 bg-gradient-to-t from-black/70 to-transparent">
+          <div className="absolute inset-0 bg-black/20"></div>
+
           <p className="text-sm md:text-lg mb-2 tracking-widest">BATHROOM SINKS & BASINS</p>
           <h1 className="text-4xl md:text-6xl font-bold mb-4">WASHBASINS</h1>
           <p className="text-lg max-w-2xl">Premium bathroom basins in various styles and materials</p>
@@ -176,7 +186,7 @@ const Washbasins = () => {
                   <div className="flex gap-2">
                     <button 
                       className="flex-1 bg-gray-900 text-white py-2.5 rounded-xl font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-1 text-sm" 
-                      onClick={(e) => handleAddToCart(product, e)} // UPDATED HANDLER
+                      onClick={(e) => handleAddToCart(product, e)}
                     >
                       <FiShoppingCart size={14} /> Add
                     </button>
@@ -277,7 +287,7 @@ const Washbasins = () => {
                 <div className="flex gap-3">
                   <button 
                     className="flex-1 bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-blue-700 flex items-center justify-center gap-2 text-sm" 
-                    onClick={(e) => handleAddToCart(modalProduct, e)} // UPDATED HANDLER
+                    onClick={(e) => handleAddToCart(modalProduct, e)}
                   >
                     <FiShoppingCart size={16} /> Add to Cart
                   </button>

@@ -5,15 +5,26 @@ import { FiChevronRight, FiFilter, FiCheck, FiShoppingCart, FiEye, FiShield, FiD
 import { useCart } from "../cart/CartContext";
 import { Link } from "react-router-dom";
 
+// Import local images
+import facade1 from "../../assets/facade (8).jpg";
+import facade2 from "../../assets/facade (1).avif";
+import facade3 from "../../assets/facade (3).jpg";
+import facade4 from "../../assets/facade (7).jpg";
+import facade5 from "../../assets/facade (5).jpg";
+import facade6 from "../../assets/facade (6).jpg";
+import facade7 from "../../assets/facade (4).jpg";
+import facade8 from "../../assets/facade (2).jpg";
+import facadeHero from "../../assets/facade (1).jpg";
+
 const facadeProducts = [
-  { id: 1, title: "Ceramic Panel", type: "Panels", material: "Ceramic", finish: "Matte White", dimensions: "120 x 60 x 1.2 cm", installation: "Adhered", weight: "15kg", waterAbsorption: "0.5%", fireRating: "A1", price: "$80/m²", sku: "FP-1001", features: ["Low absorption", "Weather proof", "Easy install"], images: ["https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&fit=crop"] },
-  { id: 2, title: "Stone Panel", type: "Panels", material: "Natural Stone", finish: "Natural Beige", dimensions: "150 x 50 x 2 cm", installation: "Anchored", weight: "25kg", waterAbsorption: "1%", fireRating: "A2", price: "$120/m²", sku: "FP-2001", features: ["Natural look", "Durable", "Unique pattern"], images: ["https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&fit=crop"] },
-  { id: 3, title: "Ventilated Façade System", type: "Systems", material: "Composite", finish: "Gray Matte", dimensions: "200 x 100 x 2.5 cm", installation: "Ventilated", weight: "20kg", waterAbsorption: "0.8%", fireRating: "A2", price: "$250/m²", sku: "FP-3001", features: ["Thermal insulation", "Air gap", "Energy saving"], images: ["https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&fit=crop"] },
-  { id: 4, title: "Decorative Wall Cladding", type: "Cladding", material: "Porcelain", finish: "Textured White", dimensions: "100 x 50 x 1.5 cm", installation: "Adhered", weight: "12kg", waterAbsorption: "0.6%", fireRating: "A1", price: "$90/m²", sku: "FP-4001", features: ["Decorative", "Easy clean", "UV resistant"], images: ["https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&fit=crop"] },
-  { id: 5, title: "Large Format Porcelain Panel", type: "Panels", material: "Porcelain", finish: "Black Matt", dimensions: "300 x 150 x 1 cm", installation: "Mechanical", weight: "30kg", waterAbsorption: "0.3%", fireRating: "A1", price: "$150/m²", sku: "FP-5001", features: ["Large format", "Modern look", "Low maintenance"], images: ["https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&fit=crop"] },
-  { id: 6, title: "Composite Façade Panel", type: "Panels", material: "Composite", finish: "Wood Effect", dimensions: "120 x 60 x 2 cm", installation: "Ventilated", weight: "18kg", waterAbsorption: "0.4%", fireRating: "A2", price: "$110/m²", sku: "FP-6001", features: ["Wood effect", "Lightweight", "Weather proof"], images: ["https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&fit=crop"] },
-  { id: 7, title: "Stone Cladding System", type: "Systems", material: "Natural Stone", finish: "Sandstone", dimensions: "60 x 40 x 3 cm", installation: "Adhered", weight: "35kg", waterAbsorption: "1.2%", fireRating: "A2", price: "$180/m²", sku: "FP-7001", features: ["Natural stone", "Rustic look", "Durable"], images: ["https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&fit=crop"] },
-  { id: 8, title: "Metallic Facade Panel", type: "Panels", material: "Metal Composite", finish: "Brushed Aluminum", dimensions: "100 x 100 x 0.8 cm", installation: "Mechanical", weight: "8kg", waterAbsorption: "0%", fireRating: "A1", price: "$140/m²", sku: "FP-8001", features: ["Modern", "Lightweight", "Corrosion proof"], images: ["https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&fit=crop"] },
+  { id: 1, title: "Ceramic Panel", type: "Panels", material: "Ceramic", finish: "Matte White", dimensions: "120 x 60 x 1.2 cm", installation: "Adhered", weight: "15kg", waterAbsorption: "0.5%", fireRating: "A1", price: "$80/m²", sku: "FP-1001", features: ["Low absorption", "Weather proof", "Easy install"], images: [facade1] },
+  { id: 2, title: "Stone Panel", type: "Panels", material: "Natural Stone", finish: "Natural Beige", dimensions: "150 x 50 x 2 cm", installation: "Anchored", weight: "25kg", waterAbsorption: "1%", fireRating: "A2", price: "$120/m²", sku: "FP-2001", features: ["Natural look", "Durable", "Unique pattern"], images: [facade2] },
+  { id: 3, title: "Ventilated Façade System", type: "Systems", material: "Composite", finish: "Gray Matte", dimensions: "200 x 100 x 2.5 cm", installation: "Ventilated", weight: "20kg", waterAbsorption: "0.8%", fireRating: "A2", price: "$250/m²", sku: "FP-3001", features: ["Thermal insulation", "Air gap", "Energy saving"], images: [facade3] },
+  { id: 4, title: "Decorative Wall Cladding", type: "Cladding", material: "Porcelain", finish: "Textured White", dimensions: "100 x 50 x 1.5 cm", installation: "Adhered", weight: "12kg", waterAbsorption: "0.6%", fireRating: "A1", price: "$90/m²", sku: "FP-4001", features: ["Decorative", "Easy clean", "UV resistant"], images: [facade4] },
+  { id: 5, title: "Large Format Porcelain Panel", type: "Panels", material: "Porcelain", finish: "Black Matt", dimensions: "300 x 150 x 1 cm", installation: "Mechanical", weight: "30kg", waterAbsorption: "0.3%", fireRating: "A1", price: "$150/m²", sku: "FP-5001", features: ["Large format", "Modern look", "Low maintenance"], images: [facade5] },
+  { id: 6, title: "Composite Façade Panel", type: "Panels", material: "Composite", finish: "Wood Effect", dimensions: "120 x 60 x 2 cm", installation: "Ventilated", weight: "18kg", waterAbsorption: "0.4%", fireRating: "A2", price: "$110/m²", sku: "FP-6001", features: ["Wood effect", "Lightweight", "Weather proof"], images: [facade6] },
+  { id: 7, title: "Stone Cladding System", type: "Systems", material: "Natural Stone", finish: "Sandstone", dimensions: "60 x 40 x 3 cm", installation: "Adhered", weight: "35kg", waterAbsorption: "1.2%", fireRating: "A2", price: "$180/m²", sku: "FP-7001", features: ["Natural stone", "Rustic look", "Durable"], images: [facade7] },
+  { id: 8, title: "Metallic Facade Panel", type: "Panels", material: "Metal Composite", finish: "Brushed Aluminum", dimensions: "100 x 100 x 0.8 cm", installation: "Mechanical", weight: "8kg", waterAbsorption: "0%", fireRating: "A1", price: "$140/m²", sku: "FP-8001", features: ["Modern", "Lightweight", "Corrosion proof"], images: [facade8] },
 ];
 
 const Facades = () => {
@@ -76,9 +87,11 @@ const Facades = () => {
       </Link>
 
       {/* Hero Banner */}
-      <div className="relative w-full h-[50vh] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1920&fit=crop" alt="Facades" className="w-full h-full object-cover" />
+      <div className="relative w-full h-[80vh] overflow-hidden">
+        <img src={facadeHero} alt="Facades" className="w-full h-full object-cover" />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4 bg-gradient-to-t from-black/70 to-transparent">
+          <div className="absolute inset-0 bg-black/20"></div>
+
           <p className="text-sm md:text-lg mb-2 tracking-widest">ARCHITECTURAL EXTERIORS</p>
           <h1 className="text-4xl md:text-6xl font-bold mb-4">FACADES</h1>
           <p className="text-lg max-w-2xl">External building cladding and panels for architectural design</p>
@@ -143,10 +156,13 @@ const Facades = () => {
               <div key={product.id} data-aos="fade-up" data-aos-delay={idx * 50} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
                 
                 <div className="relative overflow-hidden h-56">
+                  
                   <img src={product.images[0]} alt={product.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 cursor-pointer" onClick={() => setModalProduct(product)} />
+                  
                   <div className={`absolute top-3 left-3 ${product.material === "Ceramic" || product.material === "Porcelain" ? "bg-gray-900" : product.material === "Natural Stone" ? "bg-gray-900" : product.material === "Composite" ? "bg-gray-900" : "bg-gray-900"} text-white px-3 py-1 rounded-full text-xs font-medium`}>
                     {product.material}
                   </div>
+                  
                   <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-gray-900">
                     {product.price}
                   </div>

@@ -2,18 +2,29 @@ import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { FiChevronRight, FiX, FiFilter, FiCheck, FiShoppingCart, FiEye, FiDroplet } from "react-icons/fi";
-import { useCart } from "../cart/CartContext"; // ADD THIS IMPORT
-import { Link } from "react-router-dom"; // ADD THIS IMPORT
+import { useCart } from "../cart/CartContext";
+import { Link } from "react-router-dom";
+
+// Import images from assets folder
+import sanitary1 from "../../assets/sanitory (1).avif";
+import sanitary2 from "../../assets/sanitory (1).jpg";
+import sanitary3 from "../../assets/sanitory (6).jpg";
+import sanitary4 from "../../assets/sanitory (2).jpg";
+import sanitary5 from "../../assets/sanitory (2).webp";
+import sanitary6 from "../../assets/sanitory (7).jpg";
+import sanitary7 from "../../assets/sanitory (5).jpg";
+import sanitary8 from "../../assets/sanitory (4).jpg";
+import heroImage from "../../assets/sanitory (1).jpg";
 
 const products = [
-  { id: 1, title: "Wall-Hung Toilet", type: "Toilets", installation: "Wall-mounted", style: "Modern", finish: "White", material: "Vitreous China", dimensions: "50x35x40 cm", waterEfficiency: "4.5L", rating: "A++", price: "$450", sku: "WH-1001", description: "Sleek wall-hung toilet with soft-close seat.", features: ["Soft-close", "Rimless", "Quick-release"], images: ["https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&fit=crop"] },
-  { id: 2, title: "Floor Bidet", type: "Bidets", installation: "Floor-standing", style: "Classic", finish: "White", material: "Porcelain", dimensions: "55x35x40 cm", waterEfficiency: "4L", rating: "A+", price: "$380", sku: "FB-2001", description: "Elegant floor-standing bidet.", features: ["Overflow", "Easy clean", "Standard"], images: ["https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&fit=crop"] },
-  { id: 3, title: "Back-to-Wall Toilet", type: "Toilets", installation: "Back-to-wall", style: "Modern", finish: "Black", material: "Vitreous China", dimensions: "48x36x39 cm", waterEfficiency: "4.5L", rating: "A++", price: "$420", sku: "BTW-3001", description: "Compact back-to-wall toilet.", features: ["Concealed", "Space saving", "Quiet"], images: ["https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&fit=crop"] },
-  { id: 4, title: "Commercial Urinal", type: "Urinals", installation: "Wall-mounted", style: "Modern", finish: "White", material: "Ceramic", dimensions: "35x30x55 cm", waterEfficiency: "2L", rating: "A+++", price: "$250", sku: "UR-4001", description: "Hygienic urinal for spaces.", features: ["Water saving", "Auto flush", "Durable"], images: ["https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&fit=crop"] },
-  { id: 5, title: "Smart Toilet", type: "Toilets", installation: "Floor-standing", style: "Modern", finish: "Chrome", material: "Ceramic", dimensions: "52x38x42 cm", waterEfficiency: "3.5L", rating: "A+++", price: "$850", sku: "ST-5001", description: "Advanced smart toilet.", features: ["Bidet", "Seat warmer", "Auto"], images: ["https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&fit=crop"] },
-  { id: 6, title: "Concealed Cistern", type: "Cisterns", installation: "In-wall", style: "Modern", finish: "White", material: "Plastic", dimensions: "80x20x30 cm", waterEfficiency: "6L", rating: "A++", price: "$180", sku: "CC-6001", description: "High-efficiency cistern.", features: ["Dual flush", "Quiet", "Adjustable"], images: ["https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&fit=crop"] },
-  { id: 7, title: "Wall Bidet", type: "Bidets", installation: "Wall-mounted", style: "Modern", finish: "White", material: "Vitreous China", dimensions: "45x32x38 cm", waterEfficiency: "3.8L", rating: "A+", price: "$320", sku: "WB-7001", description: "Space-saving wall bidet.", features: ["Wall hung", "Rimless", "Modern"], images: ["https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&fit=crop"] },
-  { id: 8, title: "Toilet Seat Set", type: "Accessories", installation: "Universal", style: "Modern", finish: "Soft-close", material: "Plastic", dimensions: "Varies", waterEfficiency: "N/A", rating: "N/A", price: "$65", sku: "TS-8001", description: "Premium soft-close seat.", features: ["Soft-close", "Quick release", "Antibacterial"], images: ["https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&fit=crop"] },
+  { id: 1, title: "Wall-Hung Toilet", type: "Toilets", installation: "Wall-mounted", style: "Modern", finish: "White", material: "Vitreous China", dimensions: "50x35x40 cm", waterEfficiency: "4.5L", rating: "A++", price: "$450", sku: "WH-1001", description: "Sleek wall-hung toilet with soft-close seat.", features: ["Soft-close", "Rimless", "Quick-release"], images: [sanitary1] },
+  { id: 2, title: "Floor Bidet", type: "Bidets", installation: "Floor-standing", style: "Classic", finish: "White", material: "Porcelain", dimensions: "55x35x40 cm", waterEfficiency: "4L", rating: "A+", price: "$380", sku: "FB-2001", description: "Elegant floor-standing bidet.", features: ["Overflow", "Easy clean", "Standard"], images: [sanitary2] },
+  { id: 3, title: "Back-to-Wall Toilet", type: "Toilets", installation: "Back-to-wall", style: "Modern", finish: "Black", material: "Vitreous China", dimensions: "48x36x39 cm", waterEfficiency: "4.5L", rating: "A++", price: "$420", sku: "BTW-3001", description: "Compact back-to-wall toilet.", features: ["Concealed", "Space saving", "Quiet"], images: [sanitary3] },
+  { id: 4, title: "Commercial Urinal", type: "Urinals", installation: "Wall-mounted", style: "Modern", finish: "White", material: "Ceramic", dimensions: "35x30x55 cm", waterEfficiency: "2L", rating: "A+++", price: "$250", sku: "UR-4001", description: "Hygienic urinal for spaces.", features: ["Water saving", "Auto flush", "Durable"], images: [sanitary4] },
+  { id: 5, title: "Smart Toilet", type: "Toilets", installation: "Floor-standing", style: "Modern", finish: "Chrome", material: "Ceramic", dimensions: "52x38x42 cm", waterEfficiency: "3.5L", rating: "A+++", price: "$850", sku: "ST-5001", description: "Advanced smart toilet.", features: ["Bidet", "Seat warmer", "Auto"], images: [sanitary5] },
+  { id: 6, title: "Concealed Cistern", type: "Cisterns", installation: "In-wall", style: "Modern", finish: "White", material: "Plastic", dimensions: "80x20x30 cm", waterEfficiency: "6L", rating: "A++", price: "$180", sku: "CC-6001", description: "High-efficiency cistern.", features: ["Dual flush", "Quiet", "Adjustable"], images: [sanitary6] },
+  { id: 7, title: "Wall Bidet", type: "Bidets", installation: "Wall-mounted", style: "Modern", finish: "White", material: "Vitreous China", dimensions: "45x32x38 cm", waterEfficiency: "3.8L", rating: "A+", price: "$320", sku: "WB-7001", description: "Space-saving wall bidet.", features: ["Wall hung", "Rimless", "Modern"], images: [sanitary7] },
+  { id: 8, title: "Toilet Seat Set", type: "Accessories", installation: "Universal", style: "Modern", finish: "Soft-close", material: "Plastic", dimensions: "Varies", waterEfficiency: "N/A", rating: "N/A", price: "$65", sku: "TS-8001", description: "Premium soft-close seat.", features: ["Soft-close", "Quick release", "Antibacterial"], images: [sanitary8] },
 ];
 
 const Sanitaryware = () => {
@@ -21,7 +32,6 @@ const Sanitaryware = () => {
   const [filters, setFilters] = useState({ type: "all", installation: "all", price: "all" });
   const [activeImage, setActiveImage] = useState(0);
   
-  // ADD CARTCONTEXT
   const { addToCart, cartCount } = useCart();
 
   useEffect(() => { AOS.init({ duration: 800, once: true }); }, []);
@@ -33,19 +43,17 @@ const Sanitaryware = () => {
     return typeMatch && installMatch && priceMatch;
   });
 
-  // UPDATE ADD TO CART FUNCTION
   const handleAddToCart = (product, e) => {
     e?.stopPropagation();
-    // Extract numeric price from string (remove "$")
     const price = parseFloat(product.price.replace('$', ''));
     
     addToCart({
       id: product.id,
-      name: product.title, // Use "title" as name for CartContext
+      name: product.title,
       price: price,
       image: product.images[0],
-      series: product.type, // Map "type" to "series" for CartContext
-      finish: product.material // Map "material" to "finish" for CartContext
+      series: product.type,
+      finish: product.material
     });
     alert(`${product.title} added to cart!`);
   };
@@ -67,9 +75,11 @@ const Sanitaryware = () => {
       </div>
 
       {/* Hero */}
-      <div className="relative w-full h-[50vh] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1920&fit=crop" alt="Sanitaryware" className="w-full h-full object-cover" />
+      <div className="relative w-full h-[80vh] overflow-hidden">
+        <img src={heroImage} alt="Sanitaryware" className="w-full h-full object-cover" />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4 bg-gradient-to-t from-black/70 to-transparent">
+          <div className="absolute inset-0 bg-black/20"></div>
+
           <p className="text-sm md:text-lg mb-2 tracking-widest">BATHROOM ESSENTIALS</p>
           <h1 className="text-4xl md:text-6xl font-bold mb-4">SANITARYWARE</h1>
           <p className="text-lg max-w-2xl">Premium bathroom fixtures</p>
@@ -174,7 +184,7 @@ const Sanitaryware = () => {
                   <div className="flex gap-2">
                     <button 
                       className="flex-1 bg-gray-900 text-white py-2.5 rounded-xl font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-1 text-sm" 
-                      onClick={(e) => handleAddToCart(product, e)} // UPDATED HANDLER
+                      onClick={(e) => handleAddToCart(product, e)}
                     >
                       <FiShoppingCart size={14} /> Add
                     </button>
@@ -251,8 +261,8 @@ const Sanitaryware = () => {
                 
                 <div className="flex gap-3">
                   <button 
-                    className="flex-1 bg  -gray-900 text-white py-3 rounded-xl font-medium hover:bg-blue-700 flex items-center justify-center gap-2 text-sm" 
-                    onClick={(e) => handleAddToCart(modalProduct, e)} // UPDATED HANDLER
+                    className="flex-1 bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-blue-700 flex items-center justify-center gap-2 text-sm" 
+                    onClick={(e) => handleAddToCart(modalProduct, e)}
                   >
                     <FiShoppingCart size={16} /> Add to Cart
                   </button>

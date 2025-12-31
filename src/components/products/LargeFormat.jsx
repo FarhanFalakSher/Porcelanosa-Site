@@ -2,18 +2,29 @@ import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { FiChevronRight, FiX, FiFilter, FiGrid, FiList, FiCheck, FiShoppingCart, FiEye, FiLayers, FiArrowUpRight } from "react-icons/fi";
-import { useCart } from "../cart/CartContext"; // ADD THIS IMPORT
-import { Link } from "react-router-dom"; // ADD THIS IMPORT
+import { useCart } from "../cart/CartContext";
+import { Link } from "react-router-dom";
+
+// Import images from assets folder
+import large1 from "../../assets/large (1).jpg";
+import large2 from "../../assets/large (10).webp";
+import large3 from "../../assets/large (3).jpg";
+import large4 from "../../assets/large (4).jpg";
+import large5 from "../../assets/large (5).jpg";
+import large6 from "../../assets/large (6).jpg";
+import large7 from "../../assets/large (7).jpg";
+import large8 from "../../assets/large (8).jpg";
+import heroImage from "../../assets/large (1).jpg";
 
 const products = [
-  { id: 1, name: "XL Porcelain Tile", material: "Porcelain", size: "60x120 cm", thickness: "10 mm", rectified: "Yes", slipResistance: "R10", application: "Floor", price: "$45.99/m²", image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&fit=crop", installedImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&fit=crop", features: ["Minimal grout", "Modern look", "Easy care"] },
-  { id: 2, name: "XXL Ceramic Slab", material: "Ceramic", size: "120x180 cm", thickness: "12 mm", rectified: "Yes", slipResistance: "R11", application: "Floor & Wall", price: "$52.99/m²", image: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&fit=crop", installedImage: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&fit=crop", features: ["Seamless", "Durable", "Scratch proof"] },
-  { id: 3, name: "Kitchen Counter Slab", material: "Porcelain", size: "120x240 cm", thickness: "6 mm", rectified: "Yes", slipResistance: "R10", application: "Countertop", price: "$68.99/m²", image: "https://images.unsplash.com/photo-1586114667256-8c50e6d6c7d3?w=800&fit=crop", installedImage: "https://images.unsplash.com/photo-1600566752371-bb4b3b6d19a8?w=800&fit=crop", features: ["Heat proof", "Stain proof", "Easy clean"] },
-  { id: 4, name: "Living Room Floor XXL", material: "Porcelain", size: "120x120 cm", thickness: "12 mm", rectified: "Yes", slipResistance: "R10", application: "Floor", price: "$49.99/m²", image: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=800&fit=crop", installedImage: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&fit=crop", features: ["Spacious", "Easy install", "High strength"] },
-  { id: 5, name: "Marble Effect Slab", material: "Porcelain", size: "160x320 cm", thickness: "12 mm", rectified: "Yes", slipResistance: "R10", application: "Wall", price: "$75.99/m²", image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&fit=crop", installedImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&fit=crop", features: ["Marble effect", "Premium", "Unique"] },
-  { id: 6, name: "Outdoor Porcelain Slab", material: "Porcelain", size: "60x120 cm", thickness: "20 mm", rectified: "Yes", slipResistance: "R11", application: "Outdoor Floor", price: "$58.99/m²", image: "https://images.unsplash.com/photo-1564436872-f6d41138b2b6?w=800&fit=crop", installedImage: "https://images.unsplash.com/photo-1600566752371-bb4b3b6d19a8?w=800&fit=crop", features: ["Weather proof", "Frost proof", "Anti-slip"] },
-  { id: 7, name: "Bathroom Wall Slab", material: "Ceramic", size: "120x240 cm", thickness: "8 mm", rectified: "Yes", slipResistance: "R10", application: "Wall", price: "$55.99/m²", image: "https://images.unsplash.com/photo-1586114667256-8c50e6d6c7d3?w=800&fit=crop", installedImage: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&fit=crop", features: ["Water proof", "Mold proof", "Easy clean"] },
-  { id: 8, name: "Commercial Grade XL", material: "Porcelain", size: "120x120 cm", thickness: "14 mm", rectified: "Yes", slipResistance: "R11", application: "Commercial Floor", price: "$62.99/m²", image: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=800&fit=crop", installedImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&fit=crop", features: ["High traffic", "Industrial", "Long life"] },
+  { id: 1, name: "XL Porcelain Tile", material: "Porcelain", size: "60x120 cm", thickness: "10 mm", rectified: "Yes", slipResistance: "R10", application: "Floor", price: "$45.99/m²", image: large1, installedImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&fit=crop", features: ["Minimal grout", "Modern look", "Easy care"] },
+  { id: 2, name: "XXL Ceramic Slab", material: "Ceramic", size: "120x180 cm", thickness: "12 mm", rectified: "Yes", slipResistance: "R11", application: "Floor & Wall", price: "$52.99/m²", image: large2, installedImage: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&fit=crop", features: ["Seamless", "Durable", "Scratch proof"] },
+  { id: 3, name: "Kitchen Counter Slab", material: "Porcelain", size: "120x240 cm", thickness: "6 mm", rectified: "Yes", slipResistance: "R10", application: "Countertop", price: "$68.99/m²", image: large3, installedImage: "https://images.unsplash.com/photo-1600566752371-bb4b3b6d19a8?w=800&fit=crop", features: ["Heat proof", "Stain proof", "Easy clean"] },
+  { id: 4, name: "Living Room Floor XXL", material: "Porcelain", size: "120x120 cm", thickness: "12 mm", rectified: "Yes", slipResistance: "R10", application: "Floor", price: "$49.99/m²", image: large4, installedImage: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&fit=crop", features: ["Spacious", "Easy install", "High strength"] },
+  { id: 5, name: "Marble Effect Slab", material: "Porcelain", size: "160x320 cm", thickness: "12 mm", rectified: "Yes", slipResistance: "R10", application: "Wall", price: "$75.99/m²", image: large5, installedImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&fit=crop", features: ["Marble effect", "Premium", "Unique"] },
+  { id: 6, name: "Outdoor Porcelain Slab", material: "Porcelain", size: "60x120 cm", thickness: "20 mm", rectified: "Yes", slipResistance: "R11", application: "Outdoor Floor", price: "$58.99/m²", image: large6, installedImage: "https://images.unsplash.com/photo-1600566752371-bb4b3b6d19a8?w=800&fit=crop", features: ["Weather proof", "Frost proof", "Anti-slip"] },
+  { id: 7, name: "Bathroom Wall Slab", material: "Ceramic", size: "120x240 cm", thickness: "8 mm", rectified: "Yes", slipResistance: "R10", application: "Wall", price: "$55.99/m²", image: large7, installedImage: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&fit=crop", features: ["Water proof", "Mold proof", "Easy clean"] },
+  { id: 8, name: "Commercial Grade XL", material: "Porcelain", size: "120x120 cm", thickness: "14 mm", rectified: "Yes", slipResistance: "R11", application: "Commercial Floor", price: "$62.99/m²", image: large8, installedImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&fit=crop", features: ["High traffic", "Industrial", "Long life"] },
 ];
 
 const sizeComparison = [
@@ -36,7 +47,6 @@ const LargeFormat = () => {
   const [sortBy, setSortBy] = useState("popularity");
   const [viewMode, setViewMode] = useState("grid");
   
-  // ADD CARTCONTEXT
   const { addToCart, cartCount } = useCart();
 
   useEffect(() => { AOS.init({ duration: 800, easing: "ease-in-out", once: true }); }, []);
@@ -55,10 +65,8 @@ const LargeFormat = () => {
     return a.id - b.id;
   });
 
-  // UPDATE ADD TO CART FUNCTION
   const handleAddToCart = (product, e) => {
     e?.stopPropagation();
-    // Extract numeric price from string (remove "$" and "/m²")
     const price = parseFloat(product.price.replace('$', '').replace('/m²', ''));
     
     addToCart({
@@ -66,8 +74,8 @@ const LargeFormat = () => {
       name: product.name,
       price: price,
       image: product.image,
-      series: product.material, // Map "material" to "series" for CartContext
-      finish: product.application // Map "application" to "finish" for CartContext
+      series: product.material,
+      finish: product.application
     });
     alert(`${product.name} added to cart!`);
   };
@@ -89,9 +97,11 @@ const LargeFormat = () => {
       </div>
 
       {/* Hero Banner */}
-      <div className="relative w-full h-[60vh] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=1920&fit=crop" alt="Large Format Tiles" className="w-full h-full object-cover" />
+      <div className="relative w-full h-[80vh] overflow-hidden">
+        <img src={heroImage} alt="Large Format Tiles" className="w-full h-full object-cover" />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4 bg-gradient-to-t from-black/70 via-black/40 to-transparent">
+          <div className="absolute inset-0 bg-black/30"></div>
+
           <p className="text-sm md:text-lg mb-2 tracking-widest">MODERN XL & XXL TILES</p>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">LARGE FORMAT</h1>
           <p className="text-lg md:text-xl max-w-2xl">Seamless surfaces with minimal joints</p>
@@ -208,17 +218,17 @@ const LargeFormat = () => {
                     {product.features.slice(0, 2).map((feature, i) => (<div key={i} className="flex items-center gap-2 text-sm"><FiCheck className="text-green-500" /><span className="text-gray-700">{feature}</span></div>))}
                   </div>
                   
-                     <div className="flex gap-2">
-                                     <button 
-                                       className="flex-1 bg-gray-900 text-white py-2.5 rounded-xl font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-1 text-sm" 
-                                       onClick={(e) => handleAddToCart(product, e)} // UPDATED HANDLER
-                                     >
-                                       <FiShoppingCart size={14} /> Add
-                                     </button>
-                                     <button className="flex-1 bg-gray-100 text-gray-700 py-2.5 rounded-xl font-medium hover:bg-gray-200 transition-colors flex items-center justify-center gap-1 text-sm" onClick={() => setModalProduct(product)}>
-                                       <FiEye size={14} /> View
-                                     </button>
-                                   </div>
+                  <div className="flex gap-2">
+                    <button 
+                      className="flex-1 bg-gray-900 text-white py-2.5 rounded-xl font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-1 text-sm" 
+                      onClick={(e) => handleAddToCart(product, e)}
+                    >
+                      <FiShoppingCart size={14} /> Add
+                    </button>
+                    <button className="flex-1 bg-gray-100 text-gray-700 py-2.5 rounded-xl font-medium hover:bg-gray-200 transition-colors flex items-center justify-center gap-1 text-sm" onClick={() => setModalProduct(product)}>
+                      <FiEye size={14} /> View
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -291,7 +301,7 @@ const LargeFormat = () => {
                 <div className="flex gap-4">
                   <button 
                     className="flex-1 bg-gray-900 text-white py-4 rounded-xl font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" 
-                    onClick={(e) => handleAddToCart(modalProduct, e)} // UPDATED HANDLER
+                    onClick={(e) => handleAddToCart(modalProduct, e)}
                   >
                     <FiShoppingCart /> Add to Cart
                   </button>

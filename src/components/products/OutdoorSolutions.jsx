@@ -5,15 +5,26 @@ import { FiChevronRight, FiFilter, FiCheck, FiShoppingCart, FiEye, FiShield, FiD
 import { useCart } from "../cart/CartContext";
 import { Link } from "react-router-dom";
 
+// Import local images
+import outdoor1 from "../../assets/outdoor (1).jpg";
+import outdoor2 from "../../assets/outdoor (3).jpg";
+import outdoor3 from "../../assets/outdoor (2).jpg";
+import outdoor4 from "../../assets/outdoor (1).avif";
+import outdoor5 from "../../assets/outdoor (4).jpg";
+import outdoor6 from "../../assets/outdoor (5).jpg";
+import outdoor7 from "../../assets/outdoor (6).jpg";
+import outdoor8 from "../../assets/outdoor (7).jpg";
+import outdoorHero from "../../assets/outdoor (1).webp";
+
 const outdoorProducts = [
-  { id: 1, title: "Porcelain Outdoor Tile", type: "Tile", material: "Porcelain", finish: "Textured Gray", dimensions: "60 x 60 x 2 cm", installation: "Adhered", weight: "18kg", waterResistance: "Waterproof", durability: "Frost & UV Resistant", price: "$50/m²", sku: "OT-1001", features: ["Anti-slip", "Weather proof", "Easy install"], images: ["https://images.unsplash.com/photo-1621370547872-6b1e6ab6eb06?w=800&fit=crop"] },
-  { id: 2, title: "Wooden Decking Plank", type: "Deck", material: "Wood", finish: "Natural Oak", dimensions: "200 x 20 x 2.5 cm", installation: "Mechanical", weight: "12kg", waterResistance: "Water-resistant", durability: "Weather & Slip Resistant", price: "$35/m²", sku: "OD-2001", features: ["Natural look", "Anti-slip", "Easy maintain"], images: ["https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800&fit=crop"] },
-  { id: 3, title: "Outdoor Storage Cabinet", type: "Furniture", material: "Composite", finish: "Anthracite", dimensions: "80 x 40 x 90 cm", installation: "Assembly", weight: "45kg", waterResistance: "Waterproof", durability: "UV & Water Resistant", price: "$450", sku: "OF-3001", features: ["Weather proof", "Secure storage", "Easy assembly"], images: ["https://images.unsplash.com/photo-1616137422495-d1e71e0c6f53?w=800&fit=crop"] },
-  { id: 4, title: "Swimming Pool Tile", type: "Tile", material: "Stone", finish: "Beige Textured", dimensions: "100 x 50 x 2 cm", installation: "Adhered", weight: "22kg", waterResistance: "Waterproof", durability: "Slip & Frost Proof", price: "$90/m²", sku: "OP-4001", features: ["Anti-slip", "Chemical resistant", "Pool safe"], images: ["https://images.unsplash.com/photo-1545324412-515787f389c9?w=800&fit=crop"] },
-  { id: 5, title: "Composite Decking Board", type: "Deck", material: "Composite", finish: "Wood Effect", dimensions: "300 x 15 x 2 cm", installation: "Mechanical", weight: "10kg", waterResistance: "Waterproof", durability: "No Rot & Fade", price: "$65/m²", sku: "OC-5001", features: ["No maintenance", "Splinter free", "Long warranty"], images: ["https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800&fit=crop"] },
-  { id: 6, title: "Patio Paving Slab", type: "Tile", material: "Concrete", finish: "Charcoal", dimensions: "60 x 60 x 4 cm", installation: "Loose Lay", weight: "35kg", waterResistance: "Permeable", durability: "Freeze-Thaw", price: "$40/m²", sku: "OP-6001", features: ["Permeable", "Heavy duty", "Modern finish"], images: ["https://images.unsplash.com/photo-1621370547872-6b1e6ab6eb06?w=800&fit=crop"] },
-  { id: 7, title: "Outdoor Planter Box", type: "Furniture", material: "Wood", finish: "Cedar", dimensions: "120 x 40 x 50 cm", installation: "Assembly", weight: "28kg", waterResistance: "Treated", durability: "Rot Resistant", price: "$220", sku: "OF-7001", features: ["Raised bed", "Natural wood", "Drainage"], images: ["https://images.unsplash.com/photo-1616137422495-d1e71e0c6f53?w=800&fit=crop"] },
-  { id: 8, title: "Pool Coping Stone", type: "Tile", material: "Natural Stone", finish: "Travertine", dimensions: "100 x 30 x 5 cm", installation: "Adhered", weight: "42kg", waterResistance: "Waterproof", durability: "Non-slip", price: "$120/m²", sku: "OP-8001", features: ["Non-slip", "Heat resistant", "Elegant finish"], images: ["https://images.unsplash.com/photo-1545324412-515787f389c9?w=800&fit=crop"] },
+  { id: 1, title: "Porcelain Outdoor Tile", type: "Tile", material: "Porcelain", finish: "Textured Gray", dimensions: "60 x 60 x 2 cm", installation: "Adhered", weight: "18kg", waterResistance: "Waterproof", durability: "Frost & UV Resistant", price: "$50/m²", sku: "OT-1001", features: ["Anti-slip", "Weather proof", "Easy install"], images: [outdoor1] },
+  { id: 2, title: "Wooden Decking Plank", type: "Deck", material: "Wood", finish: "Natural Oak", dimensions: "200 x 20 x 2.5 cm", installation: "Mechanical", weight: "12kg", waterResistance: "Water-resistant", durability: "Weather & Slip Resistant", price: "$35/m²", sku: "OD-2001", features: ["Natural look", "Anti-slip", "Easy maintain"], images: [outdoor2] },
+  { id: 3, title: "Outdoor Storage Cabinet", type: "Furniture", material: "Composite", finish: "Anthracite", dimensions: "80 x 40 x 90 cm", installation: "Assembly", weight: "45kg", waterResistance: "Waterproof", durability: "UV & Water Resistant", price: "$450", sku: "OF-3001", features: ["Weather proof", "Secure storage", "Easy assembly"], images: [outdoor3] },
+  { id: 4, title: "Swimming Pool Tile", type: "Tile", material: "Stone", finish: "Beige Textured", dimensions: "100 x 50 x 2 cm", installation: "Adhered", weight: "22kg", waterResistance: "Waterproof", durability: "Slip & Frost Proof", price: "$90/m²", sku: "OP-4001", features: ["Anti-slip", "Chemical resistant", "Pool safe"], images: [outdoor4] },
+  { id: 5, title: "Composite Decking Board", type: "Deck", material: "Composite", finish: "Wood Effect", dimensions: "300 x 15 x 2 cm", installation: "Mechanical", weight: "10kg", waterResistance: "Waterproof", durability: "No Rot & Fade", price: "$65/m²", sku: "OC-5001", features: ["No maintenance", "Splinter free", "Long warranty"], images: [outdoor5] },
+  { id: 6, title: "Patio Paving Slab", type: "Tile", material: "Concrete", finish: "Charcoal", dimensions: "60 x 60 x 4 cm", installation: "Loose Lay", weight: "35kg", waterResistance: "Permeable", durability: "Freeze-Thaw", price: "$40/m²", sku: "OP-6001", features: ["Permeable", "Heavy duty", "Modern finish"], images: [outdoor6] },
+  { id: 7, title: "Outdoor Planter Box", type: "Furniture", material: "Wood", finish: "Cedar", dimensions: "120 x 40 x 50 cm", installation: "Assembly", weight: "28kg", waterResistance: "Treated", durability: "Rot Resistant", price: "$220", sku: "OF-7001", features: ["Raised bed", "Natural wood", "Drainage"], images: [outdoor7] },
+  { id: 8, title: "Pool Coping Stone", type: "Tile", material: "Natural Stone", finish: "Travertine", dimensions: "100 x 30 x 5 cm", installation: "Adhered", weight: "42kg", waterResistance: "Waterproof", durability: "Non-slip", price: "$120/m²", sku: "OP-8001", features: ["Non-slip", "Heat resistant", "Elegant finish"], images: [outdoor8] },
 ];
 
 const OutdoorSolutions = () => {
@@ -76,9 +87,11 @@ const OutdoorSolutions = () => {
       </Link>
 
       {/* Hero Banner */}
-      <div className="relative w-full h-[50vh] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1621370547872-6b1e6ab6eb06?w=1920&fit=crop" alt="Outdoor" className="w-full h-full object-cover" />
+      <div className="relative w-full h-[80vh] overflow-hidden">
+        <img src={outdoorHero} alt="Outdoor" className="w-full h-full object-cover" />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4 bg-gradient-to-t from-black/70 to-transparent">
+          <div className="absolute inset-0 bg-black/20"></div>
+
           <p className="text-sm md:text-lg mb-2 tracking-widest">EXTERIOR LANDSCAPING</p>
           <h1 className="text-4xl md:text-6xl font-bold mb-4">OUTDOOR SOLUTIONS</h1>
           <p className="text-lg max-w-2xl">Durable materials for patios, terraces, and exterior landscaping</p>

@@ -2,25 +2,35 @@ import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { FiChevronRight, FiFilter, FiCheck, FiShoppingCart, FiEye, FiPackage, FiX, FiTool } from "react-icons/fi";
-import { useCart } from "../cart/CartContext"; // ADD THIS IMPORT
-import { Link } from "react-router-dom"; // ADD THIS IMPORT
+import { useCart } from "../cart/CartContext";
+import { Link } from "react-router-dom";
+
+// Import local images
+import kitchen1 from "../../assets/kitchen (1).jpg";
+import kitchen2 from "../../assets/kitchen (2).jpg";
+import kitchen3 from "../../assets/kitchen (3).jpg";
+import kitchen4 from "../../assets/kitchen (5).jpg";
+import kitchen5 from "../../assets/kitchen (6).jpg";
+import kitchen6 from "../../assets/kitchen (4).jpg";
+import kitchen7 from "../../assets/kitchen (7).jpg";
+import kitchen8 from "../../assets/kitchen (8).jpg";
+import kitchenHero from "../../assets/kitchen (1).jpg";
 
 const kitchenProducts = [
-  { id: 1, title: "Wall-Mounted Kitchen Cabinet", type: "Cabinets", mounting: "Wall-mounted", material: "Lacquered Wood", finish: "White Gloss", dimensions: "80 x 35 x 60 cm", configuration: "Modular", price: "$600", sku: "KC-1001", features: ["Soft-close", "Adjustable shelves", "Easy install"], images: ["https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&fit=crop"] },
-  { id: 2, title: "Granite Countertop", type: "Countertops", mounting: "Countertop", material: "Granite", finish: "Polished Black", dimensions: "200 x 60 x 3 cm", configuration: "Single Piece", price: "$450", sku: "CT-2001", features: ["Heat resistant", "Stain proof", "Easy clean"], images: ["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&fit=crop"] },
-  { id: 3, title: "Kitchen Island Modular", type: "Islands", mounting: "Floor-standing", material: "Stone & Wood", finish: "Natural Wood", dimensions: "150 x 80 x 90 cm", configuration: "Modular", price: "$1,200", sku: "KI-3001", features: ["Storage space", "Breakfast bar", "Wheel option"], images: ["https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&fit=crop"] },
-  { id: 4, title: "Integrated Sink & Accessories", type: "Sinks", mounting: "Under-counter", material: "Composite Stone", finish: "Matte Gray", dimensions: "100 x 50 x 20 cm", configuration: "Standard", price: "$350", sku: "IS-4001", features: ["Integrated", "Stainless", "Easy clean"], images: ["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&fit=crop"] },
-  { id: 5, title: "Floor-Standing Cabinet Set", type: "Cabinets", mounting: "Floor-standing", material: "Solid Wood", finish: "Oak", dimensions: "Various sizes", configuration: "Modular Set", price: "$950", sku: "FC-5001", features: ["Complete set", "Soft-close", "Adjustable"], images: ["https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&fit=crop"] },
-  { id: 6, title: "Quartz Countertop", type: "Countertops", mounting: "Countertop", material: "Quartz", finish: "Polished White", dimensions: "250 x 65 x 3 cm", configuration: "Custom Cut", price: "$680", sku: "QC-6001", features: ["Non-porous", "Durable", "Hygienic"], images: ["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&fit=crop"] },
-  { id: 7, title: "Kitchen Hardware Set", type: "Hardware", mounting: "Universal", material: "Stainless Steel", finish: "Brushed Nickel", dimensions: "Various", configuration: "Complete Set", price: "$220", sku: "KH-7001", features: ["Handles", "Hinges", "Drawer slides"], images: ["https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&fit=crop"] },
-  { id: 8, title: "Peninsula Kitchen Unit", type: "Islands", mounting: "Floor-standing", material: "Wood & Stone", finish: "Gray Matt", dimensions: "180 x 90 x 90 cm", configuration: "Modular", price: "$1,500", sku: "PK-8001", features: ["Peninsula design", "Storage", "Seating area"], images: ["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&fit=crop"] },
+  { id: 1, title: "Wall-Mounted Kitchen Cabinet", type: "Cabinets", mounting: "Wall-mounted", material: "Lacquered Wood", finish: "White Gloss", dimensions: "80 x 35 x 60 cm", configuration: "Modular", price: "$600", sku: "KC-1001", features: ["Soft-close", "Adjustable shelves", "Easy install"], images: [kitchen1] },
+  { id: 2, title: "Granite Countertop", type: "Countertops", mounting: "Countertop", material: "Granite", finish: "Polished Black", dimensions: "200 x 60 x 3 cm", configuration: "Single Piece", price: "$450", sku: "CT-2001", features: ["Heat resistant", "Stain proof", "Easy clean"], images: [kitchen2] },
+  { id: 3, title: "Kitchen Island Modular", type: "Islands", mounting: "Floor-standing", material: "Stone & Wood", finish: "Natural Wood", dimensions: "150 x 80 x 90 cm", configuration: "Modular", price: "$1,200", sku: "KI-3001", features: ["Storage space", "Breakfast bar", "Wheel option"], images: [kitchen3] },
+  { id: 4, title: "Integrated Sink & Accessories", type: "Sinks", mounting: "Under-counter", material: "Composite Stone", finish: "Matte Gray", dimensions: "100 x 50 x 20 cm", configuration: "Standard", price: "$350", sku: "IS-4001", features: ["Integrated", "Stainless", "Easy clean"], images: [kitchen4] },
+  { id: 5, title: "Floor-Standing Cabinet Set", type: "Cabinets", mounting: "Floor-standing", material: "Solid Wood", finish: "Oak", dimensions: "Various sizes", configuration: "Modular Set", price: "$950", sku: "FC-5001", features: ["Complete set", "Soft-close", "Adjustable"], images: [kitchen5] },
+  { id: 6, title: "Quartz Countertop", type: "Countertops", mounting: "Countertop", material: "Quartz", finish: "Polished White", dimensions: "250 x 65 x 3 cm", configuration: "Custom Cut", price: "$680", sku: "QC-6001", features: ["Non-porous", "Durable", "Hygienic"], images: [kitchen6] },
+  { id: 7, title: "Kitchen Hardware Set", type: "Hardware", mounting: "Universal", material: "Stainless Steel", finish: "Brushed Nickel", dimensions: "Various", configuration: "Complete Set", price: "$220", sku: "KH-7001", features: ["Handles", "Hinges", "Drawer slides"], images: [kitchen7] },
+  { id: 8, title: "Peninsula Kitchen Unit", type: "Islands", mounting: "Floor-standing", material: "Wood & Stone", finish: "Gray Matt", dimensions: "180 x 90 x 90 cm", configuration: "Modular", price: "$1,500", sku: "PK-8001", features: ["Peninsula design", "Storage", "Seating area"], images: [kitchen8] },
 ];
 
 const KitchenSystems = () => {
   const [modalProduct, setModalProduct] = useState(null);
   const [filters, setFilters] = useState({ type: "all", material: "all", configuration: "all", price: "all" });
   
-  // ADD CARTCONTEXT
   const { addToCart, cartCount } = useCart();
 
   useEffect(() => { AOS.init({ duration: 800, once: true }); }, []);
@@ -36,19 +46,17 @@ const KitchenSystems = () => {
     return typeMatch && materialMatch && configMatch && priceMatch;
   });
 
-  // UPDATE ADD TO CART FUNCTION
   const handleAddToCart = (product, e) => {
     e?.stopPropagation();
-    // Extract numeric price from string (remove "$" and commas)
     const price = parseFloat(product.price.replace('$', '').replace(',', ''));
     
     addToCart({
       id: product.id,
-      name: product.title, // Use "title" as name for CartContext
+      name: product.title,
       price: price,
       image: product.images[0],
-      series: product.type, // Map "type" to "series" for CartContext
-      finish: product.material // Map "material" to "finish" for CartContext
+      series: product.type,
+      finish: product.material
     });
     alert(`${product.title} added to cart!`);
   };
@@ -70,9 +78,11 @@ const KitchenSystems = () => {
       </div>
 
       {/* Hero Banner */}
-      <div className="relative w-full h-[50vh] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&fit=crop" alt="Kitchen Systems" className="w-full h-full object-cover" />
+      <div className="relative w-full h-[80vh] overflow-hidden">
+        <img src={kitchenHero} alt="Kitchen Systems" className="w-full h-full object-cover" />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4 bg-gradient-to-t from-black/70 to-transparent">
+          <div className="absolute inset-0 bg-black/30"></div>
+
           <p className="text-sm md:text-lg mb-2 tracking-widest">MODULAR KITCHEN SOLUTIONS</p>
           <h1 className="text-4xl md:text-6xl font-bold mb-4">KITCHEN SYSTEMS</h1>
           <p className="text-lg max-w-2xl">Complete modular kitchen systems and components</p>
@@ -170,7 +180,7 @@ const KitchenSystems = () => {
                   <div className="flex gap-2">
                     <button 
                       className="flex-1 bg-gray-900 text-white py-2.5 rounded-xl font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-1 text-sm" 
-                      onClick={(e) => handleAddToCart(product, e)} // UPDATED HANDLER
+                      onClick={(e) => handleAddToCart(product, e)}
                     >
                       <FiShoppingCart size={14} /> Add
                     </button>
@@ -261,7 +271,7 @@ const KitchenSystems = () => {
                 <div className="flex gap-3">
                   <button 
                     className="flex-1 bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-blue-700 flex items-center justify-center gap-2 text-sm" 
-                    onClick={(e) => handleAddToCart(modalProduct, e)} // UPDATED HANDLER
+                    onClick={(e) => handleAddToCart(modalProduct, e)}
                   >
                     <FiShoppingCart size={16} /> Add to Cart
                   </button>

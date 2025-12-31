@@ -2,18 +2,29 @@ import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { FiChevronRight, FiX, FiFilter, FiGrid, FiList, FiStar, FiShoppingCart, FiCheck, FiEye } from "react-icons/fi";
-import { useCart } from "../cart/CartContext"; // ADD THIS IMPORT
-import { Link } from "react-router-dom"; // ADD THIS IMPORT
+import { useCart } from "../cart/CartContext";
+import { Link } from "react-router-dom";
+
+// Import images from assets folder
+import img1 from "../../assets/img (7).avif";
+import img2 from "../../assets/img (13).jpg";
+import img3 from "../../assets/img (9).avif";
+import img4 from "../../assets/img (11).jpg";
+import img5 from "../../assets/img (13).jpg";
+import img6 from "../../assets/img (12).jpg";
+import img7 from "../../assets/img (8).webp";
+import img8 from "../../assets/porclein (3).jpg";
+import heroImage from "../../assets/img (1).jpg";
 
 const products = [
-  { id: 1, name: "Classic White", type: "Wall", finish: "Gloss", texture: "Smooth", size: "30x60 cm", waterAbsorption: "6%", color: "White", price: 24.99, popularity: 4.8, image: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=800&fit=crop", installedImage: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&fit=crop", features: ["Easy cleaning", "Scratch resistant", "Water resistant"] },
-  { id: 2, name: "Beige Pattern", type: "Floor", finish: "Matte", texture: "Textured", size: "45x45 cm", waterAbsorption: "7%", color: "Beige", price: 29.99, popularity: 4.5, image: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&fit=crop", installedImage: "https://images.unsplash.com/photo-1600566752371-bb4b3b6d19a8?w=800&fit=crop", features: ["Anti-slip", "Durable", "Stain resistant"] },
-  { id: 3, name: "Decorative Mosaic", type: "Wall", finish: "Gloss", texture: "Patterned", size: "30x30 cm", waterAbsorption: "6%", color: "Multi", price: 34.99, popularity: 4.9, image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&fit=crop", installedImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&fit=crop", features: ["Decorative", "Easy installation", "UV resistant"] },
-  { id: 4, name: "Stone Beige", type: "Floor", finish: "Matte", texture: "Stone-like", size: "60x60 cm", waterAbsorption: "7%", color: "Light Beige", price: 27.99, popularity: 4.7, image: "https://images.unsplash.com/photo-1564436872-f6d41138b2b6?w=800&fit=crop", installedImage: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&fit=crop", features: ["Natural look", "High durability", "Easy maintenance"] },
-  { id: 5, name: "Ocean Blue", type: "Wall", finish: "Gloss", texture: "Smooth", size: "25x50 cm", waterAbsorption: "6%", color: "Blue", price: 31.99, popularity: 4.6, image: "https://images.unsplash.com/photo-1586114667256-8c50e6d6c7d3?w=800&fit=crop", installedImage: "https://images.unsplash.com/photo-1600566752371-bb4b3b6d19a8?w=800&fit=crop", features: ["Bright finish", "Mold resistant", "Easy cleaning"] },
-  { id: 6, name: "Terracotta", type: "Floor", finish: "Matte", texture: "Textured", size: "40x40 cm", waterAbsorption: "8%", color: "Red", price: 26.99, popularity: 4.4, image: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=800&fit=crop", installedImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&fit=crop", features: ["Traditional look", "Warm tone", "Easy maintenance"] },
-  { id: 7, name: "Geometric Pattern", type: "Wall", finish: "Matte", texture: "Patterned", size: "20x60 cm", waterAbsorption: "6%", color: "Gray/White", price: 36.99, popularity: 4.8, image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&fit=crop", installedImage: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&fit=crop", features: ["Modern design", "Pattern variety", "Easy cleaning"] },
-  { id: 8, name: "Slate Gray", type: "Floor", finish: "Matte", texture: "Stone-like", size: "50x50 cm", waterAbsorption: "7%", color: "Gray", price: 28.99, popularity: 4.7, image: "https://images.unsplash.com/photo-1564436872-f6d41138b2b6?w=800&fit=crop", installedImage: "https://images.unsplash.com/photo-1600566752371-bb4b3b6d19a8?w=800&fit=crop", features: ["Contemporary", "Scratch resistant", "Easy to clean"] },
+  { id: 1, name: "Classic White", type: "Wall", finish: "Gloss", texture: "Smooth", size: "30x60 cm", waterAbsorption: "6%", color: "White", price: 24.99, popularity: 4.8, image: img1, installedImage: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&fit=crop", features: ["Easy cleaning", "Scratch resistant", "Water resistant"] },
+  { id: 2, name: "Beige Pattern", type: "Floor", finish: "Matte", texture: "Textured", size: "45x45 cm", waterAbsorption: "7%", color: "Beige", price: 29.99, popularity: 4.5, image: img2, installedImage: "https://images.unsplash.com/photo-1600566752371-bb4b3b6d19a8?w=800&fit=crop", features: ["Anti-slip", "Durable", "Stain resistant"] },
+  { id: 3, name: "Decorative Mosaic", type: "Wall", finish: "Gloss", texture: "Patterned", size: "30x30 cm", waterAbsorption: "6%", color: "Multi", price: 34.99, popularity: 4.9, image: img3, installedImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&fit=crop", features: ["Decorative", "Easy installation", "UV resistant"] },
+  { id: 4, name: "Stone Beige", type: "Floor", finish: "Matte", texture: "Stone-like", size: "60x60 cm", waterAbsorption: "7%", color: "Light Beige", price: 27.99, popularity: 4.7, image: img4, installedImage: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&fit=crop", features: ["Natural look", "High durability", "Easy maintenance"] },
+  { id: 5, name: "Ocean Blue", type: "Wall", finish: "Gloss", texture: "Smooth", size: "25x50 cm", waterAbsorption: "6%", color: "Blue", price: 31.99, popularity: 4.6, image: img5, installedImage: "https://images.unsplash.com/photo-1600566752371-bb4b3b6d19a8?w=800&fit=crop", features: ["Bright finish", "Mold resistant", "Easy cleaning"] },
+  { id: 6, name: "Terracotta", type: "Floor", finish: "Matte", texture: "Textured", size: "40x40 cm", waterAbsorption: "8%", color: "Red", price: 26.99, popularity: 4.4, image: img6, installedImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&fit=crop", features: ["Traditional look", "Warm tone", "Easy maintenance"] },
+  { id: 7, name: "Geometric Pattern", type: "Wall", finish: "Matte", texture: "Patterned", size: "20x60 cm", waterAbsorption: "6%", color: "Gray/White", price: 36.99, popularity: 4.8, image: img7, installedImage: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&fit=crop", features: ["Modern design", "Pattern variety", "Easy cleaning"] },
+  { id: 8, name: "Slate Gray", type: "Floor", finish: "Matte", texture: "Stone-like", size: "50x50 cm", waterAbsorption: "7%", color: "Gray", price: 28.99, popularity: 4.7, image: img8, installedImage: "https://images.unsplash.com/photo-1600566752371-bb4b3b6d19a8?w=800&fit=crop", features: ["Contemporary", "Scratch resistant", "Easy to clean"] },
 ];
 
 const CeramicTiles = () => {
@@ -23,8 +34,7 @@ const CeramicTiles = () => {
   const [viewMode, setViewMode] = useState("grid");
   const [roomPreview, setRoomPreview] = useState("bathroom");
   
-  // USE CARTCONTEXT INSTEAD OF LOCAL STATE
-  const { addToCart, cartCount } = useCart(); // ADD THIS
+  const { addToCart, cartCount } = useCart();
 
   useEffect(() => { AOS.init({ duration: 800, easing: "ease-in-out", once: true }); }, []);
 
@@ -43,7 +53,6 @@ const CeramicTiles = () => {
     return a.id - b.id;
   });
 
-  // UPDATE ADD TO CART FUNCTION TO USE CONTEXT
   const handleAddToCart = (product, e) => {
     e?.stopPropagation();
     addToCart({
@@ -51,7 +60,7 @@ const CeramicTiles = () => {
       name: product.name,
       price: product.price,
       image: product.image,
-      series: product.type, // Map "type" to "series" for CartContext
+      series: product.type,
       finish: product.finish
     });
     alert(`${product.name} added to cart!`);
@@ -59,12 +68,12 @@ const CeramicTiles = () => {
 
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
-      {/* Floating Cart Button - UPDATED WITH LINK */}
+      {/* Floating Cart Button */}
       <div className="fixed top-6 right-6 z-40">
         <Link to="/cart" className="relative">
           <button className="bg-white p-4 rounded-full shadow-xl hover:shadow-2xl transition-all hover:scale-105">
             <FiShoppingCart className="text-gray-900 text-2xl" />
-            {cartCount > 0 && ( // USE cartCount FROM CONTEXT
+            {cartCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-gradient-to-r from-red-500 to-red-600 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center">
                 {cartCount}
               </span>
@@ -74,9 +83,11 @@ const CeramicTiles = () => {
       </div>
 
       {/* Hero Banner */}
-      <div className="relative w-full h-[60vh] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=1920&fit=crop" alt="Ceramic Tiles" className="w-full h-full object-cover" />
+      <div className="relative w-full h-[80vh] overflow-hidden">
+        <img src={heroImage} alt="Ceramic Tiles" className="w-full h-full object-cover" />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4 bg-gradient-to-t from-black/70 via-black/40 to-transparent">
+          <div className="absolute inset-0 bg-black/20"></div>
+
           <p className="text-sm md:text-lg mb-2 tracking-widest">VERSATILE & AFFORDABLE</p>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">CERAMIC TILES</h1>
           <p className="text-lg md:text-xl max-w-2xl">Perfect blend of beauty, durability, and value</p>
@@ -200,17 +211,17 @@ const CeramicTiles = () => {
                     ))}
                   </div>
                   
-                     <div className="flex gap-2">
-                                     <button 
-                                       className="flex-1 bg-gray-900 text-white py-2.5 rounded-xl font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-1 text-sm" 
-                                       onClick={(e) => handleAddToCart(product, e)} // UPDATED HANDLER
-                                     >
-                                       <FiShoppingCart size={14} /> Add
-                                     </button>
-                                     <button className="flex-1 bg-gray-100 text-gray-700 py-2.5 rounded-xl font-medium hover:bg-gray-200 transition-colors flex items-center justify-center gap-1 text-sm" onClick={() => setModalProduct(product)}>
-                                       <FiEye size={14} /> View
-                                     </button>
-                                   </div>
+                  <div className="flex gap-2">
+                    <button 
+                      className="flex-1 bg-gray-900 text-white py-2.5 rounded-xl font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-1 text-sm" 
+                      onClick={(e) => handleAddToCart(product, e)}
+                    >
+                      <FiShoppingCart size={14} /> Add
+                    </button>
+                    <button className="flex-1 bg-gray-100 text-gray-700 py-2.5 rounded-xl font-medium hover:bg-gray-200 transition-colors flex items-center justify-center gap-1 text-sm" onClick={() => setModalProduct(product)}>
+                      <FiEye size={14} /> View
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -298,7 +309,7 @@ const CeramicTiles = () => {
                 <div className="flex gap-4">
                   <button 
                     className="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 rounded-xl font-medium hover:from-blue-700 hover:to-blue-800 transition-all duration-300 flex items-center justify-center gap-2"
-                    onClick={(e) => handleAddToCart(modalProduct, e)} // UPDATED HANDLER
+                    onClick={(e) => handleAddToCart(modalProduct, e)}
                   >
                     <FiShoppingCart /> Add to Cart
                   </button>

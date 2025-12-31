@@ -2,18 +2,29 @@ import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { FiChevronRight, FiFilter, FiCheck, FiShoppingCart, FiEye, FiDroplet, FiMaximize2, FiX } from "react-icons/fi";
-import { useCart } from "../cart/CartContext"; // ADD THIS IMPORT
-import { Link } from "react-router-dom"; // ADD THIS IMPORT
+import { useCart } from "../cart/CartContext";
+import { Link } from "react-router-dom";
+
+// Import images from assets folder
+import showers1 from "../../assets/showers (7).jpg";
+import showers2 from "../../assets/showers (2).jpg";
+import showers3 from "../../assets/showers (6).jpg";
+import showers4 from "../../assets/showers (4).jpg";
+import showers5 from "../../assets/showers (3).jpg";
+import showers6 from "../../assets/showers (8).jpg";
+import showers7 from "../../assets/showers (9).jpg";
+import showers8 from "../../assets/showers (5).jpg";
+import heroImage from "../../assets/showers (1).jpg";
 
 const showerProducts = [
-  { id: 1, title: "Built-in Shower Tray", type: "Shower Trays", installation: "Built-in", finish: "White Matte", material: "Stone Composite", dimensions: "120 x 80 x 5 cm", technical: "Flow rate 12L/min", price: "$350", sku: "ST-1001", features: ["Non-slip surface", "Easy cleaning", "Waterproof"], images: ["https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&fit=crop"] },
-  { id: 2, title: "Frameless Shower Screen", type: "Shower Screens", installation: "Wall-mounted", finish: "Transparent", material: "Tempered Glass", dimensions: "90 x 200 cm", technical: "Sliding system", price: "$450", sku: "SS-2001", features: ["Frameless design", "Safety glass", "Easy install"], images: ["https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&fit=crop"] },
-  { id: 3, title: "Shower Column with Thermostatic Mixer", type: "Shower Columns", installation: "Wall-mounted", finish: "Chrome", material: "Chrome-plated Metal", dimensions: "50 x 20 x 220 cm", technical: "Thermostatic control", price: "$650", sku: "SC-3001", features: ["Multi-function", "Temperature control", "Pressure balance"], images: ["https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&fit=crop"] },
-  { id: 4, title: "Shower Drain Grate", type: "Accessories", installation: "Floor-mounted", finish: "Brushed", material: "Stainless Steel", dimensions: "100 x 5 cm", technical: "Waterproof seal", price: "$120", sku: "AC-4001", features: ["Anti-clog", "Easy clean", "Durable"], images: ["https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&fit=crop"] },
-  { id: 5, title: "Rain Shower Head", type: "Shower Heads", installation: "Ceiling-mounted", finish: "Black Matte", material: "Stainless Steel", dimensions: "30 cm diameter", technical: "Flow rate 15L/min", price: "$180", sku: "SH-5001", features: ["Rain effect", "Water saving", "Adjustable"], images: ["https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&fit=crop"] },
-  { id: 6, title: "Walk-in Shower System", type: "Complete Systems", installation: "Floor-mounted", finish: "Chrome & Glass", material: "Multiple", dimensions: "Custom sizes", technical: "Complete kit", price: "$950", sku: "WS-6001", features: ["Walk-in design", "Complete kit", "Modern look"], images: ["https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&fit=crop"] },
-  { id: 7, title: "Thermostatic Mixer", type: "Thermostatic Mixers", installation: "Wall-mounted", finish: "Brushed Nickel", material: "Brass", dimensions: "15 x 10 x 12 cm", technical: "Pressure balanced", price: "$280", sku: "TM-7001", features: ["Temperature lock", "Anti-scald", "Easy adjust"], images: ["https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&fit=crop"] },
-  { id: 8, title: "Shower Panel with LED", type: "Shower Columns", installation: "Wall-mounted", finish: "Black & Chrome", material: "Acrylic & Metal", dimensions: "60 x 25 x 220 cm", technical: "LED lighting", price: "$750", sku: "SP-8001", features: ["LED lights", "Body jets", "Digital control"], images: ["https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&fit=crop"] },
+  { id: 1, title: "Built-in Shower Tray", type: "Shower Trays", installation: "Built-in", finish: "White Matte", material: "Stone Composite", dimensions: "120 x 80 x 5 cm", technical: "Flow rate 12L/min", price: "$350", sku: "ST-1001", features: ["Non-slip surface", "Easy cleaning", "Waterproof"], images: [showers1] },
+  { id: 2, title: "Frameless Shower Screen", type: "Shower Screens", installation: "Wall-mounted", finish: "Transparent", material: "Tempered Glass", dimensions: "90 x 200 cm", technical: "Sliding system", price: "$450", sku: "SS-2001", features: ["Frameless design", "Safety glass", "Easy install"], images: [showers2] },
+  { id: 3, title: "Shower Column with Thermostatic Mixer", type: "Shower Columns", installation: "Wall-mounted", finish: "Chrome", material: "Chrome-plated Metal", dimensions: "50 x 20 x 220 cm", technical: "Thermostatic control", price: "$650", sku: "SC-3001", features: ["Multi-function", "Temperature control", "Pressure balance"], images: [showers3] },
+  { id: 4, title: "Shower Drain Grate", type: "Accessories", installation: "Floor-mounted", finish: "Brushed", material: "Stainless Steel", dimensions: "100 x 5 cm", technical: "Waterproof seal", price: "$120", sku: "AC-4001", features: ["Anti-clog", "Easy clean", "Durable"], images: [showers4] },
+  { id: 5, title: "Rain Shower Head", type: "Shower Heads", installation: "Ceiling-mounted", finish: "Black Matte", material: "Stainless Steel", dimensions: "30 cm diameter", technical: "Flow rate 15L/min", price: "$180", sku: "SH-5001", features: ["Rain effect", "Water saving", "Adjustable"], images: [showers5] },
+  { id: 6, title: "Walk-in Shower System", type: "Complete Systems", installation: "Floor-mounted", finish: "Chrome & Glass", material: "Multiple", dimensions: "Custom sizes", technical: "Complete kit", price: "$950", sku: "WS-6001", features: ["Walk-in design", "Complete kit", "Modern look"], images: [showers6] },
+  { id: 7, title: "Thermostatic Mixer", type: "Thermostatic Mixers", installation: "Wall-mounted", finish: "Brushed Nickel", material: "Brass", dimensions: "15 x 10 x 12 cm", technical: "Pressure balanced", price: "$280", sku: "TM-7001", features: ["Temperature lock", "Anti-scald", "Easy adjust"], images: [showers7] },
+  { id: 8, title: "Shower Panel with LED", type: "Shower Columns", installation: "Wall-mounted", finish: "Black & Chrome", material: "Acrylic & Metal", dimensions: "60 x 25 x 220 cm", technical: "LED lighting", price: "$750", sku: "SP-8001", features: ["LED lights", "Body jets", "Digital control"], images: [showers8] },
 ];
 
 const Showers = () => {
@@ -21,7 +32,6 @@ const Showers = () => {
   const [filters, setFilters] = useState({ type: "all", finish: "all", installation: "all", price: "all" });
   const [activeImage, setActiveImage] = useState(0);
   
-  // ADD CARTCONTEXT
   const { addToCart, cartCount } = useCart();
 
   useEffect(() => { AOS.init({ duration: 800, once: true }); }, []);
@@ -37,19 +47,17 @@ const Showers = () => {
     return typeMatch && finishMatch && installMatch && priceMatch;
   });
 
-  // UPDATE ADD TO CART FUNCTION
   const handleAddToCart = (product, e) => {
     e?.stopPropagation();
-    // Extract numeric price from string (remove "$")
     const price = parseFloat(product.price.replace('$', ''));
     
     addToCart({
       id: product.id,
-      name: product.title, // Use "title" as name for CartContext
+      name: product.title,
       price: price,
       image: product.images[0],
-      series: product.type, // Map "type" to "series" for CartContext
-      finish: product.material // Map "material" to "finish" for CartContext
+      series: product.type,
+      finish: product.material
     });
     alert(`${product.title} added to cart!`);
   };
@@ -71,9 +79,11 @@ const Showers = () => {
       </div>
 
       {/* Hero Banner */}
-      <div className="relative w-full h-[50vh] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1920&fit=crop" alt="Showers" className="w-full h-full object-cover" />
+      <div className="relative w-full h-[80vh] overflow-hidden">
+        <img src={heroImage} alt="Showers" className="w-full h-full object-cover" />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4 bg-gradient-to-t from-black/70 to-transparent">
+          <div className="absolute inset-0 bg-black/30"></div>
+
           <p className="text-sm md:text-lg mb-2 tracking-widest">BATHROOM SHOWER SYSTEMS</p>
           <h1 className="text-4xl md:text-6xl font-bold mb-4">SHOWERS</h1>
           <p className="text-lg max-w-2xl">Premium shower systems for luxury bathing experience</p>
@@ -171,7 +181,7 @@ const Showers = () => {
                   <div className="flex gap-2">
                     <button 
                       className="flex-1 bg-gray-900 text-white py-2.5 rounded-xl font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-1 text-sm" 
-                      onClick={(e) => handleAddToCart(product, e)} // UPDATED HANDLER
+                      onClick={(e) => handleAddToCart(product, e)}
                     >
                       <FiShoppingCart size={14} /> Add
                     </button>
@@ -259,7 +269,7 @@ const Showers = () => {
                 <div className="flex gap-3">
                   <button 
                     className="flex-1 bg-blue-600 text-white py-3 rounded-xl font-medium hover:bg-blue-700 flex items-center justify-center gap-2 text-sm" 
-                    onClick={(e) => handleAddToCart(modalProduct, e)} // UPDATED HANDLER
+                    onClick={(e) => handleAddToCart(modalProduct, e)}
                   >
                     <FiShoppingCart size={16} /> Add to Cart
                   </button>

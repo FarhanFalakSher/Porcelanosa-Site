@@ -2,18 +2,29 @@ import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { FiChevronRight, FiX, FiFilter, FiGrid, FiList, FiCheck, FiShoppingCart, FiEye, FiDroplet, FiSun } from "react-icons/fi";
-import { useCart } from "../cart/CartContext"; // ADD THIS IMPORT
-import { Link } from "react-router-dom"; // ADD THIS IMPORT
+import { useCart } from "../cart/CartContext";
+import { Link } from "react-router-dom";
+
+// Import images from assets folder
+import wall1 from "../../assets/img (7).avif";
+import wall2 from "../../assets/wall (7).jpg";
+import wall3 from "../../assets/wall (2).jpg";
+import wall4 from "../../assets/wall (8).jpg";
+import wall5 from "../../assets/wall (6).jpg";
+import wall6 from "../../assets/wall (5).jpg";
+import wall7 from "../../assets/wall (1).jpg";
+import wall8 from "../../assets/wall (4).jpg";
+import heroImage from "../../assets/wall (9).jpg";
 
 const products = [
-  { id: 1, name: "Classic Porcelain Wall", material: "Porcelain", finish: "Gloss", size: "30x90 cm", waterResistance: "High", cleaning: "Easy cleaning with mild detergent", bestFor: "Bathroom walls", color: "White", price: "$28.99/m²", popularity: 4.7, image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&fit=crop", installedImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&fit=crop", features: ["Mold resistant", "Easy maintenance", "High durability"] },
-  { id: 2, name: "Ceramic Pattern Wall", material: "Ceramic", finish: "Matte", size: "59.6x150 cm", waterResistance: "Moderate", cleaning: "Wipe with damp cloth", bestFor: "Kitchen splashback", color: "Beige", price: "$22.99/m²", popularity: 4.5, image: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=800&fit=crop", installedImage: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&fit=crop", features: ["Heat resistant", "Easy to clean", "Scratch resistant"] },
-  { id: 3, name: "Natural Stone Effect", material: "Natural Stone/Wood", finish: "Textured", size: "30x90 cm", waterResistance: "High", cleaning: "Gentle brush or damp cloth", bestFor: "Feature walls", color: "Sandstone", price: "$35.99/m²", popularity: 4.8, image: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&fit=crop", installedImage: "https://images.unsplash.com/photo-1600566752371-bb4b3b6d19a8?w=800&fit=crop", features: ["Natural appearance", "Unique texture", "Easy installation"] },
-  { id: 4, name: "Glossy Ceramic Wall", material: "Ceramic", finish: "Gloss", size: "30x60 cm", waterResistance: "Moderate", cleaning: "Easy wipe", bestFor: "Bathroom walls", color: "White", price: "$19.99/m²", popularity: 4.4, image: "https://images.unsplash.com/photo-1586114667256-8c50e6d6c7d3?w=800&fit=crop", installedImage: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&fit=crop", features: ["Reflective surface", "Stain resistant", "Water resistant"] },
-  { id: 5, name: "Subway White", material: "Porcelain", finish: "Gloss", size: "15x30 cm", waterResistance: "High", cleaning: "Mild detergent", bestFor: "Kitchen walls", color: "White", price: "$26.99/m²", popularity: 4.6, image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&fit=crop", installedImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&fit=crop", features: ["Classic design", "Easy to clean", "Timeless look"] },
-  { id: 6, name: "Herringbone Pattern", material: "Ceramic", finish: "Matte", size: "20x90 cm", waterResistance: "Moderate", cleaning: "Damp cloth", bestFor: "Feature walls", color: "Gray", price: "$31.99/m²", popularity: 4.7, image: "https://images.unsplash.com/photo-1564436872-f6d41138b2b6?w=800&fit=crop", installedImage: "https://images.unsplash.com/photo-1600566752371-bb4b3b6d19a8?w=800&fit=crop", features: ["Modern pattern", "Easy maintenance", "Durable"] },
-  { id: 7, name: "Wood Effect Wall", material: "Natural Stone/Wood", finish: "Textured", size: "25x75 cm", waterResistance: "High", cleaning: "Soft cloth", bestFor: "Accent walls", color: "Brown", price: "$38.99/m²", popularity: 4.9, image: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=800&fit=crop", installedImage: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&fit=crop", features: ["Wood-like texture", "Warm appearance", "Easy to clean"] },
-  { id: 8, name: "Metallic Gloss", material: "Porcelain", finish: "Gloss", size: "30x60 cm", waterResistance: "High", cleaning: "Glass cleaner", bestFor: "Modern bathrooms", color: "Silver", price: "$42.99/m²", popularity: 4.8, image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&fit=crop", installedImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&fit=crop", features: ["Metallic finish", "Modern look", "Easy maintenance"] },
+  { id: 1, name: "Classic Porcelain Wall", material: "Porcelain", finish: "Gloss", size: "30x90 cm", waterResistance: "High", cleaning: "Easy cleaning with mild detergent", bestFor: "Bathroom walls", color: "White", price: "$28.99/m²", popularity: 4.7, image: wall1, installedImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&fit=crop", features: ["Mold resistant", "Easy maintenance", "High durability"] },
+  { id: 2, name: "Ceramic Pattern Wall", material: "Ceramic", finish: "Matte", size: "59.6x150 cm", waterResistance: "Moderate", cleaning: "Wipe with damp cloth", bestFor: "Kitchen splashback", color: "Beige", price: "$22.99/m²", popularity: 4.5, image: wall2, installedImage: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&fit=crop", features: ["Heat resistant", "Easy to clean", "Scratch resistant"] },
+  { id: 3, name: "Natural Stone Effect", material: "Natural Stone/Wood", finish: "Textured", size: "30x90 cm", waterResistance: "High", cleaning: "Gentle brush or damp cloth", bestFor: "Feature walls", color: "Sandstone", price: "$35.99/m²", popularity: 4.8, image: wall3, installedImage: "https://images.unsplash.com/photo-1600566752371-bb4b3b6d19a8?w=800&fit=crop", features: ["Natural appearance", "Unique texture", "Easy installation"] },
+  { id: 4, name: "Glossy Ceramic Wall", material: "Ceramic", finish: "Gloss", size: "30x60 cm", waterResistance: "Moderate", cleaning: "Easy wipe", bestFor: "Bathroom walls", color: "White", price: "$19.99/m²", popularity: 4.4, image: wall4, installedImage: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&fit=crop", features: ["Reflective surface", "Stain resistant", "Water resistant"] },
+  { id: 5, name: "Subway White", material: "Porcelain", finish: "Gloss", size: "15x30 cm", waterResistance: "High", cleaning: "Mild detergent", bestFor: "Kitchen walls", color: "White", price: "$26.99/m²", popularity: 4.6, image: wall5, installedImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&fit=crop", features: ["Classic design", "Easy to clean", "Timeless look"] },
+  { id: 6, name: "Herringbone Pattern", material: "Ceramic", finish: "Matte", size: "20x90 cm", waterResistance: "Moderate", cleaning: "Damp cloth", bestFor: "Feature walls", color: "Gray", price: "$31.99/m²", popularity: 4.7, image: wall6, installedImage: "https://images.unsplash.com/photo-1600566752371-bb4b3b6d19a8?w=800&fit=crop", features: ["Modern pattern", "Easy maintenance", "Durable"] },
+  { id: 7, name: "Wood Effect Wall", material: "Natural Stone/Wood", finish: "Textured", size: "25x75 cm", waterResistance: "High", cleaning: "Soft cloth", bestFor: "Accent walls", color: "Brown", price: "$38.99/m²", popularity: 4.9, image: wall7, installedImage: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&fit=crop", features: ["Wood-like texture", "Warm appearance", "Easy to clean"] },
+  { id: 8, name: "Metallic Gloss", material: "Porcelain", finish: "Gloss", size: "30x60 cm", waterResistance: "High", cleaning: "Glass cleaner", bestFor: "Modern bathrooms", color: "Silver", price: "$42.99/m²", popularity: 4.8, image: wall8, installedImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&fit=crop", features: ["Metallic finish", "Modern look", "Easy maintenance"] },
 ];
 
 const finishGuide = [
@@ -28,7 +39,6 @@ const WallTiles = () => {
   const [sortBy, setSortBy] = useState("popularity");
   const [viewMode, setViewMode] = useState("grid");
   
-  // ADD CARTCONTEXT
   const { addToCart, cartCount } = useCart();
 
   useEffect(() => { AOS.init({ duration: 800, easing: "ease-in-out", once: true }); }, []);
@@ -47,10 +57,8 @@ const WallTiles = () => {
     return a.id - b.id;
   });
 
-  // UPDATE ADD TO CART FUNCTION
   const handleAddToCart = (product, e) => {
     e?.stopPropagation();
-    // Extract numeric price from string (remove "$" and "/m²")
     const price = parseFloat(product.price.replace('$', '').replace('/m²', ''));
     
     addToCart({
@@ -58,7 +66,7 @@ const WallTiles = () => {
       name: product.name,
       price: price,
       image: product.image,
-      series: product.material, // Map "material" to "series" for CartContext
+      series: product.material,
       finish: product.finish
     });
     alert(`${product.name} added to cart!`);
@@ -81,9 +89,11 @@ const WallTiles = () => {
       </div>
 
       {/* Hero Banner */}
-      <div className="relative w-full h-[60vh] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&fit=crop" alt="Wall Tiles" className="w-full h-full object-cover" />
+      <div className="relative w-full h-[80vh] overflow-hidden">
+        <img src={heroImage} alt="Wall Tiles" className="w-full h-full object-cover" />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4 bg-gradient-to-t from-black/70 via-black/40 to-transparent">
+          <div className="absolute inset-0 bg-black/30"></div>
+
           <p className="text-sm md:text-lg mb-2 tracking-widest">VERTICAL SURFACES</p>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">WALL TILES</h1>
           <p className="text-lg md:text-xl max-w-2xl">Transform your walls with style and durability</p>
@@ -219,17 +229,17 @@ const WallTiles = () => {
                     ))}
                   </div>
                   
-                      <div className="flex gap-2">
-                                      <button 
-                                        className="flex-1 bg-gray-900 text-white py-2.5 rounded-xl font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-1 text-sm" 
-                                        onClick={(e) => handleAddToCart(product, e)} // UPDATED HANDLER
-                                      >
-                                        <FiShoppingCart size={14} /> Add
-                                      </button>
-                                      <button className="flex-1 bg-gray-100 text-gray-700 py-2.5 rounded-xl font-medium hover:bg-gray-200 transition-colors flex items-center justify-center gap-1 text-sm" onClick={() => setModalProduct(product)}>
-                                        <FiEye size={14} /> View
-                                      </button>
-                                    </div>
+                  <div className="flex gap-2">
+                    <button 
+                      className="flex-1 bg-gray-900 text-white py-2.5 rounded-xl font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-1 text-sm" 
+                      onClick={(e) => handleAddToCart(product, e)}
+                    >
+                      <FiShoppingCart size={14} /> Add
+                    </button>
+                    <button className="flex-1 bg-gray-100 text-gray-700 py-2.5 rounded-xl font-medium hover:bg-gray-200 transition-colors flex items-center justify-center gap-1 text-sm" onClick={() => setModalProduct(product)}>
+                      <FiEye size={14} /> View
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -307,7 +317,7 @@ const WallTiles = () => {
                 <div className="flex gap-4">
                   <button 
                     className="flex-1 bg-blue-600 text-white py-4 rounded-xl font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" 
-                    onClick={(e) => handleAddToCart(modalProduct, e)} // UPDATED HANDLER
+                    onClick={(e) => handleAddToCart(modalProduct, e)}
                   >
                     <FiShoppingCart /> Add to Cart
                   </button>

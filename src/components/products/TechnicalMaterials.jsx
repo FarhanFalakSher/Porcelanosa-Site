@@ -3,15 +3,26 @@ import { FiChevronRight, FiCheck, FiShoppingCart, FiEye, FiPackage, FiThermomete
 import { useCart } from "../cart/CartContext";
 import { Link } from "react-router-dom";
 
+// Import local images
+import technical1 from "../../assets/technical (1).jpg";
+import technical2 from "../../assets/technical (5).jpg";
+import technical3 from "../../assets/technical (2).avif";
+import technical4 from "../../assets/technical (2).jpg";
+import technical5 from "../../assets/technical (2).webp";
+import technical6 from "../../assets/technical (3).jpg";
+import technical7 from "../../assets/technical (4).jpg";
+import technical8 from "../../assets/technical (1).avif";
+import technicalHero from "../../assets/technical (1).webp";
+
 const technicalProducts = [
-  { id: 1, title: "High-Strength Adhesive", type: "Adhesive", material: "Chemical", application: "Wall & Floor", price: "$25", sku: "TM-1001", features: ["Waterproof", "Thermal resistant"], dimensions: "1L Tube", coverage: "2-3 m²", weight: "1.2kg", temp: "120°C", water: "Class D", img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&fit=crop", comp: "Polymer", install: "Guide" },
-  { id: 2, title: "Sealant Waterproofing Kit", type: "Sealant", material: "Polyurethane", application: "Outdoor/Indoor", price: "$40", sku: "TM-2001", features: ["UV-resistant", "Flexible"], dimensions: "500ml Kit", coverage: "5-8 m²", weight: "0.9kg", temp: "-30 to 80°C", water: "Waterproof", img: "https://images.unsplash.com/photo-1591453089546-4c3d5cbec7c9?w=800&fit=crop", comp: "Two-Part", install: "Guide" },
-  { id: 3, title: "Metal Profile Support", type: "Profile", material: "Aluminum", application: "Façade", price: "$30", sku: "TM-3001", features: ["Corrosion-proof", "High strength"], dimensions: "2m Length", coverage: "N/A", weight: "2.5kg", temp: "N/A", water: "Corrosion", img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&fit=crop", comp: "Alloy", install: "Hardware" },
-  { id: 4, title: "Drainage System Kit", type: "Drainage", material: "PVC", application: "Terrace", price: "$80", sku: "TM-4001", features: ["High flow", "UV resistant"], dimensions: "1m² Set", coverage: "1 m²", weight: "3.8kg", temp: "-20 to 60°C", water: "Drainage", img: "https://images.unsplash.com/photo-1591453089546-4c3d5cbec7c9?w=800&fit=crop", comp: "Polymer+Steel", install: "Guide" },
-  { id: 5, title: "Epoxy Mortar Mix", type: "Adhesive", material: "Epoxy", application: "Industrial", price: "$65", sku: "TM-5001", features: ["Chemical proof", "High strength"], dimensions: "5kg Kit", coverage: "1.5 m²", weight: "5.5kg", temp: "150°C", water: "Waterproof", img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&fit=crop", comp: "Two-Part", install: "Mix guide" },
-  { id: 6, title: "Acoustic Sealant", type: "Sealant", material: "Acrylic", application: "Interior", price: "$28", sku: "TM-6001", features: ["Sound proof", "Fire rated"], dimensions: "300ml", coverage: "3-4 m²", weight: "0.5kg", temp: "100°C", water: "Moisture", img: "https://images.unsplash.com/photo-1591453089546-4c3d5cbec7c9?w=800&fit=crop", comp: "Polymer", install: "Caulk gun" },
-  { id: 7, title: "Stainless Bracket", type: "Profile", material: "Steel", application: "Structural", price: "$45", sku: "TM-7001", features: ["Rust proof", "Heavy duty"], dimensions: "30x30x2cm", coverage: "N/A", weight: "1.8kg", temp: "N/A", water: "Rust proof", img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&fit=crop", comp: "304 Grade", install: "Hardware" },
-  { id: 8, title: "Roof Membrane", type: "Drainage", material: "Polymer", application: "Roof", price: "$120", sku: "TM-8001", features: ["Self-adhesive", "Puncture proof"], dimensions: "10x1m Roll", coverage: "10 m²", weight: "12kg", temp: "-40 to 100°C", water: "Waterproof", img: "https://images.unsplash.com/photo-1591453089546-4c3d5cbec7c9?w=800&fit=crop", comp: "Bituminous", install: "Roll" },
+  { id: 1, title: "High-Strength Adhesive", type: "Adhesive", material: "Chemical", application: "Wall & Floor", price: "$25", sku: "TM-1001", features: ["Waterproof", "Thermal resistant"], dimensions: "1L Tube", coverage: "2-3 m²", weight: "1.2kg", temp: "120°C", water: "Class D", img: technical1, comp: "Polymer", install: "Guide" },
+  { id: 2, title: "Sealant Waterproofing Kit", type: "Sealant", material: "Polyurethane", application: "Outdoor/Indoor", price: "$40", sku: "TM-2001", features: ["UV-resistant", "Flexible"], dimensions: "500ml Kit", coverage: "5-8 m²", weight: "0.9kg", temp: "-30 to 80°C", water: "Waterproof", img: technical2, comp: "Two-Part", install: "Guide" },
+  { id: 3, title: "Metal Profile Support", type: "Profile", material: "Aluminum", application: "Façade", price: "$30", sku: "TM-3001", features: ["Corrosion-proof", "High strength"], dimensions: "2m Length", coverage: "N/A", weight: "2.5kg", temp: "N/A", water: "Corrosion", img: technical3, comp: "Alloy", install: "Hardware" },
+  { id: 4, title: "Drainage System Kit", type: "Drainage", material: "PVC", application: "Terrace", price: "$80", sku: "TM-4001", features: ["High flow", "UV resistant"], dimensions: "1m² Set", coverage: "1 m²", weight: "3.8kg", temp: "-20 to 60°C", water: "Drainage", img: technical4, comp: "Polymer+Steel", install: "Guide" },
+  { id: 5, title: "Epoxy Mortar Mix", type: "Adhesive", material: "Epoxy", application: "Industrial", price: "$65", sku: "TM-5001", features: ["Chemical proof", "High strength"], dimensions: "5kg Kit", coverage: "1.5 m²", weight: "5.5kg", temp: "150°C", water: "Waterproof", img: technical5, comp: "Two-Part", install: "Mix guide" },
+  { id: 6, title: "Acoustic Sealant", type: "Sealant", material: "Acrylic", application: "Interior", price: "$28", sku: "TM-6001", features: ["Sound proof", "Fire rated"], dimensions: "300ml", coverage: "3-4 m²", weight: "0.5kg", temp: "100°C", water: "Moisture", img: technical6, comp: "Polymer", install: "Caulk gun" },
+  { id: 7, title: "Stainless Bracket", type: "Profile", material: "Steel", application: "Structural", price: "$45", sku: "TM-7001", features: ["Rust proof", "Heavy duty"], dimensions: "30x30x2cm", coverage: "N/A", weight: "1.8kg", temp: "N/A", water: "Rust proof", img: technical7, comp: "304 Grade", install: "Hardware" },
+  { id: 8, title: "Roof Membrane", type: "Drainage", material: "Polymer", application: "Roof", price: "$120", sku: "TM-8001", features: ["Self-adhesive", "Puncture proof"], dimensions: "10x1m Roll", coverage: "10 m²", weight: "12kg", temp: "-40 to 100°C", water: "Waterproof", img: technical8, comp: "Bituminous", install: "Roll" },
 ];
 
 const TechnicalMaterials = () => {
@@ -77,9 +88,11 @@ const TechnicalMaterials = () => {
       </Link>
 
       {/* Hero Banner */}
-      <div className="relative w-full h-[50vh] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1920&fit=crop" alt="Technical Materials" className="w-full h-full object-cover" />
+      <div className="relative w-full h-[80vh] overflow-hidden">
+        <img src={technicalHero} alt="Technical Materials" className="w-full h-full object-cover" />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4 bg-gradient-to-t from-black/70 to-transparent">
+          <div className="absolute inset-0 bg-black/20"></div>
+
           <p className="text-sm md:text-lg mb-2 tracking-widest">CONSTRUCTION ESSENTIALS</p>
           <h1 className="text-4xl md:text-6xl font-bold mb-4">TECHNICAL MATERIALS</h1>
           <p className="text-lg max-w-2xl">Professional construction materials for building projects</p>

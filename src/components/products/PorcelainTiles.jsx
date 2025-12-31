@@ -1,17 +1,28 @@
 // PorcelainTiles.jsx
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { FiChevronRight, FiX, FiCheck, FiFilter, FiGrid, FiList, FiDownload, FiShoppingCart, FiEye } from "react-icons/fi";
-import { useCart } from "../cart/CartContext"; // ADD THIS IMPORT
+import { useCart } from "../cart/CartContext";
+
+// Import images from assets folder
+import heroImage from "../../assets/porclein (1).jpg";
+import product1 from "../../assets/porclein (9).jpg";
+import product2 from "../../assets/porclein (6).jpg";
+import product3 from "../../assets/porclein (4).jpg";
+import product4 from "../../assets/porclein (8).jpg";
+import product5 from "../../assets/porclein (3).jpg";
+import product6 from "../../assets/porclein (5).jpg";
+import product7 from "../../assets/porclein (2).jpg";
+import product8 from "../../assets/porclein (7).jpg";
 
 const products = [
-  { id: 1, name: "Toscano", series: "BONE", finish: "Polished", application: "Floor & Wall", size: "60x60 cm", slipResistance: "R10", thickness: "10 mm", rectifiedEdge: "Yes", waterAbsorption: "<0.5%", color: "White Marble", image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&auto=format&fit=crop", installedImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w-800&auto=format&fit=crop", price: 89 },
-  { id: 2, name: "Limestone", series: "BONE", finish: "Matte", application: "Floor", size: "120x120 cm", slipResistance: "R11", thickness: "12 mm", rectifiedEdge: "No", waterAbsorption: "<0.5%", color: "Light Beige", image: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&auto=format&fit=crop", installedImage: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&auto=format&fit=crop", price: 120 },
-  { id: 3, name: "Marmol Crema", series: "MARFIL", finish: "Polished", application: "Floor & Wall", size: "80x80 cm", slipResistance: "R10", thickness: "10 mm", rectifiedEdge: "Yes", waterAbsorption: "<0.5%", color: "Cream", image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&auto=format&fit=crop", installedImage: "https://images.unsplash.com/photo-1600566752371-bb4b3b6d19a8?w=800&auto=format&fit=crop", price: 95 },
-  { id: 4, name: "Wood Effect", series: "BONE", finish: "Natural", application: "Floor", size: "20x120 cm", slipResistance: "R10", thickness: "9 mm", rectifiedEdge: "Yes", waterAbsorption: "<0.5%", color: "Oak Brown", image: "https://images.unsplash.com/photo-1586114667256-8c50e6d6c7d3?w=800&auto=format&fit=crop", installedImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&auto=format&fit=crop", price: 75 },
-  { id: 5, name: "Grey Stone", series: "STONE", finish: "Matte", application: "Floor", size: "60x60 cm", slipResistance: "R11", thickness: "10 mm", rectifiedEdge: "Yes", waterAbsorption: "<0.5%", color: "Grey", image: "https://images.unsplash.com/photo-1564436872-f6d41138b2b6?w=800&auto=format&fit=crop", installedImage: "https://images.unsplash.com/photo-1600566752371-bb4b3b6d19a8?w=800&auto=format&fit=crop", price: 82 },
-  { id: 6, name: "Beige Marble", series: "MARFIL", finish: "Polished", application: "Floor & Wall", size: "80x80 cm", slipResistance: "R10", thickness: "10 mm", rectifiedEdge: "Yes", waterAbsorption: "<0.5%", color: "Beige", image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&auto=format&fit=crop", installedImage: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&auto=format&fit=crop", price: 105 },
-  { id: 7, name: "Travertine", series: "STONE", finish: "Natural", application: "Wall", size: "60x120 cm", slipResistance: "R10", thickness: "9 mm", rectifiedEdge: "Yes", waterAbsorption: "<0.5%", color: "Sand", image: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&auto=format&fit=crop", installedImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&auto=format&fit=crop", price: 110 },
-  { id: 8, name: "Black Slate", series: "STONE", finish: "Matte", application: "Floor & Wall", size: "60x60 cm", slipResistance: "R11", thickness: "10 mm", rectifiedEdge: "Yes", waterAbsorption: "<0.5%", color: "Black", image: "https://images.unsplash.com/photo-1564436872-f6d41138b2b6?w=800&auto=format&fit=crop", installedImage: "https://images.unsplash.com/photo-1600566752371-bb4b3b6d19a8?w=800&auto=format&fit=crop", price: 98 },
+  { id: 1, name: "Toscano", series: "BONE", finish: "Polished", application: "Floor & Wall", size: "60x60 cm", slipResistance: "R10", thickness: "10 mm", rectifiedEdge: "Yes", waterAbsorption: "<0.5%", color: "White Marble", image: product1, installedImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w-800&auto=format&fit=crop", price: 89 },
+  { id: 2, name: "Limestone", series: "BONE", finish: "Matte", application: "Floor", size: "120x120 cm", slipResistance: "R11", thickness: "12 mm", rectifiedEdge: "No", waterAbsorption: "<0.5%", color: "Light Beige", image: product2, installedImage: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&auto=format&fit=crop", price: 120 },
+  { id: 3, name: "Marmol Crema", series: "MARFIL", finish: "Polished", application: "Floor & Wall", size: "80x80 cm", slipResistance: "R10", thickness: "10 mm", rectifiedEdge: "Yes", waterAbsorption: "<0.5%", color: "Cream", image: product3, installedImage: "https://images.unsplash.com/photo-1600566752371-bb4b3b6d19a8?w=800&auto=format&fit=crop", price: 95 },
+  { id: 4, name: "Wood Effect", series: "BONE", finish: "Natural", application: "Floor", size: "20x120 cm", slipResistance: "R10", thickness: "9 mm", rectifiedEdge: "Yes", waterAbsorption: "<0.5%", color: "Oak Brown", image: product4, installedImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&auto=format&fit=crop", price: 75 },
+  { id: 5, name: "Grey Stone", series: "STONE", finish: "Matte", application: "Floor", size: "60x60 cm", slipResistance: "R11", thickness: "10 mm", rectifiedEdge: "Yes", waterAbsorption: "<0.5%", color: "Grey", image: product5, installedImage: "https://images.unsplash.com/photo-1600566752371-bb4b3b6d19a8?w=800&auto=format&fit=crop", price: 82 },
+  { id: 6, name: "Beige Marble", series: "MARFIL", finish: "Polished", application: "Floor & Wall", size: "80x80 cm", slipResistance: "R10", thickness: "10 mm", rectifiedEdge: "Yes", waterAbsorption: "<0.5%", color: "Beige", image: product6, installedImage: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&auto=format&fit=crop", price: 105 },
+  { id: 7, name: "Travertine", series: "STONE", finish: "Natural", application: "Wall", size: "60x120 cm", slipResistance: "R10", thickness: "9 mm", rectifiedEdge: "Yes", waterAbsorption: "<0.5%", color: "Sand", image: product7, installedImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&auto=format&fit=crop", price: 110 },
+  { id: 8, name: "Black Slate", series: "STONE", finish: "Matte", application: "Floor & Wall", size: "60x60 cm", slipResistance: "R11", thickness: "10 mm", rectifiedEdge: "Yes", waterAbsorption: "<0.5%", color: "Black", image: product8, installedImage: "https://images.unsplash.com/photo-1600566752371-bb4b3b6d19a8?w=800&auto=format&fit=crop", price: 98 },
 ];
 
 const PorcelainTiles = () => {
@@ -20,17 +31,7 @@ const PorcelainTiles = () => {
   const [sortBy, setSortBy] = useState("novelty");
   const [viewMode, setViewMode] = useState("grid");
   
-  // USE CARTCONTEXT INSTEAD OF LOCAL STATE
-  const { addToCart, cartCount } = useCart(); // ADD THIS
-
-  // REMOVE THIS LOCAL CART STATE:
-  // const [cart, setCart] = useState([]);
-  
-  // REMOVE THIS USEEFFECT:
-  // useEffect(() => {
-  //   const savedCart = localStorage.getItem('cart');
-  //   if (savedCart) setCart(JSON.parse(savedCart));
-  // }, []);
+  const { addToCart, cartCount } = useCart();
 
   const filteredProducts = products.filter(p => {
     const seriesMatch = filters.series === "all" || p.series === filters.series;
@@ -40,7 +41,6 @@ const PorcelainTiles = () => {
     return seriesMatch && finishMatch && appMatch && sizeMatch;
   });
 
-  // UPDATE THIS FUNCTION TO USE CONTEXT
   const handleAddToCart = (product, e) => {
     e?.stopPropagation();
     addToCart({
@@ -60,7 +60,7 @@ const PorcelainTiles = () => {
         <div className="relative">
           <button className="bg-white p-4 rounded-full shadow-xl hover:shadow-2xl transition-all hover:scale-105">
             <FiShoppingCart className="text-gray-900 text-2xl" />
-            {cartCount > 0 && ( // USE cartCount INSTEAD OF cart.length
+            {cartCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-gradient-to-r from-red-500 to-red-600 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center">
                 {cartCount}
               </span>
@@ -69,9 +69,11 @@ const PorcelainTiles = () => {
         </div>
       </div>
 
-      <div className="relative w-full h-[70vh] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&auto=format&fit=crop" alt="Porcelain Tiles" className="w-full h-full object-cover brightness-90" />
+      <div className="relative w-full h-[80vh] overflow-hidden ">
+        <img src={heroImage} alt="Porcelain Tiles" className="w-full h-full bg-black/80 object-cover brightness-90" />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4 bg-gradient-to-t from-black/60 to-transparent">
+          <div className="absolute inset-0 bg-black/20"></div>
+
           <p className="text-sm md:text-lg mb-2 tracking-widest">PREMIUM FLOORING</p>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">PORCELAIN TILES</h1>
           <p className="text-lg md:text-xl max-w-2xl">Luxury, durability, and timeless elegance for every space</p>
@@ -175,17 +177,17 @@ const PorcelainTiles = () => {
                     </div>
                   </div>
                   
-                    <div className="flex gap-2">
-                                    <button 
-                                      className="flex-1 bg-gray-900 text-white py-2.5 rounded-xl font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-1 text-sm" 
-                                      onClick={(e) => handleAddToCart(product, e)} // UPDATED HANDLER
-                                    >
-                                      <FiShoppingCart size={14} /> Add
-                                    </button>
-                                    <button className="flex-1 bg-gray-100 text-gray-700 py-2.5 rounded-xl font-medium hover:bg-gray-200 transition-colors flex items-center justify-center gap-1 text-sm" onClick={() => setModalProduct(product)}>
-                                      <FiEye size={14} /> View
-                                    </button>
-                                  </div>
+                  <div className="flex gap-2">
+                    <button 
+                      className="flex-1 bg-gray-900 text-white py-2.5 rounded-xl font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-1 text-sm" 
+                      onClick={(e) => handleAddToCart(product, e)}
+                    >
+                      <FiShoppingCart size={14} /> Add
+                    </button>
+                    <button className="flex-1 bg-gray-100 text-gray-700 py-2.5 rounded-xl font-medium hover:bg-gray-200 transition-colors flex items-center justify-center gap-1 text-sm" onClick={() => setModalProduct(product)}>
+                      <FiEye size={14} /> View
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -228,7 +230,6 @@ const PorcelainTiles = () => {
                 </div>
                 
                 <div className="mt-8 flex gap-4">
-                  {/* UPDATE ONCLICK HANDLER */}
                   <button onClick={(e) => handleAddToCart(modalProduct, e)} className="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 rounded-xl font-medium hover:from-blue-700 hover:to-blue-800 transition-all duration-300 flex items-center justify-center gap-2">
                     <FiShoppingCart /> Add to Cart
                   </button>

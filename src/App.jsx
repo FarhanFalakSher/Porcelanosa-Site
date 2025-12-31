@@ -25,6 +25,8 @@ import Health from "./pages/Health";
 import StoreProjects from "./pages/StoresProjects";
 import PublicPlaces from "./pages/PublicPlacesProjects";
 import Companies from "./pages/CompaniesProjects";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 
 function App() {
   const location = useLocation();
@@ -45,21 +47,25 @@ function App() {
         <Route element={<MainLayout />}>
           {/* Main Pages */}
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutGroupPage />} />
+          <Route path="/about-group" element={<AboutGroupPage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/cart" element={<ShoppingCart />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+
+
 
           {/* Projects Group */}
           <Route path="/projects">
             <Route path="home-projects" element={<HomeProjects />} />
-            <Route path="hotel-projects" element={<Hotels />} />
-            <Route path="resturant-projects" element={<Resturants />} />
-            <Route path="sport-projects" element={<SportFacilities />} />
-            <Route path="labortry-projects" element={<Labortries />} />
+            <Route path="hotels" element={<Hotels />} />
+            <Route path="restaurants" element={<Resturants />} />
+            <Route path="sports-facilities" element={<SportFacilities />} />
+            <Route path="laboratories" element={<Labortries />} />
             <Route path="health-projects" element={<Health />} />
-            <Route path="store-projects" element={<StoreProjects />} />
-            <Route path="public-place-projects" element={<PublicPlaces />} />
-            <Route path="company-projects" element={<Companies />} />
+            <Route path="stores" element={<StoreProjects />} />
+            <Route path="public-spaces" element={<PublicPlaces />} />
+            <Route path="offices-companies" element={<Companies />} />
           </Route>
 
           {/* Blog Group */}
