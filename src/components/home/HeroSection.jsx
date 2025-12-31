@@ -3,7 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 // Import local video
-import heroVideo from "../../assets/hero.mp4";
+import header from "../../assets/header.mp4";
 
 const HeroSection = () => {
   useEffect(() => {
@@ -20,7 +20,7 @@ const HeroSection = () => {
       <div className="absolute inset-0">
         <video
           className="h-full w-full object-cover opacity-60 transform scale-105 animate-heroFadeZoom"
-          src={heroVideo}
+          src={header}
           autoPlay
           loop
           muted
