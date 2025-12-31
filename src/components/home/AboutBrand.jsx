@@ -17,7 +17,6 @@ const AboutBrand = () => {
   return (
     <section className="bg-white px-6 py-8 lg:px-16">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
-        {/* Text Content */}
         <div data-aos="fade-up" className="lg:w-1/2 w-full">
           <h2 className="mb-6 text-3xl md:text-4xl font-2xl text-gray-900 relative inline-block">
             Our Philosophy
@@ -44,7 +43,6 @@ const AboutBrand = () => {
           </ul>
         </div>
 
-        {/* Image with opacity */}
         <div
           data-aos="fade-up"
           className="lg:w-1/2 w-full overflow-hidden rounded-xl shadow-xl relative group"
@@ -54,7 +52,6 @@ const AboutBrand = () => {
             alt="Brand Philosophy"
             className="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105 brightness-75 opacity-90"
           />
-          {/* Optional overlay for subtle premium effect */}
           <div className="absolute inset-0 bg-black/20 pointer-events-none rounded-2xl"></div>
         </div>
       </div>
