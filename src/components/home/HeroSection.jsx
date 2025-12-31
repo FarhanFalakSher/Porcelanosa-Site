@@ -26,13 +26,12 @@ const HeroSection = () => {
           muted
           playsInline
         />
-        {/* Overlay for premium dark effect */}
         <div className="absolute inset-0 bg-black/50"></div>
       </div>
 
       {/* Content */}
       <div className="relative z-10 flex h-full items-center justify-center px-6 lg:px-16">
-        <div className="max-w-4xl translate-y-20 text-center text-white">
+        <div className="max-w-4xl translate-y-2 text-center text-white">
           <h1
             data-aos="fade-up"
             className="mb-6 text-3xl font-2xl tracking-wide md:text-5xl lg:text-6xl"
