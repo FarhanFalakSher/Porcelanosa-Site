@@ -87,7 +87,6 @@ const TechnicalMaterials = () => {
         </div>
       </Link>
 
-      {/* Hero Banner */}
       <div className="relative w-full h-[80vh] overflow-hidden">
         <img src={technicalHero} alt="Technical Materials" className="w-full h-full object-cover" />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4 bg-gradient-to-t from-black/70 to-transparent">

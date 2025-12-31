@@ -33,7 +33,7 @@ const PorcelanosaDistributors = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white overflow-hidden">
 
       {/* Hero Section */}
       <div className="relative min-h-[70vh]  bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
@@ -42,26 +42,26 @@ const PorcelanosaDistributors = () => {
           <div className="text-center max-w-3xl">
             <div className="mb-8" data-aos="fade-down">
               <div className="flex items-center justify-center space-x-4">
-                <div className="h-px w-12 bg-emerald-300"></div>
-                <span className="text-sm tracking-[0.3em] font-semibold text-emerald-200 uppercase">PORCELANOSA ASSOCIATE</span>
-                <div className="h-px w-12 bg-emerald-300"></div>
+                <div className="h-px w-12 bg-white"></div>
+                <span className="text-sm tracking-[0.3em] font-semibold text-white uppercase">PORCELANOSA ASSOCIATE</span>
+                <div className="h-px w-12 bg-white"></div>
               </div>
             </div>
 
-            <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6" data-aos="fade-up">
+            <h1 className="text-3xl lg:text-5xl font-bold text-white mb-6" data-aos="fade-up">
               <span className="block">Distribution</span>
-              <span className="block text-4xl font-light text-emerald-100 mt-3">Partnership Program</span>
+              <span className="block text-3xl font-light text-white mt-3">Partnership Program</span>
             </h1>
 
-            <p className="text-xl text-emerald-100 mb-12 max-w-2xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+            <p className="text-xl text-white mb-12 max-w-2xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="200">
               Join our global network of authorized distributors. Exclusive territories, premium products, and full support for your business growth.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-5 justify-center" data-aos="fade-up" data-aos-delay="300">
-              <button className="group px-12 py-4 bg-white text-[#15295F] font-bold rounded-xl hover:bg-emerald-50 transition-all duration-300 shadow-xl flex items-center justify-center gap-3 mx-auto sm:mx-0">
+              <button className="group px-5 py-2 bg-white text-gray-900 font-bold rounded-xl transition-all duration-300 shadow-xl flex items-center justify-center gap-3 mx-auto sm:mx-0">
                 Become Distributor <FiChevronRight className="group-hover:translate-x-2 transition-transform" />
               </button>
-              <button className="px-12 py-4 border-2 border-white text-white font-bold rounded-xl hover:bg-white/10 transition-all duration-300 mx-auto sm:mx-0">
+              <button className="px-5 py-2 border-2 border-white text-white hover:bg-white hover:text-gray-900 font-bold rounded-xl  transition-all duration-300 mx-auto sm:mx-0">
                 Partner With Us
               </button>
             </div>
@@ -70,9 +70,9 @@ const PorcelanosaDistributors = () => {
       </div>
 
       {/* Benefits */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-16 mt-20">
+      <div className="max-w-7xl mx-auto px-6 lg:px-16 py-6">
         <div className="text-center mb-16" data-aos="fade-up">
-          <h2 className="text-4xl font-bold text-slate-900 mb-6">Partnership Benefits</h2>
+          <h2 className="text-3xl font-bold text-slate-900 mb-6">Partnership Benefits</h2>
           <p className="text-slate-600 max-w-2xl mx-auto">Why distributors choose Porcelanosa</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -87,7 +87,7 @@ const PorcelanosaDistributors = () => {
       </div>
 
       {/* Programs */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-16 mt-32">
+      <div className="max-w-7xl mx-auto px-6 lg:px-16 py-6">
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-4xl font-bold text-slate-900 mb-6">Distribution Programs</h2>
           <p className="text-slate-600 max-w-2xl mx-auto">Comprehensive sales and support programs for distributors</p>
@@ -115,7 +115,7 @@ const PorcelanosaDistributors = () => {
       </div>
 
       {/* Requirements & CTA */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-16 mt-32 grid lg:grid-cols-2 gap-12">
+      <div className="max-w-7xl mx-auto px-6 lg:px-16 py-8 grid lg:grid-cols-2 gap-12">
         {/* Requirements */}
         <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-10 text-white" data-aos="fade-right">
           <h3 className="text-3xl font-bold mb-8">Requirements</h3>
@@ -123,33 +123,33 @@ const PorcelanosaDistributors = () => {
           <ul className="space-y-4">
             {requirements.map((req, idx) => (
               <li key={idx} className="flex items-center gap-3">
-                <FiCheck className="text-emerald-400 text-xl flex-shrink-0" />
+                <FiCheck className="text-blue-400 text-xl flex-shrink-0" />
                 <span>{req}</span>
               </li>
             ))}
           </ul>
-          <button className="mt-10 w-full py-4 bg-white text-slate-900 font-bold rounded-xl hover:bg-slate-100 transition-all duration-300 shadow-lg transform hover:-translate-y-1">
+          <button className="mt-10 w-full px-5 py-2 bg-white text-slate-900 font-bold rounded-xl hover:bg-slate-100 transition-all duration-300 shadow-lg transform hover:-translate-y-1">
             Apply Now
           </button>
         </div>
 
         {/* CTA */}
-        <div className="bg-white rounded-2xl p-12 flex flex-col justify-center items-center text-center shadow-lg" data-aos="fade-left">
+        <div className="bg-white rounded-xl px-5 py-2 flex flex-col justify-center items-center text-center shadow-lg" data-aos="fade-left">
           <h3 className="text-4xl font-bold text-[#15295F] mb-6">Start Your Distribution Partnership</h3>
           <p className="text-[#15295F] mb-10 max-w-lg">Join one of the world's leading manufacturers of premium construction materials.</p>
           <div className="flex flex-col sm:flex-row gap-6">
-            <button className="px-10 py-4 bg-[#15295F] text-white font-bold rounded-xl hover:bg-[#6488cb] transition-all shadow-lg transform hover:-translate-y-1 flex items-center gap-2">
-              <FiTrendingUp /> Request Partnership Info
+            <button className="px-5 py-2 border-2 text-gray-900 font-bold rounded-xl hover:text-white hover:bg-gray-800 transition-all shadow-lg transform hover:-translate-y-1 flex items-center gap-2">
+               Request Partnership Info
             </button>
-            <button className="px-10 py-4 border-2 border-[#15295F] text-[#15295F] font-bold rounded-xl hover:bg-white/10 transition-all transform hover:-translate-y-1 flex items-center gap-2">
-              <FiUsers /> Contact Sales Director
+            <button className="px-5 py-2 border-2  text-gray-900 hover:bg-gray-800 hover:text-white font-bold rounded-xl transition-all transform hover:-translate-y-1 flex items-center gap-2">
+                 Contact Sales Director
             </button>
           </div>
         </div>
       </div>
 
       {/* Contact */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-16 mt-32 mb-20">
+      <div className="max-w-7xl mx-auto px-6 lg:px-16 py-6">
         <div className="text-center mb-12" data-aos="fade-up">
           <h2 className="text-4xl font-bold text-slate-900 mb-6">International Distribution</h2>
           <p className="text-slate-600 max-w-2xl mx-auto">Explore global markets and logistics support</p>

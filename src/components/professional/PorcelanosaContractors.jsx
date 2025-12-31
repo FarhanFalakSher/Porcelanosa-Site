@@ -83,7 +83,7 @@ const PorcelanosaContractors = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <div className="min-h-screen bg-white">
 
       {/* Hero Section */}
       <div className="relative min-h-[70vh] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
@@ -92,24 +92,24 @@ const PorcelanosaContractors = () => {
           <div className="max-w-3xl text-center">
             <div className="mb-8" data-aos="fade-down">
               <div className="flex items-center justify-center space-x-4">
-                <div className="h-px w-12 bg-amber-400"></div>
-                <span className="text-sm tracking-[0.3em] font-semibold text-amber-300 uppercase">BUILDERS & CONTRACTORS</span>
-                <div className="h-px w-12 bg-amber-400"></div>
+                <div className="h-px w-12 bg-white"></div>
+                <span className="text-sm tracking-[0.3em] font-semibold text-white uppercase">BUILDERS & CONTRACTORS</span>
+                <div className="h-px w-12 bg-white"></div>
               </div>
             </div>
-            <h1 className="text-5xl lg:text-6xl font-bold text-white mb-8" data-aos="fade-up">
+            <h1 className="text-3xl lg:text-4xl font-bold text-white mb-8" data-aos="fade-up">
               <span className="block">Construction Solutions</span>
-              <span className="block text-4xl font-light text-amber-200 mt-3">For Professional Builders</span>
+              <span className="block text-4xl font-light text-white mt-3">For Professional Builders</span>
             </h1>
             <p className="text-xl text-slate-200 mb-12 max-w-2xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="200">
               Help construction companies with installation, durability, and execution through expert guidance and premium materials.
             </p>
             <div className="flex flex-col sm:flex-row gap-5 justify-center" data-aos="fade-up" data-aos-delay="300">
-              <button className="group px-12 py-4 bg-[#15295F] text-white font-bold rounded-xl hover:bg-[#15295F] transition-all duration-300 shadow-2xl flex items-center justify-center gap-3 mx-auto sm:mx-0 transform hover:-translate-y-1">
+              <button className="group px-5 py-2 bg-white text-gray-900 font-bold rounded-xl  transition-all duration-300 shadow-2xl flex items-center justify-center gap-3 mx-auto sm:mx-0 transform hover:-translate-y-1">
                 Download Installation Guides
                 <FiChevronRight className="group-hover:translate-x-2 transition-transform" />
               </button>
-              <button className="px-12 py-4 border-2 border-white text-white font-bold rounded-xl hover:bg-white/10 transition-all duration-300 mx-auto sm:mx-0 transform hover:-translate-y-1">
+              <button className="px-5 py-2 border-2 border-white  text-white hover:bg-white hover:text-gray-900  font-bold rounded-xl  transition-all duration-300 mx-auto sm:mx-0 transform hover:-translate-y-1">
                 Contact Technical Team
               </button>
             </div>
@@ -128,11 +128,11 @@ const PorcelanosaContractors = () => {
           ].map((stat, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 hover:border-[#4d83cf] hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 text-center"
+              className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 hover:border-[#4d83cf] hover:shadow-xl hover:-translate-y-1 duration-300 text-center"
               data-aos="fade-up"
               data-aos-delay={idx * 100}
             >
-              <div className={`w-14 h-14 ${stat.color} rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-4`}>
+              <div className={`w-14 h-14 ${stat.color} rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4`}>
                 {stat.value.includes("K") ? "👷" : stat.value.includes("h") ? "⏱️" : stat.value.includes("%") ? "⭐" : "📚"}
               </div>
               <div className="text-3xl font-bold text-slate-900 mb-2">{stat.value}</div>
@@ -143,9 +143,9 @@ const PorcelanosaContractors = () => {
       </div>
 
       {/* Construction Solutions */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-16 mb-20">
+      <div className="max-w-7xl mx-auto px-6 lg:px-16">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-900 mb-6" data-aos="fade-up">Construction Solutions</h2>
+          <h2 className="text-3xl font-bold text-slate-900 mb-6" data-aos="fade-up">Construction Solutions</h2>
           <p className="text-slate-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
             Specialized systems for professional construction applications
           </p>
@@ -158,13 +158,13 @@ const PorcelanosaContractors = () => {
               data-aos="fade-up"
               data-aos-delay={solution.aosDelay}
             >
-              <div className="text-5xl mb-8">{solution.icon}</div>
-              <span className="inline-block px-4 py-2 bg-amber-50 text-[#15295F] text-sm font-bold rounded-full mb-6">
+              <div className="text-3xl mb-8">{solution.icon}</div>
+              <span className="inline-block px-5 py-2 bg-amber-50 text-[#15295F] text-sm font-bold rounded-full mb-6">
                 {solution.badge}
               </span>
               <h3 className="text-2xl font-bold text-slate-900 mb-5">{solution.name}</h3>
               <p className="text-slate-600 mb-8">{solution.desc}</p>
-              <button className="text-[#15295F] font-bold hover:text-amber-900 transition-colors duration-300">
+              <button className="text-[#15295F] font-bold hover:text-blue-400 transition-colors duration-300">
                 View Technical Specs →
               </button>
             </div>
@@ -173,15 +173,15 @@ const PorcelanosaContractors = () => {
       </div>
 
       {/* Technical Support */}
-      <div className="bg-gradient-to-b from-amber-50 to-white py-20">
+      <div className="bg-white py-6">
         <div className="max-w-7xl mx-auto px-6 lg:px-16">
-          <h2 className="text-4xl font-bold text-center text-slate-900 mb-16" data-aos="fade-up">Technical Support</h2>
+          <h2 className="text-3xl font-bold text-center text-slate-900 mb-16" data-aos="fade-up">Technical Support</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {technicalSupport.map((support, idx) => (
               <div
                 key={idx}
-                className="bg-white p-10 rounded-2xl border border-amber-100 hover:border-[#6488cb] hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 text-center"
+                className="bg-white p-10 rounded-2xl border border-gray-400 hover:border-[#6488cb] hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 text-center"
                 data-aos="fade-up"
                 data-aos-delay={support.aosDelay}
               >
@@ -197,7 +197,7 @@ const PorcelanosaContractors = () => {
       </div>
 
       {/* Performance & Safety */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-16 py-20">
+      <div className="max-w-7xl mx-auto px-6 lg:px-16 py-6">
         <h3 className="text-3xl font-bold text-center text-slate-900 mb-12" data-aos="fade-up">Performance & Safety Features</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {performanceFeatures.map((feature, idx) => (
@@ -216,27 +216,27 @@ const PorcelanosaContractors = () => {
       </div>
 
       {/* Training & Certification */}
-      <div className=" bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20 text-white text-center">
+      <div className=" bg-white py-6 text-gray-900 text-center">
         <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-4xl font-bold mb-16" data-aos="fade-up">Training & Certification</h2>
+          <h2 className="text-3xl font-bold mb-16" data-aos="fade-up">Training & Certification</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {trainingPrograms.map((program, idx) => (
               <div
                 key={idx}
-                className="p-10 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:border-white/40 transition-all duration-500 transform hover:-translate-y-2"
+                className="p-10 bg-white/10 backdrop-blur-sm rounded-xl border border-gray-400 hover:border-blue-400 transition-all duration-500 transform hover:-translate-y-2"
                 data-aos="zoom-in"
                 data-aos-delay={idx * 100}
               >
-                <div className="text-5xl mb-8">{program.icon}</div>
+                <div className="text-3xl mb-8">{program.icon}</div>
                 <h3 className="text-2xl font-bold mb-4">{program.title}</h3>
-                <p className="text-amber-100">{program.desc}</p>
+                <p className="text-gray">{program.desc}</p>
               </div>
             ))}
           </div>
           
           <div className="text-center">
-            <button className="group inline-flex items-center justify-center gap-3 bg-white text-amber-700 px-12 py-5 rounded-xl font-bold hover:bg-amber-50 transition-all duration-300 shadow-2xl transform hover:-translate-y-1">
+            <button className="group inline-flex items-center justify-center gap-3 bg-white text-gray-900 border-2 px-5 py-2 rounded-xl font-bold hover:bg-gray-900 hover:text-white transition-all duration-300 shadow-2xl transform hover:-translate-y-1">
               <FiAward className="text-xl" />
               Enroll in Certification
               <FiChevronRight className="group-hover:translate-x-2 transition-transform" />
@@ -246,18 +246,18 @@ const PorcelanosaContractors = () => {
       </div>
 
       {/* Final CTA */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-16 py-20">
-        <div className="bg-gradient-to-br from-slate-900 to-amber-900 rounded-3xl p-12 text-white text-center" data-aos="fade-up">
-          <h2 className="text-4xl font-bold mb-8">Elevate Your Construction Business</h2>
-          <p className="text-amber-100 text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+      <div className="max-w-7xl mx-auto px-6 lg:px-16 py-6">
+        <div className="bg-white rounded-xl p-12 text-gray-900 text-center" data-aos="fade-up">
+          <h2 className="text-3xl font-bold mb-8">Elevate Your Construction Business</h2>
+          <p className="text-gray-900 text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
             Access premium solutions, certified training, and dedicated technical support for your construction projects.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="group bg-white text-amber-700 px-12 py-5 rounded-xl font-bold hover:bg-amber-50 transition-all duration-300 shadow-2xl transform hover:-translate-y-1">
+            <button className="group bg-white text-gray-900 border-2 px-5 py-2 rounded-xl font-bold hover:bg-gray-900 hover:text-white transition-all duration-300  transform hover:-translate-y-1">
               Download Installation Guides
             </button>
-            <button className="group border-2 border-white px-12 py-5 rounded-xl font-bold hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1">
+            <button className="group border-2 hover:bg-gray-900 hover:text-white px-5 py-2 rounded-xl font-bold  transition-all duration-300 transform hover:-translate-y-1">
               Contact Technical Team
             </button>
           </div>
@@ -265,13 +265,13 @@ const PorcelanosaContractors = () => {
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { icon: "📞", label: "Technical Hotline", value: "+34 964 35 95 00" },
-              { icon: "📧", label: "Email Support", value: "contractors@porcelanosa.com" },
+              { icon: "📧", label: "Email Support", value: "@porcelanosa.com" },
               { icon: "🏢", label: "Training Centers", value: "Global Locations" },
               { icon: "⏰", label: "Response Time", value: "24-48 Hours" },
             ].map((contact, idx) => (
-              <div key={idx} className="p-6 bg-white/10 backdrop-blur-sm rounded-2xl">
+              <div key={idx} className="p-6 bg-white/10 backdrop-blur-sm rounded-xl shadow hover:shadow-2xl hover:-translate-y-1 duration-300">
                 <div className="text-3xl mb-4">{contact.icon}</div>
-                <div className="text-amber-200 mb-2">{contact.label}</div>
+                <div className=" mb-2">{contact.label}</div>
                 <div className="font-bold">{contact.value}</div>
               </div>
             ))}
