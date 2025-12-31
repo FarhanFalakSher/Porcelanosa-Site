@@ -63,7 +63,6 @@ const KitchenSystems = () => {
 
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
-      {/* Floating Cart Button with Link */}
       <div className="fixed top-6 right-6 z-40">
         <Link to="/cart" className="relative">
           <button className="bg-white p-4 rounded-full shadow-xl hover:shadow-2xl transition-all hover:scale-105">
@@ -77,7 +76,6 @@ const KitchenSystems = () => {
         </Link>
       </div>
 
-      {/* Hero Banner */}
       <div className="relative w-full h-[80vh] overflow-hidden">
         <img src={kitchenHero} alt="Kitchen Systems" className="w-full h-full object-cover" />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4 bg-gradient-to-t from-black/70 to-transparent">
