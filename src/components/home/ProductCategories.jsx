@@ -3,10 +3,10 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 // ✅ Correct relative imports (2 levels up → src/assets)
-import tilesImg from "../../assets/category-tiles.jpg";
-import bathroomImg from "../../assets/category-bathroom.jpg";
-import kitchenImg from "../../assets/category-kitchen.jpg";
-import livingImg from "../../assets/category-living.jpg";
+import tilesImg from "../../assets/tiles.jpg";
+import bathroomImg from "../../assets/category.jpg";
+import kitchenImg from "../../assets/kitchens.jpg";
+import livingImg from "../../assets/living.jpg";
 
 const categories = [
   {
