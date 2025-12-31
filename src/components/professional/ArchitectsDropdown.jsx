@@ -1,5 +1,12 @@
 import React from "react";
-import { FiChevronRight, FiUsers, FiTool, FiBook, FiBriefcase, FiCheck } from "react-icons/fi";
+import {
+  FiChevronRight,
+  FiUsers,
+  FiTool,
+  FiBook,
+  FiBriefcase,
+  FiCheck,
+} from "react-icons/fi";
 
 const ProfessionalArchitectsSection = () => {
   const offerings = [
@@ -42,32 +49,33 @@ const ProfessionalArchitectsSection = () => {
   const projects = [
     {
       title: "Luxury Hotels",
-      image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800",
+      image:
+        "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800",
     },
     {
       title: "Commercial Buildings",
-      image: "https://images.unsplash.com/photo-1487956382158-bb926046304a?w=800",
+      image:
+        "https://images.unsplash.com/photo-1487956382158-bb926046304a?w=800",
     },
     {
       title: "High-End Residences",
-      image: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=800",
+      image:
+        "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=800",
     },
   ];
 
   return (
     <div className="bg-white">
-
       {/* HERO SECTION */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <img 
+          <img
             src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1920&q=80"
             alt="Architectural Design"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80"></div>
         </div>
-        
         <div className="relative max-w-4xl mx-auto px-6 text-center text-white">
           <div className="mb-8">
             <div className="flex items-center justify-center gap-4">
@@ -78,22 +86,22 @@ const ProfessionalArchitectsSection = () => {
               <div className="h-px w-12 bg-white/60"></div>
             </div>
           </div>
-          
-          <h1 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
+          <h1 className="text-3xl md:text-5xl font-bold mb-8 leading-tight">
             Professional Architecture
-            <span className="block text-3xl md:text-5xl font-light mt-4">Solutions</span>
+            <span className="block text-3xl md:text-4xl  mt-4">
+              Solutions
+            </span>
           </h1>
-          
           <p className="text-lg md:text-xl text-gray-200 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Empowering architects with design freedom, technical precision, and dedicated project support worldwide.
+            Empowering architects with design freedom, technical precision, and
+            dedicated project support worldwide.
           </p>
-          
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
-            <button className="group inline-flex items-center justify-center gap-3 bg-white text-gray-900 px-8 py-4 rounded-lg font-medium hover:bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 mx-auto sm:mx-0">
+            <button className="group inline-flex items-center justify-center gap-3 bg-white text-gray-900 px-5 py-2 rounded-lg font-2xl hover:bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
               Explore Architectural Program
               <FiChevronRight className="group-hover:translate-x-2 transition-transform" />
             </button>
-            <button className="group inline-flex items-center justify-center gap-3 border-2 border-white text-white px-8 py-4 rounded-lg font-medium hover:bg-white/10 transition-all duration-300 backdrop-blur-sm transform hover:-translate-y-1 mx-auto sm:mx-0">
+            <button className="group inline-flex items-center justify-center gap-3 border-2 border-white text-white px-5 py-2 rounded-lg font-medium hover:bg-white hover:text-gray-900 transition-all duration-300 backdrop-blur-sm transform hover:-translate-y-1">
               Contact Team
             </button>
           </div>
@@ -101,8 +109,8 @@ const ProfessionalArchitectsSection = () => {
       </section>
 
       {/* WHAT WE OFFER */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <h2 className="text-3xl font-bold text-center text-gray-900 mb-16">
+      <section className="max-w-7xl mx-auto px-6 py-6">
+        <h2 className="text-3xl font-bold text-center mb-16">
           What We Offer Architects
         </h2>
 
@@ -110,19 +118,21 @@ const ProfessionalArchitectsSection = () => {
           {offerings.map((item, i) => (
             <div
               key={i}
-              className="group p-8 border border-gray-200 rounded-xl hover:border-blue-400 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 text-center"
+              className="group p-8 border border-gray-200 rounded-xl hover:border-blue-400 hover:shadow-xl transition-all text-center"
             >
-              <h3 className="font-bold text-xl text-gray-900 mb-4">{item.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+              <h3 className="font-bold text-xl mb-4 group-hover:text-blue-400 transition-colors">
+                {item.title}
+              </h3>
+              <p className="text-gray-600">{item.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* TOOLS & RESOURCES */}
-      <section className="bg-gray-50 py-20">
+      <section className="bg-gray-50 py-6">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-16">
+          <h2 className="text-3xl font-bold text-center mb-16">
             Tools & Resources
           </h2>
 
@@ -130,12 +140,14 @@ const ProfessionalArchitectsSection = () => {
             {resources.map((item, i) => (
               <div
                 key={i}
-                className="group bg-white p-10 rounded-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 text-center"
+                className="group bg-white p-10 rounded-xl hover:shadow-xl transition-all text-center"
               >
-                <div className="text-4xl text-blue-700 mb-8 mx-auto w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center">
+                <div className="text-3xl mb-8 mx-auto w-16 h-16 rounded-xl flex items-center justify-center bg-gray-300 transition-all duration-300 group-hover:bg-blue-50 group-hover:text-blue-400">
                   {item.icon}
                 </div>
-                <h3 className="font-bold text-xl text-gray-900 mb-4">{item.title}</h3>
+                <h3 className="font-bold text-xl mb-4 group-hover:text-blue-400 transition-colors">
+                  {item.title}
+                </h3>
                 <p className="text-gray-600">{item.desc}</p>
               </div>
             ))}
@@ -144,34 +156,44 @@ const ProfessionalArchitectsSection = () => {
       </section>
 
       {/* PROJECT SUPPORT */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
+      <section className="max-w-7xl mx-auto px-6 py-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-3xl font-bold text-gray-900 mb-8">
               Dedicated Project Support
             </h2>
-            <p className="text-gray-600 text-lg mb-10 leading-relaxed">
-              Our specialized team supports architectural projects at every stage, from concept development to execution.
+
+            <p className="text-gray-600 text-lg mb-10">
+              Our specialized team supports architectural projects at every
+              stage, from concept development to execution.
             </p>
 
             <ul className="space-y-6">
-              <li className="flex items-center gap-4 p-4 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors duration-300">
-                <div className="p-3 bg-blue-600 text-white rounded-xl">
+              <li className="group flex items-center gap-4 px-5 py-3 rounded-xl bg-blue-50 hover:bg-gray-900 transition-all duration-300">
+                <div className="px-2 py-2 rounded-xl bg-blue-400 text-white transition-all duration-300 group-hover:bg-white group-hover:text-gray-900">
                   <FiUsers />
                 </div>
-                <span className="font-medium text-gray-800">Dedicated project advisors</span>
+                <span className="font-medium text-gray-800 group-hover:text-white transition-colors duration-300">
+                  Dedicated project advisors
+                </span>
               </li>
-              <li className="flex items-center gap-4 p-4 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors duration-300">
-                <div className="p-3 bg-blue-600 text-white rounded-xl">
+
+              <li className="group flex items-center gap-4 px-5 py-3 rounded-xl bg-blue-50 hover:bg-gray-900 transition-all duration-300">
+                <div className="px-2 py-2 rounded-xl bg-blue-400 text-white transition-all duration-300 group-hover:bg-white group-hover:text-gray-900">
                   <FiCheck />
                 </div>
-                <span className="font-medium text-gray-800">Custom material selection</span>
+                <span className="font-medium text-gray-800 group-hover:text-white transition-colors duration-300">
+                  Custom material selection
+                </span>
               </li>
-              <li className="flex items-center gap-4 p-4 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors duration-300">
-                <div className="p-3 bg-blue-600 text-white rounded-xl">
+
+              <li className="group flex items-center gap-4 px-5 py-3 rounded-xl bg-blue-50 hover:bg-gray-900 transition-all duration-300">
+                <div className="px-2 py-2 rounded-xl bg-blue-400 text-white transition-all duration-300 group-hover:bg-white group-hover:text-gray-900">
                   <FiBriefcase />
                 </div>
-                <span className="font-medium text-gray-800">Large-scale project coordination</span>
+                <span className="font-medium text-black group-hover:text-white transition-colors duration-300">
+                  Large-scale project coordination
+                </span>
               </li>
             </ul>
           </div>
@@ -180,20 +202,14 @@ const ProfessionalArchitectsSection = () => {
             <img
               src="https://images.unsplash.com/photo-1487956382158-bb926046304a?w=900"
               alt="Project Support"
-              className="rounded-2xl shadow-2xl w-full h-auto"
+              className="rounded-xl shadow-2xl w-full h-auto"
             />
-            <div className="absolute -bottom-6 -right-6 bg-blue-700 text-white px-8 py-4 rounded-2xl shadow-2xl">
-              <div className="text-center">
-                <div className="text-2xl font-bold">970+</div>
-                <div className="text-sm">Global Stores</div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
       {/* CASE STUDIES */}
-      <section className="bg-gray-900 py-20 text-white">
+      <section className="py-6">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-16">
             Real Architectural Projects
@@ -210,10 +226,10 @@ const ProfessionalArchitectsSection = () => {
                   alt={item.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-10 group-hover:translate-y-0 transition-transform duration-500">
-                  <h3 className="text-xl font-bold">{item.title}</h3>
-                </div>
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <h3 className="absolute bottom-6 left-6 text-xl font-bold text-white">
+                  {item.title}
+                </h3>
               </div>
             ))}
           </div>
@@ -221,19 +237,20 @@ const ProfessionalArchitectsSection = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-blue-900 text-white text-center">
+      <section className="py-6 text-gray-900 text-center">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl font-bold mb-8">
             Partner with Our Professional Team
           </h2>
-          <p className="text-lg text-blue-100 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Contact our architectural specialists or request technical documentation for your next project.
+          <p className="text-lg text-gray-900 mb-12 max-w-2xl mx-auto leading-relaxed">
+            Contact our architectural specialists or request technical
+            documentation for your next project.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="bg-white text-blue-900 px-8 py-4 rounded-lg font-medium hover:bg-blue-100 transition-all duration-300 shadow-lg transform hover:-translate-y-1">
+            <button className="bg-white text-gray-900 px-5 py-2 border-2 rounded-lg font-medium hover:bg-gray-900 hover:text-white transition-all duration-300 shadow-lg transform hover:-translate-y-1">
               Contact Professional Team
             </button>
-            <button className="border-2 border-white px-8 py-4 rounded-lg font-medium hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1">
+            <button className="border-2 px-5 py-2 rounded-lg font-medium hover:bg-gray-900 hover:text-white transition-all duration-300 transform hover:-translate-y-1">
               Request Technical Info
             </button>
           </div>
