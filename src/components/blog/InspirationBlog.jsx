@@ -124,7 +124,6 @@ export default function InspirationBlog() {
                 Designed by {post.designer}
               </p>
 
-              {/* Product Tags */}
               <div className="mt-3 flex flex-wrap gap-2">
                 {post.products.map((product, index) => (
                   <span
