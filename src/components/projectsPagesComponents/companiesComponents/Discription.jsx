@@ -8,10 +8,10 @@ function Discription() {
           </h2>
           <p className="text-lg pt-6">
             The design of modern offices requires a balance between aesthetics,
-            comfort and performance. PORCELANOSA Group meets these needs with
-            large-format materials such as XLight, compact KRION® surfaces,
-            high-performance ceramic flooring and natural coverings that promote
-            visual continuity. Neutral tones—whites, greys, sands or
+            comfort and performance. PORCELANOSA Group meets these
+            large-format materials such XLight, compact KRION® 
+            high performance ceramic flooring and natural coverings that promote
+            visual continuity. Neutral tones-whites, greys, sands or
             anthracites—and textures inspired by wood, cement or natural stone
             help create professional, orderly and timeless environments. Design,
             innovation and sustainability come together to transform the office

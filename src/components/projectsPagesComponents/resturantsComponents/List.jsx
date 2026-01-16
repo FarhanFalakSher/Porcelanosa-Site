@@ -91,13 +91,13 @@ const ResturantsList = () => {
   });
 
   return (
-    <section className="py-20 max-w-7xl mx-auto px-6 lg:px-14">
+    <section className="py-8 max-w-7xl mx-auto px-6 lg:px-14">
       {/* Heading */}
       <div className="text-center mb-16">
-        <h2 className="text-3xl font-bold tracking-widest uppercase mb-4 text-gray-900">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-gray-900">
           Restaurant Directory
         </h2>
-        <p className="text-gray-500 max-w-2xl mx-auto">
+        <p className="text-gray-600 max-w-2xl mx-auto">
           Explore world-class dining establishments offering diverse cuisines
           and exceptional culinary experiences.
         </p>
@@ -112,13 +112,13 @@ const ResturantsList = () => {
             placeholder="Search by name"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full border border-gray-300 px-4 py-3 focus:outline-none focus:border-black transition"
+            className="w-full border border-gray-300 px-5 py-2 rounded-xl focus:outline-none focus:border-black transition"
           />
         </div>
 
         {/* Location Buttons */}
         <div className="flex flex-col items-end">
-          <h4 className="text-sm font-bold uppercase tracking-widest mb-3 text-gray-700">
+          <h4 className="text-md font-semibold  mb-3 text-gray-700">
             Search by location
           </h4>
           <div className="flex flex-wrap gap-3">
@@ -126,7 +126,7 @@ const ResturantsList = () => {
               <button
                 key={loc}
                 onClick={() => setSelectedLocation(loc)}
-                className={`px-6 py-2 text-xs font-bold uppercase tracking-widest border transition ${
+                className={`px-5 py-2 rounded-xl text-sm font-semibold  border transition ${
                   selectedLocation === loc
                     ? "bg-black text-white border-black"
                     : "border-gray-300 text-gray-600 hover:border-black"

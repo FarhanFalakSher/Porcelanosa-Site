@@ -91,10 +91,10 @@ const HotelsList = () => {
   });
 
   return (
-    <section className="py-20 max-w-7xl mx-auto px-6 lg:px-14">
+    <section className="py-16 max-w-7xl mx-auto px-6 lg:px-14">
       {/* Heading */}
       <div className="text-center mb-16">
-        <h2 className="text-3xl font-bold tracking-widest uppercase mb-4 text-gray-900">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-gray-900">
           Hotel Collection
         </h2>
         <p className="text-gray-500 max-w-2xl mx-auto">
@@ -104,7 +104,7 @@ const HotelsList = () => {
       </div>
 
       {/* Search + Location Filters */}
-      <div className="grid grid-cols-1 md:grid-cols-[30%_70%] pb-6">
+      <div className="grid grid-cols-1 md:grid-cols-[30%_70%] pb-6 gap-4">
         {/* Search */}
         <div className="flex items-center pt-6">
           <input
@@ -112,13 +112,13 @@ const HotelsList = () => {
             placeholder="Search by name"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full border border-gray-300 px-4 py-3 focus:outline-none focus:border-black transition"
+            className="w-full border border-gray-300 px-5 py-2 rounded-xl focus:outline-none focus:border-black transition"
           />
         </div>
 
         {/* Location Buttons */}
         <div className="flex flex-col items-end">
-          <h4 className="text-sm font-bold uppercase tracking-widest mb-3 text-gray-700">
+          <h4 className="text-sm font-semibold mb-3 text-gray-700">
             Search by location
           </h4>
           <div className="flex flex-wrap gap-3">
@@ -126,10 +126,10 @@ const HotelsList = () => {
               <button
                 key={loc}
                 onClick={() => setSelectedLocation(loc)}
-                className={`px-6 py-2 text-xs font-bold uppercase tracking-widest border transition ${
+                className={`px-5 py-2 text-sm rounded-xl font-semibold border transition ${
                   selectedLocation === loc
                     ? "bg-black text-white border-black"
-                    : "border-gray-300 text-gray-600 hover:border-black"
+                    : "border-gray-300 text-gray-600 hover:border-black hover:bg-black/10"
                 }`}
               >
                 {loc}
@@ -140,24 +140,26 @@ const HotelsList = () => {
       </div>
       <hr className="text-gray-100 mb-14" />
 
-      {/* Grid */}
+      {/* Hotels Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredHotels.map((hotel) => (
-          <div key={hotel.id} className="group cursor-pointer">
-            <div className="overflow-hidden aspect-[4/3] bg-gray-100">
-              <div
-                className="w-full h-full bg-center bg-cover transform group-hover:scale-105 transition-transform duration-500"
-                style={{ backgroundImage: `url(${hotel.img})` }}
+          <div key={hotel.id} className="group cursor-pointer relative overflow-hidden rounded-2xl shadow-lg">
+            {/* Hotel Image with hover opacity */}
+            <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl">
+              <img
+                src={hotel.img}
+                alt={hotel.name}
+                className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105"
               />
+              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-80 transition-opacity duration-500 rounded-2xl" />
             </div>
 
+            {/* Text Reveal */}
             <div className="mt-4 border-l-2 border-transparent group-hover:border-black pl-4 transition-all">
-              <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">
+              <p className="text-sm text-gray-600 font-bold mb-1">
                 {hotel.category} · {hotel.location}
               </p>
-              <h3 className="text-lg font-medium text-gray-900">
-                {hotel.name}
-              </h3>
+              <h3 className="text-lg font-medium text-gray-900">{hotel.name}</h3>
             </div>
           </div>
         ))}

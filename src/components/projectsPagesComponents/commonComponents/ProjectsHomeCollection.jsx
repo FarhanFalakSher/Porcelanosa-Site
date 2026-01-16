@@ -18,7 +18,7 @@ const HomeCollection = () => {
       <div className="w-[50%] text-center mx-auto px-4 relative z-10">
         {/* <div className="w-full lg:w-3/5 mx-auto text-center p-8 md:p-12 rounded-lg shadow-2xl "> */}
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            HOME Collection
+            Home Collection
           </h2>
 
           <p className="text-white text-lg mb-8 leading-relaxed">

@@ -14,11 +14,10 @@ const PublicPlacesHero = () => {
 
       {/* Hero Content */}
       <div className="relative z-10 text-center px-4 max-w-5xl">
-        <h1 className="text-white text-4xl md:text-7xl font-bold tracking-[0.2em] uppercase mb-6 leading-tight">
-          Community <br /> Spaces
+        <h1 className="text-white text-4xl md:text-5xl font-semibold mb-6 ">
+          Community  Spaces
         </h1>
-        <div className="w-24 h-1 bg-white mx-auto mb-8"></div>
-        <p className="text-gray-200 text-lg md:text-2xl font-light tracking-wide max-w-2xl mx-auto leading-relaxed">
+        <p className="text-gray-200 text-lg md:text-2xl  max-w-2xl mx-auto ">
           Engaging public spaces that bring communities together through
           innovative design and inclusive architecture.
         </p>

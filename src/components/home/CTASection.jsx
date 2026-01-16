@@ -14,7 +14,7 @@ const CTASection = () => {
   return (
     <section className="bg-gray-50 w-full py-10 flex items-center justify-center text-center px-6 lg:px-16">
       <div data-aos="fade-up" className="max-w-3xl">
-        <h2 className="text-4xl md:text-4xl lg:text-4xl font-2xl text-gray-900 mb-8 leading-tight">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-900 mb-8 ">
           Design Your Dream Space
         </h2>
         <p className="text-gray-700 mb-10 text-lg md:text-xl">
