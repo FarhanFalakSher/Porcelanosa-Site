@@ -14,7 +14,6 @@ function AboutHero() {
       className="relative min-h-screen flex items-center justify-center w-full bg-cover bg-center bg-no-repeat py-14"
       style={{ backgroundImage: "url('/world.jpg')" }}
     >
-      {/* Gradient overlay for readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
 
       <div className="relative w-full max-w-4xl mx-auto text-center px-6">
