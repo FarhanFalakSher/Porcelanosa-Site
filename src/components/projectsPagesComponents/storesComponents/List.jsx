@@ -98,13 +98,13 @@ const StoresList = () => {
   });
 
   return (
-    <section className="py-20 max-w-7xl mx-auto px-6 lg:px-14">
+    <section className="py-12 max-w-7xl mx-auto px-6 lg:px-14">
       {/* Heading */}
       <div className="text-center mb-16">
-        <h2 className="text-3xl font-bold tracking-widest uppercase mb-4 text-gray-900">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-gray-900">
           Retail Stores
         </h2>
-        <p className="text-gray-500 max-w-2xl mx-auto">
+        <p className="text-gray-600 max-w-2xl mx-auto">
           Engaging retail spaces designed to create memorable shopping
           experiences and showcase products effectively.
         </p>
@@ -114,19 +114,18 @@ const StoresList = () => {
       <div className="grid grid-cols-1 md:grid-cols-[30%_70%] pb-6">
         {/* Search */}
         <div className="flex items-center pt-6">
-         
           <input
             type="text"
             placeholder="Search by name"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full border border-gray-300 px-4 py-3 focus:outline-none focus:border-black transition"
+            className="w-full border border-gray-300 px-5 py-2 rounded-xl focus:outline-none focus:border-black transition"
           />
         </div>
 
         {/* Location Buttons */}
         <div className="flex flex-col items-end">
-          <h4 className="text-sm font-bold uppercase tracking-widest mb-3 text-gray-700">
+          <h4 className="text-md font-semibold mb-3 text-gray-900">
             Search by location
           </h4>
           <div className="flex flex-wrap gap-3">
@@ -134,7 +133,7 @@ const StoresList = () => {
               <button
                 key={loc}
                 onClick={() => setSelectedLocation(loc)}
-                className={`px-6 py-2 text-xs font-bold uppercase tracking-widest border transition ${
+                className={`px-6 py-2 text-sm font-semibold rounded-xl border transition ${
                   selectedLocation === loc
                     ? "bg-black text-white border-black"
                     : "border-gray-300 text-gray-600 hover:border-black"
@@ -146,21 +145,24 @@ const StoresList = () => {
           </div>
         </div>
       </div>
+
       <hr className="text-gray-100 mb-14" />
 
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredStores.map((store) => (
           <div key={store.id} className="group cursor-pointer">
-            <div className="overflow-hidden aspect-[4/3] bg-gray-100">
+            {/* Image with hover opacity */}
+            <div className="relative overflow-hidden aspect-[4/3] bg-gray-100 rounded-xl">
               <div
                 className="w-full h-full bg-center bg-cover transform group-hover:scale-105 transition-transform duration-500"
                 style={{ backgroundImage: `url(${store.img})` }}
               />
+              <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
             </div>
 
             <div className="mt-4 border-l-2 border-transparent group-hover:border-black pl-4 transition-all">
-              <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">
+              <p className="text-[15px] text-gray-600 font-semibold mb-1">
                 {store.category} · {store.location}
               </p>
               <h3 className="text-lg font-medium text-gray-900">
